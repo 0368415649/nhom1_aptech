@@ -4,7 +4,7 @@ import useModal from './hooks/useModal';
 import Login from './components/modals/Login';
 
 const App = () => {
-  const [show, dismiss] = useModal(<Login number={3} />);
+  const [show, dismiss] = useModal(<Login />);
 
   return (
     <>

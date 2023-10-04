@@ -1,26 +1,83 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 import Modal from './Modal';
+import Input from '../Input';
+import Button from '../Button';
+import { PHONE_NUMBER_REGEX } from '../../contants/regexs';
 
 const Login = (props) => {
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+
+  // const [login, setLogin] = useState({
+  //   phoneNumber: '',
+  //   password: '',
+  // });
+
+  // const handleChangeInput = (e) => {
+  //   const name = e.target.name;
+  //   setLogin((prev) => ({
+  //     ...prev,
+  //     [name]: e.target.value,
+  //   }));
+  // };
+
+  // const errorMessages = useMemo(() => {
+  //   let errorsObj = {};
+  //   for (const field in login) {
+  //     const value = login[field];
+
+  //     if (!value) {
+  //       errorsObj[field] = 'Can not be empty';
+  //     }
+  //   }
+  //   return errorsObj;
+  // }, [login]);
+
+  // let phoneNumberError;
+  // if (phoneNumberError) {
+  // }
+
+  let phoneError;
+  if (!phone) {
+    phoneError = 'Can not be empty';
+  }
+  if (PHONE_NUMBER_REGEX.test(phone)) {
+    phoneError = 'Invalid';
+  }
+
+  let passwordError;
+  if (!password) {
+    passwordError = 'Can not be empty';
+  }
+  if (PHONE_NUMBER_REGEX.test(password)) {
+    passwordError = 'Invalid';
+  }
+
   return (
     <Modal label="Đăng nhập" {...props}>
       <BaseLogin>
-        <div class="text_phone">Số điện thoại</div>
-        <div>
-          <input class="input_css" />
-        </div>
-        <div class="text_phone">Mật Khẩu</div>
-        <div>
-          <input class="input_css" type="password" />
-        </div>
-        <div class="text_pass">
-          <div class="btn_fo">Quên mật khẩu</div>
-        </div>
-        <div class="text-center">
-          <div class="btn_login">Đăng nhập</div>
-        </div>
+        <Input
+          label="Số điện thoại"
+          error={phoneError}
+          name="phoneNumber"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          style={{
+            marginBottom: 16,
+          }}
+        />
+        <Input
+          label="Mật Khẩu"
+          error={passwordError}
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="forgot-password">Quên mật khẩu</div>
+        <LoginButton>Đăng nhập</LoginButton>
         <div class="text-center">
           <div class="text_r">
             Bạn chưa là thành viên? <div className="switch">Đăng ký ngay</div>
@@ -31,45 +88,11 @@ const Login = (props) => {
   );
 };
 
+const LoginButton = styled(Button)`
+  width: 100%;
+`;
+
 const BaseLogin = styled.div`
-  .text_phone {
-    font-size: 14px;
-    color: #717070;
-    font-weight: 500;
-    margin-bottom: 3px;
-    margin: 5px 0px;
-  }
-
-  .input_css {
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #d8dae5;
-  }
-
-  .text_pass {
-    display: flex;
-    justify-content: end;
-    padding: 10px 0px 20px;
-    color: #64d089;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .btn_fo {
-    cursor: pointer;
-  }
-
-  .btn_login {
-    cursor: pointer;
-    font-weight: 700;
-    color: #fff;
-    background-color: #5fcf86;
-    border-color: #5fcf86;
-    padding: 14px 0px;
-    border-radius: 10px;
-  }
-
   .text_r {
     font-size: 14px;
     margin-top: 20px;
@@ -79,6 +102,14 @@ const BaseLogin = styled.div`
     color: #39b062;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .forgot-password {
+    color: #39b062;
+    font-weight: 500;
+    text-align: right;
+    cursor: pointer;
+    margin: 8px 0;
   }
 `;
 
