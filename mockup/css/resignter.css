@@ -1,0 +1,82 @@
+.grap_form_resignter{
+    padding: 20px;
+    position: fixed;
+    background-color: white;
+    left: 37%;
+    top: 10%;
+    width: 450px;
+    height: 600px;
+    z-index: 1;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.close_button_grap{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+.close{
+    border-radius: 100%;
+    border: 1px solid e0e0e0;
+    font-weight: 800;
+}
+.resignter-text{
+    text-align: center;
+    padding: 20px;
+    font-size: 25px;
+    color: 595959;
+    font-weight: 700;
+}
+.text_phone{
+    color: #717070;
+    margin-bottom: 3px;
+    margin: 5px 0px;
+    font-weight: 700;
+    font-size: 16px;
+}
+.text_pwd{
+    color: #717070;
+    margin-bottom: 3px;
+    margin: 5px 0px;
+    font-weight: 700;
+    font-size: 16px;
+}
+.text_name{
+    color: #717070;
+    margin-bottom: 3px;
+    margin: 5px 0px;
+    font-weight: 700;
+    font-size: 16px;
+}
+.input_css{
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #d8dae5;
+}
+.verification{
+    padding-top: 10px;
+}
+.vr_policy_detail{
+    cursor: pointer;
+    color: #39b062;
+    text-decoration: none;
+}
+.vr_policy{
+    background-color: #39b062;
+    cursor: pointer;
+}
+.btn-resignter{
+    cursor: pointer;
+    font-weight: 700;
+    background-color: #5fcf86;
+    border-color: #5fcf86;
+    margin-top: 15px;
+    padding: 14px 0px ;
+    border-radius: 10px;
+    text-align: center;
+}
+.t_r{
+    text-decoration: none;
+    color: white;
+}
