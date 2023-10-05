@@ -64,9 +64,6 @@ const Login = (props) => {
           name="phoneNumber"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          style={{
-            marginBottom: 16,
-          }}
         />
         <Input
           label="Mật Khẩu"
