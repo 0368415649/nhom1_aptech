@@ -3,21 +3,21 @@ function useValidate(formValues, rules) {
 
   for (const field in formValues) {
     const { value } = formValues[field];
-    const { notEmpty, length, options, errorMsg: msg } = rules[field];
+    const { notEmpty, options, errorMsg: msg } = rules[field] || {};
 
     let errorMsg = null;
 
     if (options) {
-      console.log('>> Check | formValues:', formValues);
       const isValid = options(value, formValues);
       if (!isValid) {
-        errorMsg = msg || 'Không hợp lệ';
+        errorMsg = msg || "Không hợp lệ";
       }
     }
     if (notEmpty && !value) {
       errorMsg = notEmpty;
     }
 
+    console.log(">> Check | formValues[field]:", formValues[field]);
     result = {
       ...result,
       [field]: {
@@ -27,7 +27,11 @@ function useValidate(formValues, rules) {
     };
   }
 
-  return result;
+  const isInvalid = Object.values(result).some(
+    (fieldInput) => fieldInput.errorMsg
+  );
+
+  return { formInputs: result, isInvalid };
 }
 
 export default useValidate;

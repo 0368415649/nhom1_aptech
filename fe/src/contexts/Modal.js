@@ -4,16 +4,15 @@ import {
   isValidElement,
   useContext,
   useState,
-} from 'react';
-import { motion } from 'framer-motion';
-import { Backdrop } from '../components/modals/Modal';
+} from "react";
+import { Backdrop } from "../components/modals/Modal";
 
 export const Context = createContext();
 
 export function useModalContext() {
   const value = useContext(Context);
   if (!value) {
-    throw new Error('Must wrap component by context provider!');
+    throw new Error("Must wrap component by context provider!");
   }
 
   return value;

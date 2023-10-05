@@ -1,75 +1,78 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import Modal from './Modal';
-import Input, { Checkbox } from '../Input';
-import Button from '../Button';
-import useValidate from '../../hooks/useValidate';
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '../../contants/regexs';
+import Modal from "./Modal";
+import Input, { Checkbox } from "../Input";
+import Button from "../Button";
+import useValidate from "../../hooks/useValidate";
+import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../contants/regexs";
+import useCheckbox from "../../hooks/useCheckbox";
 
 const rules = {
   phone: {
-    notEmpty: 'Số điện thoại không được để trống',
+    notEmpty: "Số điện thoại không được để trống",
     options: (value) => {
       if (PHONE_NUMBER_REGEX.test(value)) {
         return true;
       }
       return false;
     },
-    errorMsg: 'Số điện thoại không hợp lệ',
+    errorMsg: "Số điện thoại không hợp lệ",
   },
   displayName: {
-    notEmpty: 'Tên hiển thị không được để trống',
+    notEmpty: "Tên hiển thị không được để trống",
   },
   password: {
-    notEmpty: 'Mật khẩu không được để trống',
+    notEmpty: "Mật khẩu không được để trống",
     options: (value) => {
       if (PASSWORD_REGEX.test(value)) {
         return true;
       }
       return false;
     },
-    errorMsg: 'Mật khẩu không hợp lệ',
+    errorMsg: "Mật khẩu không hợp lệ",
   },
   confirmPassword: {
-    notEmpty: 'Mật khẩu không được để trống',
+    notEmpty: "Mật khẩu không được để trống",
     options: (value, form) => {
       if (form.password.value === value) {
         return true;
       }
       return false;
     },
-    errorMsg: 'Mật khẩu không khớp',
+    errorMsg: "Mật khẩu không khớp",
   },
 };
 
 const DEFAULT_FORM_VALUES = {
   phone: {
-    label: 'Số điện thoại',
-    value: '',
+    label: "Số điện thoại",
+    value: "",
   },
   displayName: {
-    label: 'Tên hiển thị',
-    value: '',
+    label: "Tên hiển thị",
+    value: "",
   },
   password: {
-    label: 'Mật khẩu',
-    type: 'password',
-    value: '',
+    label: "Mật khẩu",
+    type: "password",
+    value: "",
   },
   confirmPassword: {
-    label: 'Nhập lại mật khẩu',
-    type: 'password',
-    value: '',
+    label: "Nhập lại mật khẩu",
+    type: "password",
+    value: "",
   },
 };
 
 const Register = (props) => {
   const [form, setForm] = useState(DEFAULT_FORM_VALUES);
+  const [policy, setPolicy] = useState(false);
 
   const handleChange = (e) => {
     setForm((prev) => {
       const _prev = prev[e.target.name];
+
       return {
         ...prev,
         [e.target.name]: {
@@ -80,13 +83,17 @@ const Register = (props) => {
     });
   };
 
-  const formInputs = useValidate(form, rules);
+  const { formInputs, isInvalid } = useValidate(form, rules);
+  const { isChecked, Checkbox } = useCheckbox(
+    "Tôi đồng ý với chính sách của ADDDA"
+  );
 
   return (
     <Modal label="Đăng ký" {...props}>
       <BaseRegsiter>
         {Object.keys(formInputs).map((field) => {
-          const { label, value, type = 'text', errorMsg } = formInputs[field];
+          const { label, value, type = "text", errorMsg } = formInputs[field];
+
           return (
             <Input
               label={label || field}
@@ -98,8 +105,8 @@ const Register = (props) => {
             />
           );
         })}
-        <Checkbox label="Tôi đồng ý với chính sách của ADDDA" />
-        <LoginButton>Đăng ký</LoginButton>
+        <Checkbox />
+        <LoginButton disabled={isInvalid || !isChecked}>Đăng ký</LoginButton>
       </BaseRegsiter>
     </Modal>
   );
