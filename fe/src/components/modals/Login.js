@@ -1,83 +1,82 @@
-import React, { useMemo, useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import Modal from './Modal';
-import Input from '../Input';
-import Button from '../Button';
-import { PHONE_NUMBER_REGEX } from '../../contants/regexs';
+import Modal from "./Modal";
+import Input from "../Input";
+import Button from "../Button";
+import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../contants/regexs";
+import useValidate from "../../hooks/useValidate";
+
+const rules = {
+  phone: {
+    notEmpty: "Số điện thoại không được để trống",
+    options: (value) => {
+      if (PHONE_NUMBER_REGEX.test(value)) {
+        return true;
+      }
+      return false;
+    },
+    errorMsg: "Số điện thoại không hợp lệ",
+  },
+  password: {
+    notEmpty: "Mật khẩu không được để trống",
+  },
+};
+
+const DEFAULT_FORM_VALUES = {
+  phone: {
+    label: "Số điện thoại",
+    value: "",
+  },
+  password: {
+    label: "Mật khẩu",
+    type: "password",
+    value: "",
+  },
+};
 
 const Login = (props) => {
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState(DEFAULT_FORM_VALUES);
 
-  // const [login, setLogin] = useState({
-  //   phoneNumber: '',
-  //   password: '',
-  // });
+  const handleChange = (e) => {
+    setForm((prev) => {
+      const _prev = prev[e.target.name];
+      return {
+        ...prev,
+        [e.target.name]: {
+          ..._prev,
+          value: e.target.value,
+        },
+      };
+    });
+  };
 
-  // const handleChangeInput = (e) => {
-  //   const name = e.target.name;
-  //   setLogin((prev) => ({
-  //     ...prev,
-  //     [name]: e.target.value,
-  //   }));
-  // };
+  const { formInputs, isInvalid } = useValidate(form, rules);
 
-  // const errorMessages = useMemo(() => {
-  //   let errorsObj = {};
-  //   for (const field in login) {
-  //     const value = login[field];
-
-  //     if (!value) {
-  //       errorsObj[field] = 'Can not be empty';
-  //     }
-  //   }
-  //   return errorsObj;
-  // }, [login]);
-
-  // let phoneNumberError;
-  // if (phoneNumberError) {
-  // }
-
-  let phoneError;
-  if (!phone) {
-    phoneError = 'Can not be empty';
-  }
-  if (PHONE_NUMBER_REGEX.test(phone)) {
-    phoneError = 'Invalid';
-  }
-
-  let passwordError;
-  if (!password) {
-    passwordError = 'Can not be empty';
-  }
-  if (PHONE_NUMBER_REGEX.test(password)) {
-    passwordError = 'Invalid';
-  }
+  const handleLogin = () => {};
 
   return (
     <Modal label="Đăng nhập" {...props}>
       <BaseLogin>
-        <Input
-          label="Số điện thoại"
-          error={phoneError}
-          name="phoneNumber"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          style={{
-            marginBottom: 16,
-          }}
-        />
-        <Input
-          label="Mật Khẩu"
-          error={passwordError}
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="forms">
+          {Object.keys(formInputs).map((field) => {
+            const { label, value, type = "text", errorMsg } = formInputs[field];
+            return (
+              <Input
+                label={label || field}
+                name={field}
+                value={value}
+                type={type}
+                onChange={handleChange}
+                error={errorMsg}
+              />
+            );
+          })}
+        </div>
         <div className="forgot-password">Quên mật khẩu</div>
-        <LoginButton>Đăng nhập</LoginButton>
+        <LoginButton onClick={handleLogin} disabled={isInvalid}>
+          Đăng nhập
+        </LoginButton>
         <div class="text-center">
           <div class="text_r">
             Bạn chưa là thành viên? <div className="switch">Đăng ký ngay</div>
@@ -93,6 +92,13 @@ const LoginButton = styled(Button)`
 `;
 
 const BaseLogin = styled.div`
+  .forms {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
   .text_r {
     font-size: 14px;
     margin-top: 20px;
@@ -109,7 +115,7 @@ const BaseLogin = styled.div`
     font-weight: 500;
     text-align: right;
     cursor: pointer;
-    margin: 8px 0;
+    margin: 12px 0;
   }
 `;
 
