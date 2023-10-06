@@ -4,15 +4,14 @@ import {
   isValidElement,
   useContext,
   useState,
-} from "react";
-import { Backdrop } from "../components/modals/Modal";
+} from 'react';
 
 export const Context = createContext();
 
 export function useModalContext() {
   const value = useContext(Context);
   if (!value) {
-    throw new Error("Must wrap component by context provider!");
+    throw new Error('Must wrap component by context provider!');
   }
 
   return value;
@@ -42,7 +41,7 @@ const Provider = ({ children }) => {
           {cloneElement(content, {
             onDismiss: handleDismiss,
           })}
-          <Backdrop onClick={handleDismiss} />
+          <div className="backdrop" onClick={handleDismiss} />
         </>
       )}
     </Context.Provider>

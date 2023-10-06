@@ -1,0 +1,42 @@
+.Dropdown {
+  position: relative;
+  height: 48px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d8dae5;
+  font-size: 16px;
+  user-select: none;
+  cursor: pointer;
+
+  .chevron-down-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 4px);
+    background-color: #fff;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    border-radius: 8px;
+
+    .option {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
