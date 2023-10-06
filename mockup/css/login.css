@@ -92,3 +92,8 @@
     color: white;
     background-color: #d30000;
 }
+input:focus {
+    border: 1px solid #d8dae5;
+    outline: none;
+    /* Các thuộc tính khác có thể được đặt theo ý muốn của bạn */
+}
