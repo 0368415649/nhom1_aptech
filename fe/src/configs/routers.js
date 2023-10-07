@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Layout from '../layouts/Layout';
+import OTP from '../pages/OTP';
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <OTP />,
       },
       {
         path: '/profile',
