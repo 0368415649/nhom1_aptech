@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import "./Button.scss";
 
-const Button = ({ children, className, ...props }) => {
+const Button = ({ children, className = "", ...props }) => {
   const classes = cx("Button", className);
 
   return (

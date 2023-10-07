@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './styles/Profile.scss';
-import Img from '../components/Img';
-import useModal from '../hooks/useModal';
+import "./styles/Profile.scss";
+import Img from "../components/Img";
+import useModal from "../hooks/useModal";
 import {
   AddressIcon,
   HeartIcon,
@@ -12,17 +12,17 @@ import {
   PenIcon,
   UserIcon,
   VehicleIcon,
-} from '../components/Svg';
-import UpdateProfile from '../components/modals/UpdateProfile';
+} from "../components/Svg";
+import UpdateProfile from "../components/modals/UpdateProfile";
 
 const TABS = [
-  { icon: UserIcon, title: 'Tài khoản của tôi' },
-  { icon: HeartIcon, title: 'Xe yêu thích' },
-  { icon: VehicleIcon, title: 'Xe của tôi' },
-  { icon: MapIcon, title: 'Chuyến đi của tôi' },
-  { icon: AddressIcon, title: 'Địa chỉ của tôi' },
-  { icon: LockIcon, title: 'Đổi mật khẩu' },
-  { icon: LogoutIcon, title: 'Đăng xuất' },
+  { icon: UserIcon, title: "Tài khoản của tôi" },
+  { icon: HeartIcon, title: "Xe yêu thích" },
+  { icon: VehicleIcon, title: "Xe của tôi" },
+  { icon: MapIcon, title: "Chuyến đi của tôi" },
+  { icon: AddressIcon, title: "Địa chỉ của tôi" },
+  { icon: LockIcon, title: "Đổi mật khẩu" },
+  { icon: LogoutIcon, title: "Đăng xuất" },
 ];
 
 const Profile = () => {
@@ -41,7 +41,7 @@ const Profile = () => {
                   <PenIcon
                     width="20"
                     height="20"
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: "pointer" }}
                     onClick={showUpdateProfile}
                   />
                 </div>
@@ -49,7 +49,7 @@ const Profile = () => {
                   <div className="dl-text ">
                     <i
                       className="fa-solid fa-suitcase-rolling"
-                      style={{ color: '#00bd42' }}
+                      style={{ color: "#00bd42" }}
                     />
                     <span>0</span>
                   </div>
@@ -89,7 +89,7 @@ const Profile = () => {
                     <div className="d-flex justify-content-between mt-3">
                       <div className="ns-text">Email</div>
                       <div className="ns-text-ns">
-                        Thêm email{'{'}' '{'}'}
+                        Thêm email{"{"}' '{"}"}
                         <i className="fa-solid fa-pen ms-2 ic-action-em" />
                       </div>
                     </div>
@@ -177,7 +177,7 @@ const Tabs = ({ currentTab, setCurrentTab }) => {
           >
             <div
               className={`${
-                currentTab.title === tab.title ? 'selected_item' : ''
+                currentTab.title === tab.title ? "selected_item" : ""
               } gp_22 d-flex align-items-center`}
               onClick={() => setCurrentTab(tab)}
             >

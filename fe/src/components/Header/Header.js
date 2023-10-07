@@ -28,12 +28,12 @@ const Header = () => {
         <div className="sen-css"></div>
         {isLogin ? (
           <Link to="/profile">
-            <div class="icon-dd">
+            <div className="icon-dd">
               <img src={avatar} alt="avatar" height="40px" width="40px" />
             </div>
-            <div class="name_dd">
+            <div className="name_dd">
               <button>Hoàng Anh</button>
-              <i class="fa-solid fa-chevron-down"></i>
+              <i className="fa-solid fa-chevron-down"></i>
             </div>
           </Link>
         ) : (

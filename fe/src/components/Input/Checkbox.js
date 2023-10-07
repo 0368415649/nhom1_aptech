@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import "./styles/Checkbox.scss";
 
-const Checkbox = ({ label, isChecked, onChange, className }) => {
+const Checkbox = ({ label, isChecked, onChange, className = "" }) => {
   const classes = cx("Checkbox", className);
 
   return (

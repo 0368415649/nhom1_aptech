@@ -78,8 +78,8 @@ const Login = (props) => {
         <Button className="full" onClick={handleLogin} disabled={isInvalid}>
           Đăng nhập
         </Button>
-        <div class="text-center">
-          <div class="text_r">
+        <div className="text-center">
+          <div className="text_r">
             Bạn chưa là thành viên? <div className="switch">Đăng ký ngay</div>
           </div>
         </div>

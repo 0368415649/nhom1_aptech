@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Svg from '../Svg';
+import Svg from "../Svg";
 
 const Icon = (props) => {
   return (

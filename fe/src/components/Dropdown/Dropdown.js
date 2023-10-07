@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import cx from 'classnames';
+import React, { useState } from "react";
+import cx from "classnames";
 
-import './Dropdown.scss';
-import { ChevronDownIcon } from '../Svg';
-import useToggle from '../../hooks/useToggle';
+import "./Dropdown.scss";
+import { ChevronDownIcon } from "../Svg";
+import useToggle from "../../hooks/useToggle";
 
 const Dropdown = ({
-  className,
+  className = "",
   options = [],
   option,
   setOption,
-  placeholder = 'Chọn',
+  placeholder = "Chọn",
 }) => {
   const [isShow, setIsShow] = useToggle();
 
-  const classes = cx('Dropdown', className);
+  const classes = cx("Dropdown", className);
 
   return (
     <div className={classes} onClick={setIsShow}>
