@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 
 import Modal from "./Modal";
 import Input, { Checkbox } from "../Input";
@@ -7,6 +6,8 @@ import Button from "../Button";
 import useValidate from "../../hooks/useValidate";
 import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../contants/regexs";
 import useCheckbox from "../../hooks/useCheckbox";
+
+import "./styles/Register.scss";
 
 const rules = {
   phone: {
@@ -90,7 +91,7 @@ const Register = (props) => {
 
   return (
     <Modal label="Đăng ký" {...props}>
-      <BaseRegsiter>
+      <div className="Register">
         {Object.keys(formInputs).map((field) => {
           const { label, value, type = "text", errorMsg } = formInputs[field];
 
@@ -106,35 +107,12 @@ const Register = (props) => {
           );
         })}
         <Checkbox />
-        <LoginButton disabled={isInvalid || !isChecked}>Đăng ký</LoginButton>
-      </BaseRegsiter>
+        <Button className="full" disabled={isInvalid || !isChecked}>
+          Đăng ký
+        </Button>
+      </div>
     </Modal>
   );
 };
-
-const LoginButton = styled(Button)`
-  width: 100%;
-`;
-
-const BaseRegsiter = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 24px;
-
-  .switch {
-    color: #39b062;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .forgot-password {
-    color: #39b062;
-    font-weight: 500;
-    text-align: right;
-    cursor: pointer;
-    margin: 8px 0;
-  }
-`;
 
 export default Register;

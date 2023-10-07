@@ -1,33 +1,17 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import cx from "classnames";
 
-const Checkbox = ({ label, isChecked, onChange }) => {
+import "./styles/Checkbox.scss";
+
+const Checkbox = ({ label, isChecked, onChange, className }) => {
+  const classes = cx("Checkbox", className);
+
   return (
-    <Wrapper onClick={onChange}>
-      <BaseCheckbox $isChecked={isChecked} />
+    <div className={classes} onClick={onChange}>
+      <div className={`handler ${isChecked ? "checked" : ""}`} />
       {label}
-    </Wrapper>
+    </div>
   );
 };
-
-const BaseCheckbox = styled.div`
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-
-  ${({ $isChecked }) =>
-    $isChecked &&
-    css`
-      border-color: red;
-    `}
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-`;
 
 export default Checkbox;
