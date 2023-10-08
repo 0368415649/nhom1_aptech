@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/resignter_car_page.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b369642a0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>ADDDA - Ứng dụng cho thuê xe ô tô</title>
+</head>
+<body>
+    <div class="header-grap d-flex justify-content-between">
+        <a class="logo" href="" >
+            <div class="logo-img">
+                <img src="../img/logo.png" width="150px" alt="ADDDA">
+            </div>
+        </a>
+        <div class="grap-hf-left d-flex justify-content-center">
+            <div class="ADDDA-css">
+                <a href="">Về ADDDA</a>
+            </div>
+            <div class="tx-css">
+                <a href="">Đăng ký cho thuê xê</a>
+            </div>
+            <div class="sen-css"></div>
+            <div class="icon-dd">
+                <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
+            </div>
+            <div class="name_dd">
+                <button>Hoàng Anh</button>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>     
+        </div>
+    </div>
+    <div  class="d-flex justify-content-center grap-kk">
+  
+    <!-- Popup 1 -->
+    <div class="resign_car popup-1">
+        <div class="row ">
+            <div class="col-3 text-center d-flex justify-content-center "><div class="font_x_cm css_number_cm">1</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-4 text-center d-flex justify-content-center"><div class="font_x_cm">2</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-3 text-center d-flex justify-content-center"><div class="font_x_cm">3</div></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Thông tin</div></div>
+            <div class="col-1"></div>
+            <div class="col-4 text-center mt-2"><div class="font_cm">Cho thuê</div></div>
+            <div class="col-1"></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Hình ảnh</div></div>
+        </div>
+        <div class="sen_botton_css"></div>
+
+        <div class="input_cm mt-4">Biển số xe</div>
+        <div class="note_text_css">Lưu ý: Biển số xe khổng thể thay đổi sau khi đăng ký</div>
+        <div>
+            <input class="input_cm2 per30_input mt-3" type="text" >
+        </div>
+
+        <div class="mt-4 fw-bold fs-5">Thông số cơ bản</div>
+        <div class="note_text_css">Lưu ý: Thông số cơ bản sẽ không thể thay đổi sau khi đăng ký</div>
+       
+        <div class="row mt-4">
+            <div class="col-6 select_common">
+                <div class="mb-2">Hãng xe</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>Chọn hãng xe</option>
+                  </select>
+            </div>
+
+            <div class="col-6 select_common">
+                <div class="mb-2">Mẫu xe</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>Chọn mẫu xe</option>
+                  </select>
+            </div>
+
+            <div class="col-6 select_common">
+                <div class="mb-2">Loại xe</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>Chọn loại xe</option>
+                  </select>
+            </div>
+
+            <div class="col-6 select_common">
+                <div class="mb-2">Năm sản xuất</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>2022</option>
+                  </select>
+            </div>
+
+            <div class="col-6 select_common">
+                <div class="mb-2">Truyển động</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>Số tự động</option>
+                  </select>
+            </div>
+
+            <div class="col-6 select_common">
+                <div class="mb-2">Loại nguyên liệu</div>
+                <select style="font-size: 13px;" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example">
+                    <option selected>Xăng</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mt-4 fw-bold fs-5">Mức tiêu thụ nguyên liệu</div>
+        <div class="note_text_css2">Số lít trên quãng đường 100 km</div>
+        <div>
+            <input class="input_cm2 per30_input mt-3" type="text" >
+        </div>
+
+        <div class="mt-4 fw-bold fs-5">Mô tả</div>
+        <div class="mb-3 mt-2">
+            <textarea style="font-size: 13px;" class="form-control font_cm" id="exampleFormControlTextarea1" placeholder="Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách. Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác... "rows="5"></textarea>
+          </div>
+
+        <div class="text-center mt-5 row">
+            <div class="btn_back_cm col-5 btn-none-click">
+                Quay lại
+            </div>
+            <div class="btn_click_cm next-btn col-5 next_popup1">
+                Kế tiếp
+            </div>
+        </div>
+    </div>
+    <!-- Popup 1 -->
+
+
+     <!-- Popup 2 -->
+     <div class="resign_car popup-2">
+        <div class="row ">
+            <div class="col-3 text-center d-flex justify-content-center "><div class="font_x_cm ">1</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-4 text-center d-flex justify-content-center"><div class="font_x_cm css_number_cm">2</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-3 text-center d-flex justify-content-center"><div class="font_x_cm">3</div></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Thông tin</div></div>
+            <div class="col-1"></div>
+            <div class="col-4 text-center mt-2"><div class="font_cm">Cho thuê</div></div>
+            <div class="col-1"></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Hình ảnh</div></div>
+        </div>
+        <div class="sen_botton_css"></div>
+
+        <div class="input_cm mt-4">Đơn giá thuê mặc định </div>
+        <div class="note_text_css2">Đơn giá theo ngày</div>
+        <div>
+            <input class="input_cm2 per30_input mt-3" type="number" > <span class="ms-2">k</span>
+        </div>
+
+        <div class="text-center mt-5 row">
+            <div class="btn_back_cm col-5 back_popup2">
+                Quay lại
+            </div>
+            <div class="btn_click_cm next-btn col-5 next_popup2">
+                Kế tiếp
+            </div>
+        </div>
+    </div>
+    <!-- Popup 2 -->
+
+
+     <!-- Popup 3 -->
+     <div class="resign_car popup-3">
+        <div class="row ">
+            <div class="col-3 text-center d-flex justify-content-center "><div class="font_x_cm ">1</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-4 text-center d-flex justify-content-center"><div class="font_x_cm ">2</div></div>
+            <div class="col-1 mt-2"><i class="fa-solid fa-angle-right" style="color: #312f2f;"></i></div>
+            <div class="col-3 text-center d-flex justify-content-center"><div class="font_x_cm css_number_cm">3</div></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Thông tin</div></div>
+            <div class="col-1"></div>
+            <div class="col-4 text-center mt-2"><div class="font_cm">Cho thuê</div></div>
+            <div class="col-1"></div>
+            <div class="col-3 text-center mt-2"><div class="font_cm">Hình ảnh</div></div>
+        </div>
+        <div class="sen_botton_css"></div>
+
+        <div class="input_cm mt-4">Đơn giá thuê mặc định</div>
+        <div class="note_text_css2">Đơn giá theo ngày</div>
+        <div>
+            <input class="input_cm2 per30_input mt-3" type="number" > <span class="ms-2">k</span>
+        </div>
+
+        <div class="text-center mt-5 row">
+            <div class="btn_back_cm col-5 back_popup3">
+                Quay lại
+            </div>
+            <div class="btn_click_cm next-btn col-5">
+                Kế tiếp
+            </div>
+        </div>
+    </div>
+    <!-- Popup 3 -->
+
+
+
+
+    </div>
+
+<script>
+    $('.popup-2').hide()
+    $('.popup-3').hide()
+
+    $('.next_popup1').click((e) => {
+        $('.popup-1').hide()
+        $('.popup-2').show()
+    })
+
+    $('.back_popup2').click((e) => {
+        $('.popup-2').hide()
+        $('.popup-1').show()
+    })
+
+    $('.next_popup2').click((e) => {
+        $('.popup-2').hide()
+        $('.popup-3').show()
+    })
+
+    $('.back_popup3').click((e) => {
+        $('.popup-3').hide()
+        $('.popup-2').show()
+    })
+</script>
+</body>
+</html>

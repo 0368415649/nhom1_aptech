@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/resignter_car_page.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b369642a0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>ADDDA - Ứng dụng cho thuê xe ô tô</title>
+</head>
+<body>
+    <div class="header-grap d-flex justify-content-between">
+        <a class="logo" href="" >
+            <div class="logo-img">
+                <img src="../img/logo.png" width="150px" alt="ADDDA">
+            </div>
+        </a>
+        <div class="grap-hf-left d-flex justify-content-center">
+            <div class="ADDDA-css">
+                <a href="">Về ADDDA</a>
+            </div>
+            <div class="tx-css">
+                <a href="">Đăng ký cho thuê xê</a>
+            </div>
+            <div class="sen-css"></div>
+            <div class="icon-dd">
+                <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
+            </div>
+            <div class="name_dd">
+                <button>Hoàng Anh</button>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>     
+        </div>
+    </div>
+    <div class="grap-rc text-center">
+        <div class="fw-800 fs-2">Đăng ký xe</div>
+        <div>
+            <img src="../img/resignter_car.png" alt="">
+        </div>
+        <div >
+            <button class="btn-mioto btn-ctx">Đăng ký xe cho thuê</button>
+        </div>
+    </div>
+  
+    <div class="bg-dr"></div>
+
+    <!-- Popup verify CCCD-->
+    <div class="ccs_grap_commom xm_width">
+        <div class="cs-btn-cm close_button_xm close_xm">
+            <div class="btn_cm btn_xm"><i class="fa-regular fa-circle-xmark icon-cl cl_action3"></i></div>
+        </div>
+        <div class="xm-text">Xác minh danh tính</div>
+        <div class="xm-text2">Bạn cần xác minh danh tính để đăng ký xe</div>
+        <div class="text-center mt-3">
+            <div class="btn_click_cm btn_xmn">
+                Xác minh
+            </div>
+        </div>
+    </div>
+    <!-- Popup verify CCCD -->
+
+    <!-- Popup Edit Profile-->
+    <div class="ccs_grap_commom popup_cccd">
+        <div class="cs-btn-cm">
+            <div class="btn_cm btn-xm-cc"><i class="fa-regular fa-circle-xmark icon-cl cl_action"></i></div>
+        </div>
+        <div class="cm-text">Xác thực danh tính</div>
+        <div class="input_cm">Số CCCD</div>
+        <div>
+            <input class="input_cm2" type="number" >
+        </div>
+
+        <div class="input_cm">Tên</div>
+        <div>
+            <input class="input_cm2" type="text" >
+        </div>
+
+        <div class="input_cm">Ngày sinh</div>
+        <div>
+            <input class="input_cm2" type="text" >
+        </div>
+        <div class="d-flex justify-content-between p_ha">
+            <div class="input_cm ms-3">Ảnh mặt trước</div>
+            <div class="input_cm mx-3">Ảnh mặt Sau</div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <label class="cm_css_lb_img" for="image1">
+                <div class="ms-1 fs-mm">
+                    <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                    <span>Chọn ảnh</span>
+                </div>
+                <div class="fs-800">
+                    Ảnh mặt trước
+                </div>
+            </label>
+            <input type="file" class="display_none" name="" id="image1">
+            <label class="cm_css_lb_img" for="image2">
+                <div class="ms-1 fs-mm">
+                    <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                    <span>Chọn ảnh</span>
+                </div>
+                <div class="fs-800">
+                    Ảnh mặt sau
+                </div>
+            </label>
+            <input type="file" class="display_none" name="" id="image2">
+        </div>
+        
+        <div class="text-center mt-3">
+            <div class="btn_click_cm">
+                Cập nhập
+            </div>
+        </div>
+    </div>
+    <!-- Popup Edit Profile -->
+
+    <script>
+        $('.bg-dr').hide();
+        $('.xm_width').hide();
+        $('.popup_cccd').hide();
+    // Click Edit
+    $(".btn-ctx").click(function() {
+        $('.bg-dr').show();
+        $('.xm_width').show();
+      });
+    // Click icon close
+    $(".close_xm").click(function() {
+        $('.bg-dr').hide();
+        $('.xm_width').hide();
+      });
+
+
+      // Click Edit CCCD
+    $(".btn_xmn").click(function() {
+        $('.bg-dr').show();
+        $('.xm_width').hide();
+        $('.popup_cccd').show();
+      });
+    // Click icon CCCD
+    $(".btn-xm-cc").click(function() {
+        $('.bg-dr').hide();
+        $('.popup_cccd').hide();
+      });
+
+      
+    </script>
+</body>
+</html>
