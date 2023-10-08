@@ -59,11 +59,20 @@ function useForm(rules) {
         return null;
       })();
 
-      return [name, dirtyFields[name] ? msg : null];
+      return [name, msg];
     });
 
     return Object.fromEntries(entries);
-  }, [dirtyFields, formData, rules]);
+  }, [formData, rules]);
+
+  const dirtyErrors = useMemo(() => {
+    const result = {};
+    for (const field in dirtyFields) {
+      result[field] = errors[field];
+    }
+
+    return result;
+  }, [dirtyFields, errors]);
 
   const isError = Object.values(errors).some((e) => e);
 
@@ -74,7 +83,9 @@ function useForm(rules) {
       isDirty,
       dirtyFields,
       errors,
+      dirtyErrors,
       isError,
+      data: formData,
     },
   };
 }

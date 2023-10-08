@@ -1,12 +1,21 @@
-import React from "react";
-import cx from "classnames";
+import React, { cloneElement, isValidElement } from 'react';
+import cx from 'classnames';
 
-import "./styles/Input.scss";
+import './styles/Input.scss';
 
-const Input = ({ className = "", ...props }) => {
-  const classes = cx("Input", className);
+const Input = ({ className = '', button, ...props }) => {
+  const classes = cx('Input', className);
 
-  return <input className={classes} {...props} />;
+  return (
+    <div className={classes}>
+      <input {...props} />
+      {button &&
+        isValidElement(button) &&
+        cloneElement(button, {
+          className: 'input-button',
+        })}
+    </div>
+  );
 };
 
 export default Input;

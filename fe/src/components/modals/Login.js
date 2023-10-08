@@ -12,7 +12,7 @@ import useForm from '../../hooks/useForm';
 const rules = {
   phone: {
     required: 'Số điện thoại không được để trống',
-    options: (value) => {
+    option: (value) => {
       if (PHONE_NUMBER_REGEX.test(value)) {
         return true;
       }
@@ -29,7 +29,7 @@ const Login = (props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isError },
+    formState: { dirtyErrors, isError },
   } = useForm(rules);
 
   const submitRegister = console.log;
@@ -45,21 +45,19 @@ const Login = (props) => {
         <div className="input-section">
           <div className="label">Số điện thoại</div>
           <Input {...register('phone')} />
-          {errors['phone'] && (
-            <span className="invalid">{errors['phone']}</span>
+          {dirtyErrors['phone'] && (
+            <span className="invalid">{dirtyErrors['phone']}</span>
           )}
         </div>
         <div className="input-section">
           <div className="label">Mật khẩu</div>
           <Input {...register('password')} />
-          {errors['password'] && (
-            <span className="invalid">{errors['password']}</span>
+          {dirtyErrors['password'] && (
+            <span className="invalid">{dirtyErrors['password']}</span>
           )}
         </div>
         <div className="forgot-password">Quên mật khẩu</div>
-        <Button className="full" disabled={isError}>
-          Đăng nhập
-        </Button>
+        <Button disabled={isError}>Đăng nhập</Button>
         <div className="text-center">
           <div className="text_r">
             Bạn chưa là thành viên?{' '}
