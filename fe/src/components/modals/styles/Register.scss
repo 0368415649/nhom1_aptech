@@ -16,4 +16,14 @@
     cursor: pointer;
     margin: 8px 0;
   }
+
+  .input-section {
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  .policy {
+    margin: 16px 0;
+  }
 }

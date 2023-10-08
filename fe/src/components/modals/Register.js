@@ -1,116 +1,101 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Modal from "./Modal";
-import Input, { Checkbox } from "../Input";
-import Button from "../Button";
-import useValidate from "../../hooks/useValidate";
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../contants/regexs";
-import useCheckbox from "../../hooks/useCheckbox";
+import Modal from './Modal';
+import Input, { Checkbox } from '../Input';
+import Button from '../Button';
+import useValidate from '../../hooks/useValidate';
+import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '../../contants/regexs';
+import useCheckbox from '../../hooks/useCheckbox';
 
-import "./styles/Register.scss";
+import './styles/Register.scss';
+import useForm from '../../hooks/useForm';
 
 const rules = {
   phone: {
-    notEmpty: "Số điện thoại không được để trống",
-    options: (value) => {
+    required: 'Số điện thoại không được để trống',
+    option: (value) => {
       if (PHONE_NUMBER_REGEX.test(value)) {
         return true;
       }
       return false;
     },
-    errorMsg: "Số điện thoại không hợp lệ",
+    errorMsg: 'Số điện thoại không hợp lệ',
   },
   displayName: {
-    notEmpty: "Tên hiển thị không được để trống",
+    required: 'Tên hiển thị không được để trống',
   },
   password: {
-    notEmpty: "Mật khẩu không được để trống",
-    options: (value) => {
+    required: 'Mật khẩu không được để trống',
+    option: (value) => {
       if (PASSWORD_REGEX.test(value)) {
         return true;
       }
       return false;
     },
-    errorMsg: "Mật khẩu không hợp lệ",
+    errorMsg: 'Mật khẩu yếu, vui lòng thử mật khẩu khác',
   },
   confirmPassword: {
-    notEmpty: "Mật khẩu không được để trống",
-    options: (value, form) => {
-      if (form.password.value === value) {
+    required: 'Mật khẩu không được để trống',
+    option: (value, form) => {
+      if (form.password === value) {
         return true;
       }
       return false;
     },
-    errorMsg: "Mật khẩu không khớp",
-  },
-};
-
-const DEFAULT_FORM_VALUES = {
-  phone: {
-    label: "Số điện thoại",
-    value: "",
-  },
-  displayName: {
-    label: "Tên hiển thị",
-    value: "",
-  },
-  password: {
-    label: "Mật khẩu",
-    type: "password",
-    value: "",
-  },
-  confirmPassword: {
-    label: "Nhập lại mật khẩu",
-    type: "password",
-    value: "",
+    errorMsg: 'Mật khẩu không khớp',
   },
 };
 
 const Register = (props) => {
-  const [form, setForm] = useState(DEFAULT_FORM_VALUES);
-  const [policy, setPolicy] = useState(false);
-
-  const handleChange = (e) => {
-    setForm((prev) => {
-      const _prev = prev[e.target.name];
-
-      return {
-        ...prev,
-        [e.target.name]: {
-          ..._prev,
-          value: e.target.value,
-        },
-      };
-    });
-  };
-
-  const { formInputs, isInvalid } = useValidate(form, rules);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isError },
+  } = useForm(rules);
   const { isChecked, Checkbox } = useCheckbox(
-    "Tôi đồng ý với chính sách của ADDDA"
+    'Tôi đồng ý với chính sách của ADDDA'
   );
+
+  const submitRegister = console.log;
+
+  const isDisabled = !isChecked || isError;
 
   return (
     <Modal label="Đăng ký" {...props}>
-      <div className="Register">
-        {Object.keys(formInputs).map((field) => {
-          const { label, value, type = "text", errorMsg } = formInputs[field];
-
-          return (
-            <Input
-              label={label || field}
-              name={field}
-              value={value}
-              type={type}
-              onChange={handleChange}
-              error={errorMsg}
-            />
-          );
-        })}
-        <Checkbox />
-        <Button className="full" disabled={isInvalid || !isChecked}>
+      <form className="Register" onSubmit={handleSubmit(submitRegister)}>
+        <div className="input-section">
+          <div className="label">Số điện thoại</div>
+          <Input {...register('phone')} />
+          {errors['phone'] && (
+            <span className="invalid">{errors['phone']}</span>
+          )}
+        </div>
+        <div className="input-section">
+          <div className="label">Tên hiển thị</div>
+          <Input {...register('displayName')} />
+          {errors['displayName'] && (
+            <span className="invalid">{errors['displayName']}</span>
+          )}
+        </div>
+        <div className="input-section">
+          <div className="label">Mật khẩu</div>
+          <Input {...register('password')} />
+          {errors['password'] && (
+            <span className="invalid">{errors['password']}</span>
+          )}
+        </div>
+        <div className="input-section">
+          <div className="label">Nhập lại mật khẩu</div>
+          <Input {...register('confirmPassword')} />
+          {errors['confirmPassword'] && (
+            <span className="invalid">{errors['confirmPassword']}</span>
+          )}
+        </div>
+        <Checkbox className="policy" />
+        <Button className="full" disabled={isDisabled}>
           Đăng ký
         </Button>
-      </div>
+      </form>
     </Modal>
   );
 };

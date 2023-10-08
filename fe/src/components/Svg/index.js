@@ -9,3 +9,4 @@ export { default as MapIcon } from './icons/Map';
 export { default as VehicleIcon } from './icons/Vehicle';
 export { default as PenIcon } from './icons/Pen';
 export { default as ChevronDownIcon } from './icons/ChevronDown';
+export { default as CheckIcon } from './icons/Check';

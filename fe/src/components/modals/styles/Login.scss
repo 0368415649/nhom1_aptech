@@ -23,4 +23,10 @@
     cursor: pointer;
     margin: 12px 0;
   }
+
+  .input-section {
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
 }

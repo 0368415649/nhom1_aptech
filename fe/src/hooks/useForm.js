@@ -1,22 +1,81 @@
-function useForm() {
-  const formState = {};
+import { useMemo, useState } from 'react';
 
-  const register = (name, options) => {
-    const { required, maxLength, minLength, pattern } = options;
+function useForm(rules) {
+  const [formData, setFormData] = useState({});
+  const [dirtyFields, setDirtyFields] = useState({});
+  const [isDirty, setIsDirty] = useState(false);
 
-    return options;
-  };
+  const register = (name) => {
+    const onChange = (e) => {
+      if (!isDirty) setIsDirty(true);
 
-  const handleSubmit = (submitFn) => {
-    return () => {
-      submitFn();
+      const target = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [target.name]: target.value,
+      }));
+    };
+
+    const onBlur = (e) => {
+      const target = e.target;
+      setDirtyFields((prev) => ({
+        ...prev,
+        [target.name]: true,
+      }));
+    };
+
+    return {
+      name,
+      value: formData[name] || '',
+      onChange,
+      onBlur,
     };
   };
 
+  const handleSubmit = (submitFn) => {
+    return (e) => {
+      e.preventDefault();
+      submitFn(formData);
+    };
+  };
+
+  const errors = useMemo(() => {
+    const entries = Object.keys(rules).map((name) => {
+      const { required, option, errorMsg } = rules[name] || {};
+      const msg = (() => {
+        if (required && !formData[name])
+          return typeof required === 'boolean'
+            ? 'Can not be empty'
+            : String(required);
+
+        if (
+          option &&
+          typeof option === 'function' &&
+          !option(formData[name], formData)
+        ) {
+          return errorMsg || 'Invalid';
+        }
+
+        return null;
+      })();
+
+      return [name, dirtyFields[name] ? msg : null];
+    });
+
+    return Object.fromEntries(entries);
+  }, [dirtyFields, formData, rules]);
+
+  const isError = Object.values(errors).some((e) => e);
+
   return {
-    register,
     handleSubmit,
-    formState,
+    register,
+    formState: {
+      isDirty,
+      dirtyFields,
+      errors,
+      isError,
+    },
   };
 }
 
