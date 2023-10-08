@@ -3,6 +3,7 @@
   background-color: #f6f6f6;
   height: 1000px;
   padding: 50px 250px 0px;
+  z-index: 10;
 }
 .grap-tttc {
   background-color: white;
@@ -89,30 +90,28 @@
   bottom: 0;
   background-color: #040404;
   opacity: 0.6;
-  z-index: 1;
+  z-index: 5;
 }
 .grap_form_edit {
   padding: 20px;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
   left: 37%;
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
   border-radius: 10px;
 }
 .phone_width {
   padding: 20px;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
   left: 37%;
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
   border-radius: 10px;
   height: 300px;
 }
