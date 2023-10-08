@@ -181,18 +181,120 @@
         </div>
         <div class="sen_botton_css"></div>
 
-        <div class="input_cm mt-4">Đơn giá thuê mặc định</div>
-        <div class="note_text_css2">Đơn giá theo ngày</div>
-        <div>
-            <input class="input_cm2 per30_input mt-3" type="number" > <span class="ms-2">k</span>
+        <div class="input_cm mt-4 fs-700">Hình ảnh</div>
+        <div class="d-flex justify-content-between p_ha mt-2 mb-2">
+            <div class="input_cm_min ms-5">Ảnh mặt trước</div>
+            <div class="input_cm_min mx-5">Ảnh mặt Sau</div>
         </div>
+        <div class="d-flex justify-content-between">
+            <label class="cm_css_lb_img img-width-form" for="imageFile1">
+                <img id="image_show1" width="250px" src="" alt="">
+                <div class="label_show1 ">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt trước
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile1">
+
+            <label class="cm_css_lb_img img-width-form" for="imageFile2">
+                <img id="image_show2" width="250px" src="" alt="">
+                <div class="label_show2">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt sau
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile2">
+        </div>
+
+        <div class="d-flex justify-content-between p_ha mt-2 mb-2">
+            <div class="input_cm_min ms-5">Ảnh mặt trái</div>
+            <div class="input_cm_min mx-5">Ảnh mặt phải</div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <label class="cm_css_lb_img img-width-form" for="imageFile3">
+                <img id="image_show3" width="250px" src="" alt="">
+                <div class="label_show3 ">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt trái
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile3">
+
+            <label class="cm_css_lb_img img-width-form" for="imageFile4">
+                <img id="image_show4" width="250px" src="" alt="">
+                <div class="label_show4">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt phải
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile4">
+        </div>
+
+
+
+        <div class="input_cm mt-4 fs-700">Xác minh xe</div>
+        <div class="d-flex justify-content-between p_ha">
+            <div class="input_cm_min ms-5">Ảnh đăng ký</div>
+            <div class="input_cm_min mx-5">Ảnh đăng kiểm</div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <label class="cm_css_lb_img img-width-form" for="imageFile5">
+                <img id="image_show5" width="250px" src="" alt="">
+                <div class="label_show5 ">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh đăng ký
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile5">
+
+            <label class="cm_css_lb_img img-width-form" for="imageFile6">
+                <img id="image_show6" width="250px" src="" alt="">
+                <div class="label_show6">
+                    <div class="ms-1 fs-mm mt-5">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh đăng kiểm
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile6">
+        </div>
+        
 
         <div class="text-center mt-5 row">
             <div class="btn_back_cm col-5 back_popup3">
                 Quay lại
             </div>
             <div class="btn_click_cm next-btn col-5">
-                Kế tiếp
+                Đăng ký
             </div>
         </div>
     </div>
@@ -205,8 +307,9 @@
 
 <script>
     $('.popup-2').hide()
-    $('.popup-3').hide()
+    $('.popup-1').hide()
 
+    
     $('.next_popup1').click((e) => {
         $('.popup-1').hide()
         $('.popup-2').show()
@@ -226,6 +329,40 @@
         $('.popup-3').hide()
         $('.popup-2').show()
     })
+    
+    $('#image_show1').hide()
+    $('#image_show2').hide()
+    $('#image_show3').hide()
+    $('#image_show4').hide()
+    $('#image_show5').hide()
+    $('#image_show6').hide()
+
+    function showImage2(file_name, image_name, label_name){
+        document.getElementById(file_name).addEventListener("change", function(e) {
+        const fileInput = this;
+        const image = document.getElementById(image_name);
+        $('#'+image_name).show()
+        $(label_name).hide()
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                image.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    });
+    }
+   
+    showImage2('imageFile1', 'image_show1', '.label_show1');
+    showImage2('imageFile2', 'image_show2', '.label_show2');
+    showImage2('imageFile3', 'image_show3', '.label_show3');
+    showImage2('imageFile4', 'image_show4', '.label_show4');
+    showImage2('imageFile5', 'image_show5', '.label_show5');
+    showImage2('imageFile6', 'image_show6', '.label_show6');
+
+
 </script>
 </body>
 </html>

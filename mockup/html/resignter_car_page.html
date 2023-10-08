@@ -69,48 +69,61 @@
         <div class="cs-btn-cm">
             <div class="btn_cm btn-xm-cc"><i class="fa-regular fa-circle-xmark icon-cl cl_action"></i></div>
         </div>
-        <div class="cm-text">Xác thực danh tính</div>
-        <div class="input_cm">Số CCCD</div>
+        <div class="cm-text cm-text_m">Xác thực danh tính</div>
+        <div style="font-size: 13px;" class="input_cm">Số CCCD</div>
         <div>
             <input class="input_cm2" type="number" >
         </div>
 
-        <div class="input_cm">Tên</div>
+        <div style="font-size: 13px;" class="input_cm">Tên</div>
         <div>
             <input class="input_cm2" type="text" >
         </div>
 
-        <div class="input_cm">Ngày sinh</div>
+        <div style="font-size: 13px;" class="input_cm">Ngày sinh</div>
         <div>
             <input class="input_cm2" type="text" >
         </div>
         <div class="d-flex justify-content-between p_ha">
-            <div class="input_cm ms-3">Ảnh mặt trước</div>
-            <div class="input_cm mx-3">Ảnh mặt Sau</div>
+            <div  style="font-size: 13px;" class="input_cm">Ảnh mặt trước</div>
         </div>
         <div class="d-flex justify-content-between">
-            <label class="cm_css_lb_img" for="image1">
-                <div class="ms-1 fs-mm">
-                    <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
-                    <span>Chọn ảnh</span>
-                </div>
-                <div class="fs-800">
-                    Ảnh mặt trước
-                </div>
-            </label>
-            <input type="file" class="display_none" name="" id="image1">
-            <label class="cm_css_lb_img" for="image2">
-                <div class="ms-1 fs-mm">
-                    <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
-                    <span>Chọn ảnh</span>
-                </div>
-                <div class="fs-800">
-                    Ảnh mặt sau
+            <label class="cm_css_lb_img img_max_wi" for="imageFile_1">
+                <img id="image_show_1" width="350px" src="" alt="">
+                <div class="label_show_1 ">
+                    <div class="ms-1 fs-mm mt-4">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt trước
+                    </div>
                 </div>
             </label>
-            <input type="file" class="display_none" name="" id="image2">
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile_1">
         </div>
         
+        <div class="d-flex justify-content-between p_ha">
+            <div style="font-size: 13px;" class="input_cm ">Ảnh mặt sau</div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <label class="cm_css_lb_img img_max_wi" for="imageFile_2">
+                <img id="image_show_2" width="350px" src="" alt="">
+                <div class="label_show_2">
+                    <div class="ms-1 fs-mm mt-4">
+                        <i class="fa-solid fa-camera" style="color: #0bc142;"></i>
+                        <span>Chọn ảnh</span>
+                    </div>
+                    <div class="fs-800">
+                        Ảnh mặt sau
+                    </div>
+                </div>
+            </label>
+            <input type="file"  accept="image/*" class="display_none" name="" id="imageFile_2">
+        </div>
+
+
         <div class="text-center mt-3">
             <div class="btn_click_cm">
                 Cập nhập
@@ -146,6 +159,33 @@
         $('.bg-dr').hide();
         $('.popup_cccd').hide();
       });
+
+
+      
+    $('#image_show_1').hide()
+    $('#image_show_2').hide()
+
+    function showImage2(file_name, image_name, label_name){
+        document.getElementById(file_name).addEventListener("change", function(e) {
+        const fileInput = this;
+        const image = document.getElementById(image_name);
+        $('#'+image_name).show()
+        $(label_name).hide()
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                image.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    });
+    }
+   
+    showImage2('imageFile_1', 'image_show_1', '.label_show_1');
+    showImage2('imageFile_2', 'image_show_2', '.label_show_2');
+
 
       
     </script>
