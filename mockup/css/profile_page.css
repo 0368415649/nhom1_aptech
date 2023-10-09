@@ -7,7 +7,7 @@
 }
 .grap-tttc {
   background-color: white;
-  padding: 50px 30px 200px;
+  padding: 50px 30px 100px;
   border-radius: 10px;
 }
 .text-tttc {
@@ -193,4 +193,96 @@ input:focus {
   border: 1px solid #d8dae5;
   outline: none;
   /* Các thuộc tính khác có thể được đặt theo ý muốn của bạn */
+}
+.btn_add_car {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  background-color: #5fcf86;
+  border-color: #5fcf86;
+  padding: 14px 20px;
+  border-radius: 10px;
+}
+.grap_sen_car{
+  border-bottom: 0.5px solid rgb(180, 180, 180);
+  padding-bottom: 30px;
+}
+.no_car_txt{
+  font-weight: 600;
+  font-size: 15px;
+  color: #717070;
+}
+.car_img_css{
+  border-radius: 20px;
+}
+
+.item-car_name {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-car_status{
+  color: #767676;
+  font-size: 12px;
+}
+
+.item_car_price {
+  font-size: .875rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.item-car_address {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  grid-gap: 4px;
+  gap: 4px;
+}
+.grap_car_pro{
+  border-radius: 20px;
+  border: 1px solid rgb(200, 200, 200);
+  padding: 15px 5px;
+}
+.btn-delete_car{
+  border: none;
+  background-color: white;
+  padding-top: 20px;
+}
+
+.ccs_grap_commom{
+  padding: 20px;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  left: 37%;
+  top: 10%;
+  right: 37% !important;
+  border-radius: 10px;
+}
+
+.cs-btn-cm{
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  
+}
+
+.btn_cm{
+  cursor: pointer;
+  color: #9c9c9c;
+}
+.xm-text{
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  color: #000000;
+  font-weight: 600;
 }

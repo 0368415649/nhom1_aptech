@@ -10,6 +10,19 @@
   border-bottom: 1px solid rgb(223, 223, 223);
     z-index: 2;
 }
+
+.search-grap {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(223, 223, 223);
+    z-index: 2;
+}
+
 .grap-hf-left a {
   text-decoration: none;
   color: black;
@@ -60,4 +73,66 @@
 }
 .name_dd {
   cursor: pointer;
+}
+.input_search_css{
+  width: 300px;
+  border-radius: 20px;
+  border: 1px solid #adadab;
+  height: 35px;
+  padding-left: 20px;
+  margin-top: 10px;
+  color: #5a5a5a;
+  padding: 5px 20px;
+}
+.input_search_css:focus{
+  border: 1px solid #adadab;
+  outline: none;
+}
+.icon_search_icss{
+  position: absolute;
+  right: 9px;
+  top: 20px;
+  cursor: pointer;
+}
+.btn-common-icon-search-car{
+  font-size: 14px;
+  font-weight: 400;
+  color: #6d6d6d;
+  padding: 4px 7px;
+  border: 1px solid #adadab;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-common-icon-search-car a{
+  text-decoration: none;
+  color: #6d6d6d;
+}
+.btn-common-icon-search-car a:hover{
+  color: #6d6d6d;
+  cursor: pointer;
+}
+.grap-type-car{
+  position: absolute;
+  top: 40px;
+  left: -240px;
+  width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 16px 16px 0 rgba(15,15,15,.2); 
+   padding: 20px 5px;
+}
+a{
+  text-decoration: none;
+}
+.cl_c{
+  padding-top: 15px;
+  color: #404040 !important;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  height: 100px;
+  text-align: center;
+}
+.cl_c a{
+  color: #404040;
 }
