@@ -4,23 +4,17 @@
   align-items: stretch;
 
   .switch {
-    color: #39b062;
+    color: var(--primary);
     text-decoration: none;
     cursor: pointer;
   }
 
   .forgot-password {
-    color: #39b062;
+    color: var(--primary);
     font-weight: 500;
     text-align: right;
     cursor: pointer;
     margin: 8px 0;
-  }
-
-  .input-section {
-    &:not(:first-child) {
-      margin-top: 12px;
-    }
   }
 
   .policy {

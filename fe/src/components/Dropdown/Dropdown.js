@@ -5,20 +5,17 @@ import './Dropdown.scss';
 import { ChevronDownIcon } from '../Svg';
 import useToggle from '../../hooks/useToggle';
 
-const Dropdown = ({
-  className = '',
-  options = [],
-  option,
-  setOption,
-  placeholder = 'Chọn',
-}) => {
+const Dropdown = ({ className = '', options = [], onChange, ...props }) => {
   const [isShow, setIsShow] = useToggle();
 
   const classes = cx('Dropdown', className);
 
+  const handleSelectOption = (e, option) => {
+    onChange(e);
+  };
+
   return (
-    <div className={classes} onClick={setIsShow}>
-      {option || placeholder}
+    <div className={classes} onClick={setIsShow} {...props}>
       <ChevronDownIcon className="chevron-down-icon" />
       {isShow && (
         <div className="options">
@@ -27,7 +24,7 @@ const Dropdown = ({
               <div
                 key={option.label}
                 className="option"
-                onClick={() => setOption(option.label)}
+                onClick={(e) => handleSelectOption(e, option)}
               >
                 {option.label}
               </div>

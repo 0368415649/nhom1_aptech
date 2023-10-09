@@ -9,11 +9,12 @@ function useForm(rules) {
     const onChange = (e) => {
       if (!isDirty) setIsDirty(true);
 
+      console.log('>> Check | e:', e);
       const target = e.target;
-      setFormData((prev) => ({
-        ...prev,
-        [target.name]: target.value,
-      }));
+      // setFormData((prev) => ({
+      //   ...prev,
+      //   [target.name]: target.value,
+      // }));
     };
 
     const onBlur = (e) => {

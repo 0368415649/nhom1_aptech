@@ -1,16 +1,17 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react';
+import cx from 'classnames';
 
-import "./Button.scss";
+import './Button.scss';
 
 const Button = ({
   children,
-  className = "",
+  className = '',
   loading = [false],
   disabled,
+  variant,
   ...props
 }) => {
-  const classes = cx("Button", className);
+  const classes = cx('Button', className, variant);
 
   const [isLoading, loadingText] = loading;
 

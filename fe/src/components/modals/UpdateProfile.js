@@ -1,75 +1,65 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Modal from "./Modal";
-import Input from "../Input";
-import useValidate from "../../hooks/useValidate";
-import Button from "../Button";
-import Dropdown from "../Dropdown";
+import Modal from './Modal';
+import Input from '../Input';
+import Button from '../Button';
+import Dropdown from '../Dropdown';
+import useForm from '../../hooks/useForm';
 
-import "./styles/UpdateProfile.scss";
+import './styles/UpdateProfile.scss';
 
 const rules = {
   displayName: {
-    notEmpty: "Tên hiển thị không được để trống",
+    required: 'Tên hiển thị không được để trống',
   },
-  dayOfBirth: {},
-};
-
-const DEFAULT_FORM_VALUES = {
-  displayName: {
-    label: "Tên hiển thị",
-    value: "",
-  },
-  dayOfBirth: {
-    label: "Ngày sinh",
-    value: "",
+  gender: {
+    required: 'Giới tính không được để trống',
   },
 };
 
 const UpdateProfile = (props) => {
-  const [form, setForm] = useState(DEFAULT_FORM_VALUES);
-  const [gender, setGender] = useState();
+  const options = [
+    { label: 'Nam', value: 'male' },
+    { label: 'Nữ', value: 'female' },
+  ];
+  const {
+    register,
+    handleSubmit,
+    formState: { dirtyErrors, isError },
+  } = useForm(rules);
 
-  const options = [{ label: "Nam" }, { label: "Nữ" }];
-
-  const handleChange = (e) => {
-    setForm((prev) => {
-      const _prev = prev[e.target.name];
-      return {
-        ...prev,
-        [e.target.name]: {
-          ..._prev,
-          value: e.target.value,
-        },
-      };
-    });
-  };
-
-  const { formInputs, isInvalid } = useValidate(form, rules);
-
-  const handleLogin = () => {};
+  const submitUpdateProfile = console.log;
 
   return (
-    <Modal className="UpdateProfile" label="Cập nhật thông tin" {...props}>
-      <div className="forms">
-        {Object.keys(formInputs).map((field) => {
-          const { label, value, type = "text", errorMsg } = formInputs[field];
-          return (
-            <Input
-              label={label || field}
-              name={field}
-              value={value}
-              type={type}
-              onChange={handleChange}
-              error={errorMsg}
-            />
-          );
-        })}
-        <Dropdown options={options} option={gender} setOption={setGender} />
-        <Button className="full" onClick={handleLogin} disabled={isInvalid}>
-          Cập nhật
-        </Button>
-      </div>
+    <Modal label="Cập nhật thông tin" {...props}>
+      <form
+        className="UpdateProfile"
+        onSubmit={handleSubmit(submitUpdateProfile)}
+      >
+        <div className="input-section">
+          <div className="label">Tên hiển thị</div>
+          <Input {...register('displayName')} />
+          {dirtyErrors['displayName'] && (
+            <span className="invalid">{dirtyErrors['displayName']}</span>
+          )}
+        </div>
+        <div className="input-section">
+          <div className="label">Ngày sinh</div>
+          <Input {...register('phone')} />
+          {dirtyErrors['phone'] && (
+            <span className="invalid">{dirtyErrors['phone']}</span>
+          )}
+        </div>
+        <div className="input-section">
+          <div className="label">Giới tính</div>
+          <Dropdown options={options} {...register('gender')} />
+          {dirtyErrors['gender'] && (
+            <span className="invalid">{dirtyErrors['gender']}</span>
+          )}
+        </div>
+
+        <Button className="submit-btn">Cập nhật</Button>
+      </form>
     </Modal>
   );
 };

@@ -2,7 +2,7 @@
   display: flex;
   align-items: stretch;
   border-radius: 8px;
-  border: 1px solid #d8dae5;
+  border: 1px solid var(--border);
   padding: 2px;
 
   & + .Input {
@@ -15,7 +15,7 @@
     font-size: 16px;
 
     &:focus {
-      border-color: #5fcf86;
+      border-color: var(--primary);
     }
   }
 
@@ -32,7 +32,7 @@
   .hide-password {
     width: 20px;
     height: 20px;
-    color: rgba($color: #000000, $alpha: 0.4);
+    color: var(--black40);
     align-self: center;
     margin-right: 10px;
     user-select: none;
