@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="header-grap d-flex justify-content-between">
-        <a class="logo" href="" >
+        <a class="logo" href="./header_after_login.html" >
             <div class="logo-img">
                 <img src="../img/logo.png" width="150px" alt="ADDDA">
             </div>
@@ -25,15 +25,18 @@
                 <a href="">Đăng ký cho thuê xê</a>
             </div>
             <div class="sen-css"></div>
-            <div class="icon-dd">
-                <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
-            </div>
-            <div class="name_dd">
-                <button>Hoàng Anh</button>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>     
+            <a href="./profile_page.html" class="d-flex justify-content-center align-items-center">
+                <div class="icon-dd">
+                    <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
+                </div>
+                <div class="name_dd">
+                    <button>Hoàng Anh</button>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>   
+            </a>  
         </div>
     </div>
+    <!-- Search bar -->
     <div class="search-grap shadow-lg">
         <div class=" d-flex justify-content-center align-items-center">
             <div class="position-relative">
@@ -43,65 +46,603 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center mt-3">
-            <div class="position-relative d-flex align-items-center btn-common-icon-search-car ms-3">
-                <i class="fa-solid fa-car-rear"></i>
-                <div class="ms-2">Loại xe</div>
+            <div class="position-relative d-flex align-items-center btn-common-icon-search-car btn-search-by-type ms-3">
+                <i class="fa-solid fa-car-rear cu_point"></i>
+                <div class="ms-2 cu_point">Loại xe</div>
                 <div class="grap-type-car row justify-content-center">
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-mini-v2.png">
-                        <div><a href="">4 chỗ (Mini)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href=""> 
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-mini-v2.png">
+                            <div>4 chỗ (Mini)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-sedan-v2.png">
-                        <div><a href="">4 chỗ (Sedan)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-sedan-v2.png">
+                            <div>4 chỗ (Sedan)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-hatchback-v2.png">
-                        <div><a href="">4 chỗ (Hatchback)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/4-hatchback-v2.png">
+                            <div>4 chỗ (Hatchback)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/5-suv-v2.png">
-                        <div><a href="">5 chỗ (CUC Gầm cao)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/5-suv-v2.png">
+                            <div>5 chỗ (CUC Gầm cao)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/7-suv-v2.png">
-                        <div><a href="">7 chỗ (SUV Gầm cao)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/7-suv-v2.png">
+                            <div>7 chỗ (SUV Gầm cao)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/7-mpv-v2.png">
-                        <div><a href="">7 chỗ (MPV Gầm thấp)</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/7-mpv-v2.png">
+                            <div>7 chỗ (MPV Gầm thấp)</div>
+                        </a>
                     </div>
 
-                    <div class="cl_c col-3 ms-3 mt-2">
-                        <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/pickup-v2.png">
-                        <div><a href="">Bán tải</a></div>
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="">
+                            <img loading="lazy" width="40px" src="https://n1-cstg.mioto.vn/m/vehicle-types/pickup-v2.png">
+                            <div>Bán tải</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="position-relative d-flex align-items-center btn-common-icon-search-car ms-3 btn-search-by-model">
+                <i class="fa-solid fa-globe cu_point"></i>
+                <div class="ms-2">Hãng xe</div>
+
+                <div class="grap-type-car-model row justify-content-center align-items-center">
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Audi.png" alt="Audi">
+                            <div class="ms-2 mt-1">Audi</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Baic.png" alt="Baic">
+                            <div class="ms-2 mt-1">Baic</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/BMW.png" alt="BMW">
+                            <div class="ms-2 mt-1">BMW</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Chevrolet.png" alt="Chevrolet">
+                            <div class="ms-2 mt-1">Chevrolet</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Daewoo.png" alt="Daewoo">
+                            <div class="ms-2 mt-1">Daewoo</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Ford.png" alt="Ford">
+                            <div class="ms-2 mt-1">Ford</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Honda.png" alt="Honda">
+                            <div class="ms-2 mt-1">Honda</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Hyundai.png" alt="Hyundai">
+                            <div class="ms-2 mt-1">Hyundai</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Isuzu.png" alt="Isuzu">
+                            <div class="ms-2 mt-1">Isuzu</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Kia.png" alt="Kia">
+                            <div class="ms-2 mt-1">Kia</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Land-Rover.png" alt="Land-Rover">
+                            <div class="ms-2 mt-1">Land-Rover</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Luxgen.png" alt="Luxgen">
+                            <div class="ms-2 mt-1">Luxgen</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Mazda.png" alt="Mazda">
+                            <div class="ms-2 mt-1">Mazda</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Mercedes.png" alt="Mercedes">
+                            <div class="ms-2 mt-1">Mercedes</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Mitsubishi.png" alt="Mitsubishi">
+                            <div class="ms-2 mt-1">Mitsubishi</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Nissan.png" alt="Nissan">
+                            <div class="ms-2 mt-1">Nissan</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Peugeot.png" alt="Peugeot">
+                            <div class="ms-2 mt-1">Peugeot</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Porsche.png" alt="Porsche">
+                            <div class="ms-2 mt-1">Porsche</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Suzuki.png" alt="Suzuki">
+                            <div class="ms-2 mt-1">Suzuki</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Toyota.png" alt="Toyota">
+                            <div class="ms-2 mt-1">Toyota</div>
+                        </a>
+                    </div>
+
+                    <div class="model_item_model col-2 ms-3 mt-2 cu_point hover_change_color">
+                        <a href="" class="d-flex"> 
+                            <img loading="lazy" width="30px" src="https://n1-cstg.mioto.vn/m/vehicle-makes/Vinfast.png" alt="Vinfast">
+                            <div class="ms-2 mt-1">Vinfast</div>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="d-flex align-items-center btn-common-icon-search-car ms-3">
-                <i class="fa-solid fa-car-rear"></i>
-                <a class="ms-2" href="">Loại xe</a>
+                <i class="fa-solid fa-car-tunnel cu_point"></i>
+                <a href="#" class="ms-2 cu_point">Xe điện</a>
             </div>
 
-            <div class="d-flex align-items-center btn-common-icon-search-car ms-3">
-                <i class="fa-solid fa-car-rear"></i>
-                <div class="ms-2">Loại xe</div>
+            <div class="position-relative d-flex align-items-center btn-common-icon-search-car  btn-search-by-type-cd ms-3">
+                <i class="fa-solid fa-gauge cu_point"></i>
+                <div class="ms-2 cu_point">Truyển động</div>
+
+                <div class="grap-type-car-cd row justify-content-center">
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color std_css">
+                        <a href=""> 
+                            <div>Tất cả</div>
+                        </a>
+                    </div>
+
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color std_css">
+                        <a href=""> 
+                            <div>Số tự động</div>
+                        </a>
+                    </div>
+
+                    <div class="cl_c col-3 ms-3 mt-2 cu_point hover_change_color std_css">
+                        <a href=""> 
+                            <div>Số sàn</div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="d-flex align-items-center btn-common-icon-search-car ms-3">
-                <i class="fa-solid fa-car-rear"></i>
-                <div class="ms-2">Loại xe</div>
+            <div class="position-relative d-flex align-items-center btn-common-icon-search-car  btn-search-by-type-price ms-3">
+                <i class="fa-solid fa-gauge cu_point"></i>
+                <div class="ms-2 cu_point">Truyển động</div>
+
+                <div class="grap-type-car-price row justify-content-center">
+                    <div class="cl_c col-9  cu_point hover_change_color std_css">
+                        <a href="" class="d-flex align-items-center justify-content-center"> 
+                            <i class="fa-solid fa-arrow-up"></i>
+                            <div class="ms-2">Tăng dần</div>
+                        </a>
+                    </div>
+
+                    <div class="cl_c col-9 mt-2 cu_point hover_change_color std_css">
+                        <a href="" class="d-flex align-items-center justify-content-center"> 
+                            <i class="fa-solid fa-arrow-down"></i>
+                            <div class="ms-2">Giảm dần</div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="">
+    </div>
+    <!-- Search bar -->
 
+    <!-- Show car  -->
+    <div class="" style="margin-top: 200px;"></div>
+    <div class="row contai-grap">
+        <div class="col-3 mt-3 grap_car_big">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big ">
+            <div class=" grap-car_pro">
+                <div class="text-center position-relative">
+                    <a href=""><img class="cu_point" src="../img/car_img/poscher.jpg" width="100%" height="170px" alt=""></a>
+                    <div class="logo_pro_ne">
+                        <a href=""><img src="../img/luffy.jpg" width="50px" alt=""></a>
+                    </div>
+                </div>
+                <div class="car_pro_name mt-4">
+                    AUGMENTED REALITY
+                </div>
+                <div class="car_pro_name_address mt-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Japan-fukuoka-kitakyushushi
+                </div>
+                <div class="car_pro_name_sen"></div>
+                <div class="car_pro_name_rate d-flex justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-star rate_color"></i>
+                            <div class="ms-1">5.0</div>
+                        </div>
+    
+                        <div class="d-flex justify-content-center align-items-center ms-2">
+                            <i class="fa-solid fa-suitcase" style="color: #24944b;"></i>
+                            <div class="ms-1">194 chuyến</div>
+                        </div>
+                    </div>
+    
+                    <div class="">
+                        Giá : <span class="prire_color_ne">278K</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mt-3 grap_car_big"></div>
+        <div class="col-3 mt-3 grap_car_big"></div>
+    </div>
+    <!-- Show car  -->
+
+    <div style="height: 1000px" class="">
+
     </div>
 </body>
 </html>
