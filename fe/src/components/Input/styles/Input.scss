@@ -27,4 +27,15 @@
     border-radius: 6px;
     font-weight: 600;
   }
+
+  .show-password,
+  .hide-password {
+    width: 20px;
+    height: 20px;
+    color: rgba($color: #000000, $alpha: 0.4);
+    align-self: center;
+    margin-right: 10px;
+    user-select: none;
+    cursor: pointer;
+  }
 }

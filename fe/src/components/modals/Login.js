@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Modal from './Modal';
-import Input from '../Input';
-import Button from '../Button';
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '../../contants/regexs';
-import useValidate from '../../hooks/useValidate';
+import Modal from "./Modal";
+import Input from "../Input";
+import Button from "../Button";
+import { PHONE_NUMBER_REGEX } from "../../contants/regexs";
 
-import './styles/Login.scss';
-import useForm from '../../hooks/useForm';
+import "./styles/Login.scss";
+import useForm from "../../hooks/useForm";
 
 const rules = {
   phone: {
-    required: 'Số điện thoại không được để trống',
+    required: "Số điện thoại không được để trống",
     option: (value) => {
       if (PHONE_NUMBER_REGEX.test(value)) {
         return true;
       }
       return false;
     },
-    errorMsg: 'Số điện thoại không hợp lệ',
+    errorMsg: "Số điện thoại không hợp lệ",
   },
   password: {
-    required: 'Mật khẩu không được để trống',
+    required: "Mật khẩu không được để trống",
   },
 };
 
@@ -44,23 +43,23 @@ const Login = (props) => {
       <form className="Login" onSubmit={handleSubmit(submitRegister)}>
         <div className="input-section">
           <div className="label">Số điện thoại</div>
-          <Input {...register('phone')} />
-          {dirtyErrors['phone'] && (
-            <span className="invalid">{dirtyErrors['phone']}</span>
+          <Input {...register("phone")} />
+          {dirtyErrors["phone"] && (
+            <span className="invalid">{dirtyErrors["phone"]}</span>
           )}
         </div>
         <div className="input-section">
           <div className="label">Mật khẩu</div>
-          <Input {...register('password')} />
-          {dirtyErrors['password'] && (
-            <span className="invalid">{dirtyErrors['password']}</span>
+          <Input {...register("password")} />
+          {dirtyErrors["password"] && (
+            <span className="invalid">{dirtyErrors["password"]}</span>
           )}
         </div>
         <div className="forgot-password">Quên mật khẩu</div>
         <Button disabled={isError}>Đăng nhập</Button>
         <div className="text-center">
           <div className="text_r">
-            Bạn chưa là thành viên?{' '}
+            Bạn chưa là thành viên?{" "}
             <div className="switch" onClick={switchToRegister}>
               Đăng ký ngay
             </div>

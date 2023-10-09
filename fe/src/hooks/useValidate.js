@@ -17,7 +17,6 @@ function useValidate(formValues, rules) {
       errorMsg = notEmpty;
     }
 
-    console.log(">> Check | formValues[field]:", formValues[field]);
     result = {
       ...result,
       [field]: {
