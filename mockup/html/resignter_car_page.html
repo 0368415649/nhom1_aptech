@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="header-grap d-flex justify-content-between">
-        <a class="logo" href="" >
+        <a class="logo" href="./header_after_login.html" >
             <div class="logo-img">
                 <img src="../img/logo.png" width="150px" alt="ADDDA">
             </div>
@@ -28,13 +28,15 @@
                 <a href="">Đăng ký cho thuê xê</a>
             </div>
             <div class="sen-css"></div>
-            <div class="icon-dd">
-                <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
-            </div>
-            <div class="name_dd">
-                <button>Hoàng Anh</button>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>     
+            <a href="./profile_page.html" class="d-flex justify-content-center align-items-center">
+                <div class="icon-dd">
+                    <img src="../img/luffy.jpg" alt="" height="40px" width="40px">
+                </div>
+                <div class="name_dd">
+                    <button>Hoàng Anh</button>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>   
+            </a>  
         </div>
     </div>
     <div class="grap-rc text-center">
@@ -125,7 +127,7 @@
 
 
         <div class="text-center mt-3">
-            <div class="btn_click_cm">
+            <div class="btn_click_cm btn_click_cm_af">
                 Cập nhập
             </div>
         </div>
@@ -186,8 +188,14 @@
     showImage2('imageFile_1', 'image_show_1', '.label_show_1');
     showImage2('imageFile_2', 'image_show_2', '.label_show_2');
 
+    $(".btn_click_cm_af").click(function() {
+        // Thiết lập URL mục tiêu
+        var urlMucTieu = "./resignter_car_form.html"; // Thay đổi thành URL bạn muốn chuyển đến
 
-      
+        // Chuyển trang
+        window.location.href = urlMucTieu;
+    });
+
     </script>
 </body>
 </html>

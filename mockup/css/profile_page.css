@@ -1,3 +1,4 @@
+
 .grap-pr {
   margin-top: 80px;
   background-color: #f6f6f6;
@@ -70,6 +71,8 @@
   padding-left: 15px;
   font-size: 17px;
   cursor: pointer;
+  text-decoration: none;
+  color: #040404;
 }
 .selected_item {
   padding-left: 12px;
