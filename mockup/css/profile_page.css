@@ -93,7 +93,7 @@
   bottom: 0;
   background-color: #040404;
   opacity: 0.6;
-  z-index: 5;
+  z-index: 4;
 }
 .grap_form_edit {
   padding: 20px;
@@ -127,7 +127,7 @@
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
+  z-index: 10;
   border-radius: 10px;
   height: 300px;
 }
@@ -206,6 +206,9 @@ input:focus {
   border-color: #5fcf86;
   padding: 14px 20px;
   border-radius: 10px;
+}
+.btn_add_car:hover{
+  color: white;
 }
 .grap_sen_car{
   border-bottom: 0.5px solid rgb(180, 180, 180);

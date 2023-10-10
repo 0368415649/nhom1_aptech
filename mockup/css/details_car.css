@@ -1,0 +1,224 @@
+.grap_details_car_all{
+  margin: 100px auto 0px;
+  max-width: 1150px;
+  
+}
+.grap_details_car_all .big_pi{
+  width: 805px;
+  height: 560px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+.grap_details_car_all .small_pi{
+  margin-left: auto;
+  width: 330px;
+  height: 180px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.grap_right_detail{
+  margin-left: auto;
+  width: 330px;
+  background-color: #e3f1ff;
+  padding: 16px 24px;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+}
+.grap_right_detail_price{
+  font-size: 1.5rem;
+    font-weight: 800;
+}
+.grap_right_detail_common_ip{
+  width: 100%;
+  padding: 15px;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  margin: 11px 0px;
+}
+
+.form-item {
+  font-size: .875rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+.ip_dt{
+  width: 300px;
+  padding: 7px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.ip_dt:focus{
+  outline: none;
+  border: 1px solid #e0e0e0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.sl_w_ne{
+  width: 100px !important;
+  margin-left: 10px;
+}
+.fs-600{
+  font-weight: 700;
+  color: black;
+}
+
+.fs-700{
+  font-weight: 800;
+  font-size: 16px;
+  color: #333;
+}
+.ri_sen{
+  background-color: #d1d1d1;
+  height: 1px;
+  width: 100%;
+  margin: 20px 0px;
+}
+.detail-car {
+  font-size: 14px;
+  color: #333;
+}
+.btn-buy button{
+  width: 100%;
+  color: #fff;
+  background-color: #5fcf86;
+  font-size: 22px;
+  border-radius: 10px;
+  padding: 10px 0px;
+  border: none;
+  margin-top: 25px;
+
+}
+.fa-heart_cs{
+  padding: 10px;
+  border-radius: 100%;
+  border: 1px solid #d1d1d1;
+  cursor: pointer;
+}
+.fa-heart_cs_like{
+  color: #5fcf86;
+}
+.rate_mm{
+  color: #767676;
+  font-size: 17px;
+}
+.de-width{
+  padding-right: 15px;
+}
+
+.main {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+}
+.sub {
+  font-size: 1rem;
+  color: #767676;
+}
+.icon_4{
+  font-size: 22px;
+}
+.img_chu_xe{
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rate_mm2{
+  color: #767676;
+  font-size: 14px;
+}
+
+.rate_mm3{
+  margin: 20px 0px 40px;
+  color: #000000;
+  font-size: 17px;
+}
+.item-review {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 24px;
+  gap: 24px;
+  padding: 24px 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.maiia{
+color: #767676;
+}
+
+.maiia2{
+  font-size: 17px;
+  color: #767676;
+  }
+
+
+  .buy-text {
+    text-align: center;
+    padding: 20px;
+    font-size: 25px;
+    color: #595959;
+    font-weight: 600;
+  }
+
+
+  .grap_form_edit-buy {
+    padding: 20px 20px 40px;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    left: 37%;
+    top: 10%;
+    right: 37% !important;
+    border-radius: 10px;
+  }
+  .close_button_grap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .input_3333{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #d8dae5;
+  }
+
+  .text_buy {
+    font-size: 14px;
+    color: #717070;
+    font-weight: 500;
+    margin-bottom: 3px;
+    margin: 5px 0px;
+  }
+  .btn_cls {
+    cursor: pointer;
+    color: #9c9c9c;
+  }
+  .bg-dr {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #040404;
+    opacity: 0.6;
+    z-index: 4;
+  }
+
+  .btn_buyy {
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    background-color: #5fcf86;
+    border-color: #5fcf86;
+    padding: 14px 0px;
+    border-radius: 10px;
+  }
