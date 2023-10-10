@@ -19,6 +19,11 @@
   --white: #ffffff;
 
   --primary-font: 'Nunito Sans', sans-serif;
+
+  --z-index-header: 10;
+  --z-index-filter: 10;
+  --z-index-modal: 20;
+  --z-index-backdrop: 10;
 }
 
 * {
@@ -30,6 +35,7 @@
 }
 
 html {
+  height: 100vh;
   background-color: var(--background);
 }
 
@@ -51,6 +57,16 @@ input {
   font-family: var(--primary-font);
 }
 
+svg {
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+
+  * {
+    color: currentColor;
+  }
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -59,7 +75,7 @@ input {
   bottom: 0;
   background-color: var(--backdrop);
   opacity: 0.6;
-  z-index: 1;
+  z-index: var(--z-index-backdrop);
 }
 
 .page-layout {

@@ -1,37 +1,40 @@
-import React, { cloneElement, isValidElement, useMemo, useState } from "react";
-import cx from "classnames";
+import React, { useState } from 'react';
+import cx from 'classnames';
 
-import "./styles/Input.scss";
-import { EyeIcon, EyeSlashIcon } from "../Svg";
+import './styles/Input.scss';
+import { EyeIcon, EyeSlashIcon } from '../Svg';
+import { checkValidAndCloneElement } from '../../utils/common';
 
 const Input = ({
-  className = "",
+  className = '',
   button,
-  type = "text",
+  type = 'text',
   isPasswordInput,
+  startIcon,
   ...props
 }) => {
-  const classes = cx("Input", className);
+  const classes = cx('Input', className);
   const [inputType, setInputType] = useState(
-    isPasswordInput ? "password" : type
+    isPasswordInput ? 'password' : type
   );
 
   const toggleInputType = () => {
     if (!isPasswordInput) return type;
-    setInputType((prev) => (prev === "text" ? "password" : "text"));
+    setInputType((prev) => (prev === 'text' ? 'password' : 'text'));
   };
 
   return (
     <div className={classes}>
+      {checkValidAndCloneElement(startIcon, {
+        className: 'input-start-icon',
+      })}
       <input type={inputType} {...props} />
-      {button &&
-        isValidElement(button) &&
-        cloneElement(button, {
-          className: "input-button",
-        })}
+      {checkValidAndCloneElement(button, {
+        className: 'input-button',
+      })}
       {isPasswordInput && (
         <>
-          {inputType === "text" ? (
+          {inputType === 'text' ? (
             <EyeSlashIcon className="hide-password" onClick={toggleInputType} />
           ) : (
             <EyeIcon className="show-password" onClick={toggleInputType} />

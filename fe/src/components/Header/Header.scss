@@ -9,6 +9,7 @@
   background-color: var(--white);
   border-bottom: 1px solid var(--border);
   display: flex;
+  z-index: var(--z-index-header);
 
   .grap-hf-left a {
     text-decoration: none;

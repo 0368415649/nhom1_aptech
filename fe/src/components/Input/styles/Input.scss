@@ -38,4 +38,15 @@
     user-select: none;
     cursor: pointer;
   }
+
+  .input-start-icon {
+    padding: 0 8px;
+    width: 40px;
+    flex-shrink: 0;
+    height: unset;
+
+    & + input {
+      padding-left: 0;
+    }
+  }
 }
