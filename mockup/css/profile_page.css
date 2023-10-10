@@ -2,7 +2,6 @@
 .grap-pr {
   margin-top: 80px;
   background-color: #f6f6f6;
-  height: 1000px;
   padding: 50px 250px 0px;
   z-index: 10;
 }
@@ -214,6 +213,9 @@ input:focus {
   border-bottom: 0.5px solid rgb(180, 180, 180);
   padding-bottom: 30px;
 }
+.grap_sen_car2{
+  padding-bottom: 30px;
+}
 .no_car_txt{
   font-weight: 600;
   font-size: 15px;
@@ -239,7 +241,7 @@ input:focus {
 .item_car_price {
   font-size: .875rem;
   font-weight: 500;
-  color: #666;
+  color: #4b4b4b;
 }
 
 .item-car_address {
@@ -291,4 +293,29 @@ input:focus {
   font-size: 25px;
   color: #000000;
   font-weight: 600;
+}
+.grap_history{
+
+  padding: 20px 0px;
+}
+.grap_history_all{
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  margin: 0px !important;
+}
+.status_commonn{
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.status_commonn:hover{
+  color: #25c55d;
+  font-weight: 500;
+}
+.grap_sen_his{
+  margin: 20px 0px;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+.click_staus{
+  color: #25c55d;
+  font-weight: 500;
 }
