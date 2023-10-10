@@ -1,3 +1,5 @@
+
+
 body a {
   text-decoration: none;
   color: #000;
@@ -15,7 +17,7 @@ body a:hover {
   height: 80px;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(223, 223, 223);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
@@ -27,8 +29,8 @@ body a:hover {
   height: 110px;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(223, 223, 223);
-    z-index: 2;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+    z-index: 1;
 }
 
 .grap-hf-left a {
@@ -174,7 +176,7 @@ a{
   color: #404040 !important;
   border-radius: 10px;
   border: 1px solid #e0e0e0;
-  height: 100px;
+  height: 110px;
   text-align: center;
 }
 .cl_c a{
@@ -286,7 +288,9 @@ a{
   border-color: #6d6d6d;
 }
 .contai-grap{
-  padding: 20px 200px;
+  position: relative;
+  padding: 20px 270px;
+  z-index: 0;
 }
 .grap-car_pro{
   border-radius: 10px;
@@ -313,6 +317,7 @@ a{
   font-size: .75rem;
   font-weight: 500;
   line-height: 16px;
+
 }
 .car_pro_name_address i{
   color: #000;
@@ -350,3 +355,23 @@ a{
 .grap_car_big:hover .grap-car_pro{
   border-color: #20b000;
 }
+.img_widht_k{
+  height: 170px !important;
+ }
+
+
+/* Định nghĩa một media query cho màn hình có chiều rộng lớn hơn hoặc bằng 768px */
+@media screen and (min-width:1620px) {
+ .img_widht_k{
+  height: 270px !important;
+ }
+ .car_img_css{
+  height: 270px !important;
+ }
+}
+
+@media screen and (max-width:1320px) {
+  .img_widht_k{
+   height: 120px !important;
+  }
+ }
