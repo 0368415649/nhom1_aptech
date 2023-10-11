@@ -17,15 +17,17 @@ const rules = {
   },
 };
 
+const options = [
+  { label: "Nam", value: "male" },
+  { label: "Nữ", value: "female" },
+];
+
 const UpdateProfile = (props) => {
-  const options = [
-    { label: "Nam", value: "male" },
-    { label: "Nữ", value: "female" },
-  ];
   const {
     register,
     handleSubmit,
-    formState: { dirtyErrors, isError },
+    setValue,
+    formState: { dirtyErrors, isError, errors },
   } = useForm(rules);
 
   const submitUpdateProfile = console.log;
@@ -52,13 +54,19 @@ const UpdateProfile = (props) => {
         </div>
         <div className="input-section">
           <div className="label">Giới tính</div>
-          <Dropdown options={options} {...register("gender")} />
+          <Dropdown
+            options={options}
+            setOption={setValue}
+            {...register("gender")}
+          />
           {dirtyErrors["gender"] && (
             <span className="invalid">{dirtyErrors["gender"]}</span>
           )}
         </div>
 
-        <Button className="submit-btn">Cập nhật</Button>
+        <Button className="submit-btn" disabled={isError}>
+          Cập nhật
+        </Button>
       </form>
     </Modal>
   );

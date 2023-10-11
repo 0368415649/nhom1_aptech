@@ -1,21 +1,31 @@
-import React from 'react';
-import cx from 'classnames';
+import React, { useState } from "react";
+import cx from "classnames";
 
-import './Dropdown.scss';
-import { ChevronDownIcon } from '../Svg';
-import useToggle from '../../hooks/useToggle';
+import "./Dropdown.scss";
+import { ChevronDownIcon } from "../Svg";
+import useToggle from "../../hooks/useToggle";
 
-const Dropdown = ({ className = '', options = [], onChange, ...props }) => {
+const Dropdown = ({
+  className = "",
+  options = [],
+  setOption,
+  name,
+  placeholder = "",
+  ...props
+}) => {
   const [isShow, setIsShow] = useToggle();
+  const [label, setLabel] = useState(placeholder);
 
-  const classes = cx('Dropdown', className);
+  const classes = cx("Dropdown", className);
 
-  const handleSelectOption = (e, option) => {
-    onChange(e);
+  const handleSelectOption = (option) => {
+    setOption(name, option.value);
+    setLabel(option.label);
   };
 
   return (
     <div className={classes} onClick={setIsShow} {...props}>
+      {label}
       <ChevronDownIcon className="chevron-down-icon" />
       {isShow && (
         <div className="options">
@@ -24,7 +34,7 @@ const Dropdown = ({ className = '', options = [], onChange, ...props }) => {
               <div
                 key={option.label}
                 className="option"
-                onClick={(e) => handleSelectOption(e, option)}
+                onClick={() => handleSelectOption(option)}
               >
                 {option.label}
               </div>

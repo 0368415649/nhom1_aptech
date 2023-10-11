@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 
 function useForm(rules) {
   const [formData, setFormData] = useState({});
@@ -26,7 +26,7 @@ function useForm(rules) {
 
     return {
       name,
-      value: formData[name] || '',
+      value: formData[name] || "",
       onChange,
       onBlur,
     };
@@ -44,16 +44,16 @@ function useForm(rules) {
       const { required, option, errorMsg } = rules[name] || {};
       const msg = (() => {
         if (required && !formData[name])
-          return typeof required === 'boolean'
-            ? 'Can not be empty'
+          return typeof required === "boolean"
+            ? "Can not be empty"
             : String(required);
 
         if (
           option &&
-          typeof option === 'function' &&
+          typeof option === "function" &&
           !option(formData[name], formData)
         ) {
-          return errorMsg || 'Invalid';
+          return errorMsg || "Invalid";
         }
 
         return null;
@@ -76,9 +76,17 @@ function useForm(rules) {
 
   const isError = Object.values(errors).some((e) => e);
 
+  const setValue = (nameField, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [nameField]: value,
+    }));
+  };
+
   return {
     handleSubmit,
     register,
+    setValue,
     formState: {
       isDirty,
       dirtyFields,
