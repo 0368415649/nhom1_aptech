@@ -7,7 +7,7 @@ import './styles/Home.scss';
 
 const Home = () => {
   return (
-    <div className="Home">
+    <div className="Home page-layout large-margin">
       <Filter />
       <Cars />
     </div>

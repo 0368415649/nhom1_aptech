@@ -182,6 +182,7 @@ const Filter = () => {
           placeholder="Hãy nhập thông tin tìm kiếm ..."
           type="text"
           startIcon={<SearchIcon width="24" />}
+          button={<Button>Tìm kiếm</Button>}
         />
         <div className="filter-btns">
           {Object.keys(FILTERS).map((type) => {

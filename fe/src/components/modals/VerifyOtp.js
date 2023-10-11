@@ -25,7 +25,6 @@ const VerifyOtp = ({ phoneNumber, ...props }) => {
     const appVerifier = window.recaptchaVerifier;
     const formattedPhoneNumber =
       '+84' + phoneNumber.slice(1, phoneNumber.length);
-    console.log('>> Check | formattedPhoneNumber:', formattedPhoneNumber);
 
     signInWithPhoneNumber(auth, formattedPhoneNumber, appVerifier)
       .then((confirmationResult) => {

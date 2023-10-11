@@ -85,6 +85,10 @@ svg {
   max-width: 1368px;
   padding: 0 24px;
   margin: 128px auto 120px;
+
+  &.large-margin {
+    margin-top: 240px;
+  }
 }
 
 .invalid {
