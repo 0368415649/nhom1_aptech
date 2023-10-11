@@ -18,7 +18,7 @@ const VerifyOtp = ({ phoneNumber, ...props }) => {
     setIsSentSms(false);
     setIsSendingSms(true);
 
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'sign-in-button', {
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha', {
       size: 'invisible',
     });
 
