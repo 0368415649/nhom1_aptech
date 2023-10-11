@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&display=swap");
 
 :root {
   --primary: #5fcf86;
@@ -18,7 +18,7 @@
   --black40: #00000066;
   --white: #ffffff;
 
-  --primary-font: 'Nunito Sans', sans-serif;
+  --primary-font: "Nunito Sans", sans-serif;
 
   --z-index-header: 10;
   --z-index-filter: 10;
@@ -55,11 +55,13 @@ input {
   border: none;
   outline: none;
   font-family: var(--primary-font);
+
+  ::-ms-reveal {
+    display: none;
+  }
 }
 
 svg {
-  width: 24px;
-  height: 24px;
   color: currentColor;
 
   * {

@@ -9,64 +9,48 @@
   background-color: var(--white);
   border-bottom: 1px solid var(--border);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   z-index: var(--z-index-header);
 
-  .grap-hf-left a {
-    text-decoration: none;
-  }
-
-  .grap-hf-left {
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: auto;
+  .links {
+    display: flex;
     align-items: center;
+    gap: 24px;
+
+    .register-btn {
+      cursor: pointer;
+    }
+
+    .login-btn {
+      border-color: var(--black);
+      padding: 0 16px;
+      height: 44px;
+    }
+
+    .link {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .link-profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 14px;
+
+      img {
+        border-radius: 50%;
+      }
+    }
   }
 
-  .ADDDA-css {
-    margin-right: 0px;
-  }
-
-  .dn-css button {
-    font-weight: 500;
-    padding: 10px 15px;
-    border-radius: 5px;
-    background-color: var(--white);
-    border: 1px solid var(--black);
-  }
-
-  .dk-css button {
-    background-color: var(--white);
-    border: none;
-    font-weight: 500;
-    margin-right: 25px;
-  }
-
-  .sen-css {
+  .divider {
     width: 1px;
-    height: 25px;
-    margin: 0px 30px;
-    background-color: var(--border);
-  }
-
-  .tx-css {
-    font-size: 15px;
-    padding-left: 40px;
-  }
-
-  .icon-dd img {
-    border-radius: 100%;
-    margin-right: 15px;
-    cursor: pointer;
-  }
-
-  .name_dd button {
-    background-color: var(--white);
-    border: none;
-    font-weight: 500;
-    margin-right: 25px;
-  }
-
-  .name_dd {
-    cursor: pointer;
+    align-self: stretch;
+    background-color: var(border);
+    margin: 0;
+    height: unset;
   }
 }

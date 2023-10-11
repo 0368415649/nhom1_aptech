@@ -10,8 +10,6 @@ const Icon = (props) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      width={24}
-      height={24}
       {...props}
     >
       <path

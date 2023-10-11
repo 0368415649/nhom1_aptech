@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import Input, { Checkbox } from "../Input";
 import Button from "../Button";
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from "../../contants/regexs";
+import { PASSWORD, PHONE_NUMBER } from "../../contants/regexs";
 import useCheckbox from "../../hooks/useCheckbox";
 
 import "./styles/Register.scss";
@@ -15,7 +15,7 @@ const rules = {
   phone: {
     required: "Số điện thoại không được để trống",
     option: (value) => {
-      if (PHONE_NUMBER_REGEX.test(value)) {
+      if (PHONE_NUMBER.test(value)) {
         return true;
       }
       return false;
@@ -28,7 +28,7 @@ const rules = {
   password: {
     required: "Mật khẩu không được để trống",
     option: (value) => {
-      if (PASSWORD_REGEX.test(value)) {
+      if (PASSWORD.test(value)) {
         return true;
       }
       return false;

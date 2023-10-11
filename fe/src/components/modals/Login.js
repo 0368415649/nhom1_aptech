@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import Input from "../Input";
 import Button from "../Button";
-import { PHONE_NUMBER_REGEX } from "../../contants/regexs";
+import { PHONE_NUMBER } from "../../contants/regexs";
 
 import "./styles/Login.scss";
 import useForm from "../../hooks/useForm";
@@ -12,7 +12,7 @@ const rules = {
   phone: {
     required: "Số điện thoại không được để trống",
     option: (value) => {
-      if (PHONE_NUMBER_REGEX.test(value)) {
+      if (PHONE_NUMBER.test(value)) {
         return true;
       }
       return false;
