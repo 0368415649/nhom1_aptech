@@ -21,6 +21,10 @@ const router = createBrowserRouter([
         path: "/register_car",
         element: <RegisterCar />,
       },
+      {
+        path: "/about",
+        element: <Home />,
+      },
     ],
   },
 ]);

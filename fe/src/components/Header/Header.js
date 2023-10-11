@@ -19,9 +19,9 @@ const Header = () => {
   const isLogin = !true;
   return (
     <div className="Header">
-      <div className="logo-img">
-        <img src={logo} height="30px" alt="logo" />
-      </div>
+      <Link to="/">
+        <img id="header-logo" src={logo} height="30px" alt="logo" />
+      </Link>
       <div className="links">
         <Link to="/about" className="link">
           Về ADDDA
