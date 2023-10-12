@@ -48,6 +48,8 @@ a {
   all: unset;
   user-select: none;
   font-family: var(--primary-font);
+  text-decoration: none;
+  color: var(--text);
   cursor: pointer;
 }
 
