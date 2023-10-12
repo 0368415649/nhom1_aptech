@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
 
-import App from './App';
-import { default as ModalProvider } from './contexts/Modal';
+import App from "./App";
+import { default as ModalProvider } from "./contexts/Modal";
 
-import './index.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import "./index.scss";
+// import 'bootstrap/dist/css/bootstrap.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ModalProvider>
     <div id="recaptcha"></div>

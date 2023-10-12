@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Img from '../../components/Img';
-import { AddressIcon, StarIcon, VehicleIcon } from '../../components/Svg';
+import Img from "../../components/Img";
+import {
+  AddressIcon,
+  BriefcaseIcon,
+  StarIcon,
+  StarSolidIcon,
+  VehicleIcon,
+} from "../../components/Svg";
 
-import porsche from '../../assets/imgs/poscher.jpg';
+import porsche from "../../assets/imgs/poscher.jpg";
 
-import './styles/CarCard.scss';
+import "./styles/CarCard.scss";
 
 const CarCard = () => {
   return (
@@ -21,24 +27,22 @@ const CarCard = () => {
         {/* <Img src={avatar} className="avatar" alt="avatar" /> */}
       </div>
       <div className="car-details">
-        <div className="car-name">AUGMENTED REALITY</div>
-        <div className="address">
-          <AddressIcon className="address-icon" />
-          <span>Japan-fukuoka-kitakyushushi</span>
-        </div>
-        <div className="divider" />
+        <div className="address">Hoang Mai - Ha Noi</div>
+        <div className="car-name">Lamborghini Aventador</div>
         <div className="car-info">
           <div className="block-info">
-            <StarIcon className="icon" />
+            <StarSolidIcon className="star-icon icon" />
             <span>5.0</span>
           </div>
           <div className="block-info">
-            <VehicleIcon className="icon" />
-            <span>194 chuyến</span>
+            <div className="car-count">
+              <BriefcaseIcon className="icon" />
+              <span>194 chuyến</span>
+            </div>
+            <div className="car-price">
+              <span className="price">278K</span>/ngày
+            </div>
           </div>
-        </div>
-        <div className>
-          Giá : <span className="prire_color_ne">278K</span>
         </div>
       </div>
     </div>

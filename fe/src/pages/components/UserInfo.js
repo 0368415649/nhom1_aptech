@@ -7,6 +7,8 @@ import UpdateProfile from "../../components/modals/UpdateProfile";
 
 import useModal from "../../hooks/useModal";
 
+import "./styles/UserInfo.scss";
+
 const UserInfo = () => {
   const [showUpdateProfile] = useModal(<UpdateProfile />);
 

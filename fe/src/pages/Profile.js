@@ -49,7 +49,10 @@ const Profile = () => {
   return (
     <div className="Profile page-layout">
       <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
-      {ShowedTab}
+      <div className="tab-main">
+        <div className="tab-title">{currentTab.title}</div>
+        {ShowedTab}
+      </div>
     </div>
   );
 };
@@ -57,7 +60,6 @@ const Profile = () => {
 const Tabs = ({ currentTab, setCurrentTab }) => {
   return (
     <div className="Tab">
-      <div className="heading">Xin chào bạn!</div>
       <div className="tabs">
         {TABS.map((tab) => {
           return (

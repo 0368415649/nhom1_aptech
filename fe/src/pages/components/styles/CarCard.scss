@@ -4,7 +4,7 @@
   align-items: stretch;
   gap: 16px;
   border: 1px solid var(--border);
-  padding: 16px;
+  padding: 24px;
   border-radius: 12px;
 
   > div {
@@ -32,20 +32,24 @@
   }
 
   .car-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
   }
 
   .address {
-    .address-icon {
-      width: 20px;
-      height: 20px;
-    }
+    background-color: var(--primary20);
+    padding: 0 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+    color: var(--primary);
+    margin-bottom: 12px;
   }
 
   .car-info {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
 
     .block-info {
@@ -54,12 +58,30 @@
       gap: 4px;
 
       span {
-        line-height: 120%;
+        font-weight: 500;
+      }
+
+      .star-icon {
+        color: var(--yellow);
       }
 
       .icon {
         width: 24px;
         height: 24px;
+      }
+
+      .car-count {
+        display: flex;
+      }
+
+      .car-price {
+        margin-left: auto;
+
+        span {
+          font-weight: 700;
+          font-size: 24px;
+          color: var(--primary);
+        }
       }
     }
   }
