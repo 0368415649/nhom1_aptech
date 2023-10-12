@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -192,8 +192,6 @@ const Filter = () => {
                 variant="outline"
                 className="filter-btn"
                 key={label}
-                onMouseOver={() => setHoveredType(type)}
-                onMouseOut={() => setHoveredType(null)}
               >
                 {label}
               </Button>
@@ -208,7 +206,12 @@ const Filter = () => {
 
           if (!childs) return null;
           return (
-            <div key={type} className={`filter-child-section ${type}`}>
+            <div
+              key={type}
+              className={`filter-child-section ${type} ${
+                hoveredType === type ? "active" : ""
+              }`}
+            >
               {childs.map((child) => {
                 const { label, img } = child;
                 return (

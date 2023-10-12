@@ -41,8 +41,8 @@ const CarCard = () => {
           </div>
         </div>
         <div className="actions">
-          <Button variant="outline">View detail</Button>
-          <Button>Book</Button>
+          <Button variant="outline">Chi tiết</Button>
+          <Button>Thuê</Button>
         </div>
       </div>
     </div>

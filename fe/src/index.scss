@@ -7,7 +7,7 @@
   --primary40: #5fcf8666;
   --on-primary: #ffffff;
   --text: #000000;
-  --backdrop: #040404;
+  --backdrop: #04040499;
   --border: #d8dae5;
   --disabled: #cccccc;
   --on-disabled: #888888;
@@ -29,8 +29,8 @@
 
   --z-index-header: 10;
   --z-index-filter: 10;
-  --z-index-modal: 20;
-  --z-index-backdrop: 10;
+  --z-index-modal: 21;
+  --z-index-backdrop: 20;
 }
 
 * {
@@ -107,7 +107,6 @@ img {
   left: 0;
   bottom: 0;
   background-color: var(--backdrop);
-  opacity: 0.6;
   z-index: var(--z-index-backdrop);
 }
 

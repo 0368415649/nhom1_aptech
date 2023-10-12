@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { motion } from "framer-motion";
 
 export const Context = createContext();
 
@@ -47,10 +48,20 @@ const Provider = ({ children }) => {
       {children}
       {content && isVisible && isValidElement(content) && (
         <>
-          {cloneElement(content, {
-            onDismiss: handleDismiss,
-          })}
-          <div className="backdrop" onClick={handleDismiss} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            key="modal"
+            className="backdrop"
+            onClick={handleDismiss}
+          >
+            {cloneElement(content, {
+              onDismiss: handleDismiss,
+            })}
+
+            {/* <div className="backdrop" onClick={handleDismiss} /> */}
+          </motion.div>
         </>
       )}
     </Context.Provider>
