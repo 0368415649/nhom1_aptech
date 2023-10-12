@@ -21,3 +21,5 @@ export { default as ClockIcon } from "./icons/Clock";
 export { default as StarIcon } from "./icons/Star";
 export { default as StarSolidIcon } from "./icons/StarSolid";
 export { default as BriefcaseIcon } from "./icons/Briefcase";
+export { default as TelegramIcon } from "./icons/Telegram";
+export { default as DiscordIcon } from "./icons/Discord";

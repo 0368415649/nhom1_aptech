@@ -64,7 +64,7 @@ const UpdateProfile = (props) => {
           )}
         </div>
 
-        <Button className="submit-btn" disabled={isError}>
+        <Button size="lg" className="submit-btn" disabled={isError}>
           Cập nhật
         </Button>
       </form>

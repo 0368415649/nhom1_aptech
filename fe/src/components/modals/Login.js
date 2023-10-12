@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import Input from "../Input";
 import Button from "../Button";
-import { PHONE_NUMBER } from "../../contants/regexs";
+import { PHONE_NUMBER } from "../../constants/regexs";
 
 import "./styles/Login.scss";
 import useForm from "../../hooks/useForm";
@@ -56,13 +56,13 @@ const Login = (props) => {
           )}
         </div>
         <div className="forgot-password">Quên mật khẩu</div>
-        <Button disabled={isError}>Đăng nhập</Button>
-        <div className="text-center">
-          <div className="text_r">
-            Bạn chưa là thành viên?{" "}
-            <div className="switch" onClick={switchToRegister}>
-              Đăng ký ngay
-            </div>
+        <Button size="lg" disabled={isError}>
+          Đăng nhập
+        </Button>
+        <div className="register-switch">
+          Bạn chưa là thành viên?{" "}
+          <div className="switch" onClick={switchToRegister}>
+            Đăng ký ngay
           </div>
         </div>
       </form>

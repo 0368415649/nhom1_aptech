@@ -5,7 +5,7 @@ import Button from "../Button";
 
 import "./styles/VerifyIdentityModal.scss";
 import useForm from "../../hooks/useForm";
-import { CITIZEN_IDENTIFICATION_NUMBER } from "../../contants/regexs";
+import { CITIZEN_IDENTIFICATION_NUMBER } from "../../constants/regexs";
 import Input from "../Input";
 
 const rules = {

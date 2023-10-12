@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
   --primary: #5fcf86;
@@ -12,6 +12,7 @@
   --disabled: #cccccc;
   --on-disabled: #888888;
   --background: #f6f6f6;
+  --surface: #0000000d;
 
   --red: #ff3333;
   --yellow: #ffc634;
@@ -20,9 +21,11 @@
   --black10: #0000001a;
   --black20: #00000033;
   --black40: #00000066;
+  --black60: #00000099;
+  --black70: #000000b3;
   --white: #ffffff;
 
-  --primary-font: "Nunito Sans", sans-serif;
+  --primary-font: "Inter", sans-serif;
 
   --z-index-header: 10;
   --z-index-filter: 10;
@@ -41,6 +44,23 @@
 html {
   height: 100vh;
   background-color: var(--background);
+}
+
+body {
+  @media screen and (min-width: 1024px) {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #cfcfcf;
+      border-radius: 50px;
+    }
+  }
 }
 
 #root {
@@ -103,8 +123,9 @@ img {
 }
 
 .invalid {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--red);
+  font-weight: 500;
 }
 
 .divider {
@@ -117,5 +138,9 @@ img {
 .input-section {
   &:not(:first-child) {
     margin-top: 12px;
+  }
+
+  .label {
+    margin-bottom: 4px;
   }
 }

@@ -1,12 +1,11 @@
 import React from "react";
 
 import Img from "../../components/Img";
+import Button from "../../components/Button";
 import {
   AddressIcon,
   BriefcaseIcon,
-  StarIcon,
   StarSolidIcon,
-  VehicleIcon,
 } from "../../components/Svg";
 
 import porsche from "../../assets/imgs/poscher.jpg";
@@ -24,25 +23,26 @@ const CarCard = () => {
           height="170px"
           alt="car-img"
         />
-        {/* <Img src={avatar} className="avatar" alt="avatar" /> */}
       </div>
       <div className="car-details">
-        <div className="address">Hoang Mai - Ha Noi</div>
         <div className="car-name">Lamborghini Aventador</div>
+        <div className="block-info">
+          <AddressIcon className="icon" />
+          <span>Hoang Mai - Ha Noi</span>
+        </div>
         <div className="car-info">
           <div className="block-info">
             <StarSolidIcon className="star-icon icon" />
             <span>5.0</span>
           </div>
           <div className="block-info">
-            <div className="car-count">
-              <BriefcaseIcon className="icon" />
-              <span>194 chuyến</span>
-            </div>
-            <div className="car-price">
-              <span className="price">278K</span>/ngày
-            </div>
+            <BriefcaseIcon className="icon" />
+            <span>194 chuyến</span>
           </div>
+        </div>
+        <div className="actions">
+          <Button variant="outline">View detail</Button>
+          <Button>Book</Button>
         </div>
       </div>
     </div>

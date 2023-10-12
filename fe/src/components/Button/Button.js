@@ -1,20 +1,21 @@
-import React from 'react';
-import cx from 'classnames';
+import React from "react";
+import cx from "classnames";
 
-import './Button.scss';
+import "./Button.scss";
 
-import { checkValidAndCloneElement } from '../../utils/common';
+import { checkValidAndCloneElement } from "../../utils/common";
 
 const Button = ({
   children,
-  className = '',
+  className = "",
   loading = [false],
   disabled,
   variant,
   startIcon,
+  size = "md",
   ...props
 }) => {
-  const classes = cx('Button', className, variant);
+  const classes = cx("Button", className, variant, size);
 
   const [isLoading, loadingText] = loading;
 
@@ -28,7 +29,7 @@ const Button = ({
   return (
     <button disabled={isLoading || disabled} className={classes} {...props}>
       {checkValidAndCloneElement(startIcon, {
-        className: 'button-start-icon',
+        className: "button-start-icon",
       })}
       {getButtonText()}
     </button>

@@ -3,15 +3,16 @@ import {
   createContext,
   isValidElement,
   useContext,
+  useEffect,
   useState,
-} from 'react';
+} from "react";
 
 export const Context = createContext();
 
 export function useModalContext() {
   const value = useContext(Context);
   if (!value) {
-    throw new Error('Must wrap component by context provider!');
+    throw new Error("Must wrap component by context provider!");
   }
 
   return value;
@@ -30,6 +31,14 @@ const Provider = ({ children }) => {
     setIsVisible(true);
     setContent(content);
   };
+
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isVisible]);
 
   return (
     <Context.Provider

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
-import Input from '../Input';
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import { auth } from '../../firebase/setup';
-import Button from '../Button';
+import React, { useState } from "react";
+import Modal from "./Modal";
+import Input from "../Input";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { auth } from "../../firebase/setup";
+import Button from "../Button";
 
-import './styles/VerifyOtp.scss';
+import "./styles/VerifyOtp.scss";
 
 const VerifyOtp = ({ phoneNumber, ...props }) => {
-  const [otpConfirm, setOtpConfirm] = useState('');
+  const [otpConfirm, setOtpConfirm] = useState("");
   const [isOtpValid, setIsOtpValid] = useState(false);
   const [isSentSms, setIsSentSms] = useState(false);
   const [isSendingSms, setIsSendingSms] = useState(false);
@@ -18,13 +18,13 @@ const VerifyOtp = ({ phoneNumber, ...props }) => {
     setIsSentSms(false);
     setIsSendingSms(true);
 
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha', {
-      size: 'invisible',
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha", {
+      size: "invisible",
     });
 
     const appVerifier = window.recaptchaVerifier;
     const formattedPhoneNumber =
-      '+84' + phoneNumber.slice(1, phoneNumber.length);
+      "+84" + phoneNumber.slice(1, phoneNumber.length);
 
     signInWithPhoneNumber(auth, formattedPhoneNumber, appVerifier)
       .then((confirmationResult) => {
@@ -60,7 +60,7 @@ const VerifyOtp = ({ phoneNumber, ...props }) => {
         button={<Button onClick={submitOtp}>Gửi mã</Button>}
         className="otp-confirm"
       />
-      <Button className="verify-btn" onClick={confirmOtp}>
+      <Button size="lg" className="verify-btn" onClick={confirmOtp}>
         Xác nhận
       </Button>
     </Modal>
