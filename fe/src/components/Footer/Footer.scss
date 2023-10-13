@@ -1,12 +1,18 @@
 .Footer {
-  display: flex;
-  padding: 72px 300px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 48px;
-  align-self: stretch;
   background-color: var(--white);
   border-top: 1px solid var(--border);
+
+  .Footer-inner {
+    width: 100%;
+    max-width: 1320px;
+    padding: 72px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 48px;
+  }
 
   .socials {
     display: flex;

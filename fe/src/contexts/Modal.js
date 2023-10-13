@@ -5,15 +5,15 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react";
-import { motion } from "framer-motion";
+} from 'react';
+import { motion } from 'framer-motion';
 
 export const Context = createContext();
 
 export function useModalContext() {
   const value = useContext(Context);
   if (!value) {
-    throw new Error("Must wrap component by context provider!");
+    throw new Error('Must wrap component by context provider!');
   }
 
   return value;
@@ -35,9 +35,9 @@ const Provider = ({ children }) => {
 
   useEffect(() => {
     if (isVisible) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [isVisible]);
 
@@ -54,13 +54,15 @@ const Provider = ({ children }) => {
             exit={{ opacity: 0 }}
             key="modal"
             className="backdrop"
-            onClick={handleDismiss}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) {
+                handleDismiss();
+              }
+            }}
           >
             {cloneElement(content, {
               onDismiss: handleDismiss,
             })}
-
-            {/* <div className="backdrop" onClick={handleDismiss} /> */}
           </motion.div>
         </>
       )}
