@@ -1,0 +1,60 @@
+.RegisterCarForm {
+  background-color: var(--white);
+  padding: 24px 240px !important;
+
+  .steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+
+      &.actived {
+        span {
+          background-color: var(--primary);
+          color: var(--on-primary);
+        }
+      }
+
+      span {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 32px;
+
+    > button {
+      flex: 1;
+    }
+  }
+
+  .input-section {
+  }
+
+  .label {
+  }
+
+  .section {
+  }
+
+  .title {
+  }
+
+  .input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --primary: #5fcf86;
@@ -25,7 +25,7 @@
   --black70: #000000b3;
   --white: #ffffff;
 
-  --primary-font: "Inter", sans-serif;
+  --primary-font: 'Inter', sans-serif;
 
   --z-index-header: 10;
   --z-index-filter: 10;
@@ -98,6 +98,10 @@ svg {
 img {
   object-fit: cover;
   object-position: center;
+}
+
+textarea {
+  resize: none;
 }
 
 .backdrop {
