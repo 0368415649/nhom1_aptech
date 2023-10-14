@@ -1,16 +1,17 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Img from "../../components/Img";
-import Button from "../../components/Button";
+import Img from '../../components/Img';
+import Button from '../../components/Button';
 import {
   AddressIcon,
   BriefcaseIcon,
   StarSolidIcon,
-} from "../../components/Svg";
+} from '../../components/Svg';
 
-import porsche from "../../assets/imgs/poscher.jpg";
+import porsche from '../../assets/imgs/poscher.jpg';
 
-import "./styles/CarCard.scss";
+import './styles/CarCard.scss';
 
 const CarCard = () => {
   return (

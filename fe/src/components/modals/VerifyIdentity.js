@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 
 import Modal from './Modal';
 import Button from '../Button';
+import Input from '../Input';
+import UploadImage from '../UploadImage/UploadImage';
+
+import useForm from '../../hooks/useForm';
+
+import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
 
 import './styles/VerifyIdentityModal.scss';
-import useForm from '../../hooks/useForm';
-import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
-import Input from '../Input';
 
 const rules = {
   citizenIdentificationNumber: {
@@ -77,6 +80,16 @@ const VerifyIdentity = (props) => {
             {dirtyErrors['dateOfBirth'] && (
               <span className="invalid">{dirtyErrors['dateOfBirth']}</span>
             )}
+          </div>
+          <div className="images">
+            <div className="image">
+              <div className="label">Mặt trước CCCD</div>
+              <UploadImage className="identity" />
+            </div>
+            <div className="image">
+              <div className="label">Mặt sau CCCD</div>
+              <UploadImage className="identity" />
+            </div>
           </div>
           <Button size="lg" className="verify-btn" disabled={isError}>
             Xác minh

@@ -15,4 +15,23 @@
   .verify-btn {
     margin-top: 16px;
   }
+
+  .images {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    margin-top: 16px;
+
+    .image {
+      flex: 1;
+
+      .label {
+        margin-bottom: 4px;
+      }
+
+      .identity {
+        height: 100px;
+      }
+    }
+  }
 }
