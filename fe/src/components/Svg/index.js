@@ -28,3 +28,5 @@ export { default as TelegramIcon } from './icons/Telegram';
 export { default as DiscordIcon } from './icons/Discord';
 export { default as UsersIcon } from './icons/Users';
 export { default as LiquidIcon } from './icons/Liquid';
+export { default as PlusIcon } from './icons/Plus';
+export { default as TrashIcon } from './icons/Trash';
