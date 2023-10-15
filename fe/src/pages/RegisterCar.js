@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../components/Button';
-import VerifyIdentity from '../components/modals/VerifyIdentity';
+import VerifyIdentification from '../components/modals/VerifyIdentification';
 
 import useModal from '../hooks/useModal';
 
@@ -10,7 +10,7 @@ import registerCar from '../assets/imgs/register_car.png';
 import './styles/RegisterCar.scss';
 
 const RegisterCar = () => {
-  const [showVerifyIdentity] = useModal(<VerifyIdentity />);
+  const [showVerifyIdentification] = useModal(<VerifyIdentification />);
 
   return (
     <div className="RegisterCar page-layout">
@@ -19,7 +19,7 @@ const RegisterCar = () => {
       <Button
         size="lg"
         className="register-car-btn"
-        onClick={showVerifyIdentity}
+        onClick={showVerifyIdentification}
       >
         Đăng ký xe cho thuê
       </Button>

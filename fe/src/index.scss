@@ -5,6 +5,7 @@
   --primary10: #5fcf861a;
   --primary20: #5fcf8633;
   --primary40: #5fcf8666;
+  --primary60: #5fcf8699;
   --on-primary: #ffffff;
   --text: #000000;
   --backdrop: #04040499;
@@ -33,6 +34,8 @@
   --z-index-backdrop: 20;
 
   --transition-fast: 250ms;
+
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 * {

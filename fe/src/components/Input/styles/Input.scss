@@ -3,7 +3,8 @@
   align-items: stretch;
   border-radius: 8px;
   border: 1px solid var(--border);
-  padding: 2px;
+  height: 40px;
+  overflow: hidden;
 
   & + .Input {
     margin-top: 24px;

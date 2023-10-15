@@ -9,10 +9,10 @@ import useForm from '../../hooks/useForm';
 
 import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
 
-import './styles/VerifyIdentityModal.scss';
+import './styles/VerifyIdentificationModal.scss';
 
 const rules = {
-  citizenIdentificationNumber: {
+  identificationNumber: {
     required: 'Số CCCD không được để trống',
     option: (value) => {
       if (CITIZEN_IDENTIFICATION_NUMBER.test(value)) {
@@ -30,7 +30,7 @@ const rules = {
   },
 };
 
-const VerifyIdentity = (props) => {
+const VerifyIdentification = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
 
   const {
@@ -43,7 +43,7 @@ const VerifyIdentity = (props) => {
 
   return (
     <Modal
-      className="VerifyIdentityModal"
+      className="VerifyIdentificationModal"
       label="Xác minh danh tính"
       {...props}
     >
@@ -60,10 +60,10 @@ const VerifyIdentity = (props) => {
         <form className="Login" onSubmit={handleSubmit(submitVerifyIndentity)}>
           <div className="input-section">
             <div className="label">Số CCCD</div>
-            <Input {...register('citizenIdentificationNumber')} />
-            {dirtyErrors['citizenIdentificationNumber'] && (
+            <Input {...register('identificationNumber')} />
+            {dirtyErrors['identificationNumber'] && (
               <span className="invalid">
-                {dirtyErrors['citizenIdentificationNumber']}
+                {dirtyErrors['identificationNumber']}
               </span>
             )}
           </div>
@@ -84,7 +84,10 @@ const VerifyIdentity = (props) => {
           <div className="images">
             <div className="image">
               <div className="label">Mặt trước CCCD</div>
-              <UploadImage className="identity" />
+              <UploadImage
+                className="identity"
+                {...register('identificationNumber')}
+              />
             </div>
             <div className="image">
               <div className="label">Mặt sau CCCD</div>
@@ -100,4 +103,4 @@ const VerifyIdentity = (props) => {
   );
 };
 
-export default VerifyIdentity;
+export default VerifyIdentification;

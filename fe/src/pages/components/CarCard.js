@@ -42,7 +42,9 @@ const CarCard = () => {
           </div>
         </div>
         <div className="actions">
-          <Button variant="outline">Chi tiết</Button>
+          <Button as={Link} to="/car/1" variant="outline">
+            Chi tiết
+          </Button>
           <Button>Thuê</Button>
         </div>
       </div>
