@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Input from '../../components/Input';
 
 import './styles/ActionRent.scss';
 import Dropdown from '../../components/Dropdown';
 import Button from '../../components/Button';
+import DatePicker from '../../components/DatePicker';
+import { getUnixTimeInSecond } from '../../utils/dates';
 
 const options = [
   { label: 'Nam', value: 'male' },
@@ -12,6 +14,8 @@ const options = [
 ];
 
 const ActionRent = () => {
+  const [value, setValue] = useState(getUnixTimeInSecond(new Date()));
+
   return (
     <div className="ActionRent">
       <div className="price">
@@ -20,7 +24,11 @@ const ActionRent = () => {
       <div className="pick-date">
         <div className="title">Ngày nhận xe</div>
         <div className="pick">
-          <Input type="date" className="date-input" />
+          <DatePicker
+            value={value}
+            onChange={setValue}
+            className="date-input"
+          />
           <Dropdown
             className="time-dropdown"
             options={options}
@@ -31,8 +39,11 @@ const ActionRent = () => {
       <div className="pick-date">
         <div className="title">Ngày trả xe</div>
         <div className="pick">
-          {' '}
-          <Input type="date" className="date-input" />
+          <DatePicker
+            value={value}
+            onChange={setValue}
+            className="date-input"
+          />
           <Dropdown
             className="time-dropdown"
             options={options}

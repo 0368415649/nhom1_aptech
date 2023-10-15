@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import cx from 'classnames';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '../Svg';
 
 import useToggle from '../../hooks/useToggle';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 import { getArrayFromNumber } from '../../utils/common';
 import { getDateFormat, getUnixTimeInSecond } from '../../utils/dates';
@@ -42,10 +43,12 @@ const thisMonth = date.getMonth() + 1;
 
 const DatePicker = ({ value, onChange, className = '' }) => {
   const classes = cx('DatePicker', className);
+  const popoverRef = useRef(null);
+  const [isShow, setIsShow] = useState(false);
+
   const [currentMonth, setCurrentMonth] = useState(date.getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const [selectedDate, setSelectedDate] = useState();
-  const [isShow, toggleShow] = useToggle();
 
   const datesCurrentMonth = getDaysInMonth(currentYear, currentMonth);
   const datesPrevMonth = getDaysInMonth(currentYear, currentMonth - 1);
@@ -93,12 +96,17 @@ const DatePicker = ({ value, onChange, className = '' }) => {
     onChange(
       getUnixTimeInSecond(new Date(`${currentYear}-${currentMonth}-${date}`))
     );
-    toggleShow();
+    setIsShow(false);
   };
 
+  useOnClickOutside(popoverRef, () => setIsShow(false));
+
   return (
-    <div className={classes}>
-      <div className="DatePicker-handler" onClick={toggleShow}>
+    <div className={classes} ref={popoverRef}>
+      <div
+        className="DatePicker-handler"
+        onClick={() => setIsShow((prev) => !prev)}
+      >
         {getDateFormat(new Date(value))}
       </div>
       {isShow && (

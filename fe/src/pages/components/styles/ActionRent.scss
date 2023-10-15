@@ -33,6 +33,10 @@
 
       .date-input {
         width: 60%;
+
+        .DatePicker-handler {
+          height: 100%;
+        }
       }
 
       .time-dropdown {
