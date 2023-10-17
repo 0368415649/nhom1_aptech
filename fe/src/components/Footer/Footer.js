@@ -20,7 +20,7 @@ const Footer = () => {
             {Object.keys(LINKS).map((key) => {
               const col = LINKS[key];
               return (
-                <div className="util-cols">
+                <div className="util-cols" key={key}>
                   <div key={col.label} className="link-header">
                     {col.label}
                   </div>

@@ -1,22 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Login from "../modals/Login";
-import Register from "../modals/Register";
-import useModal from "../../hooks/useModal";
+import Login from '../modals/Login';
+import Register from '../modals/Register';
+import useModal from '../../hooks/useModal';
 
-import logo from "../../assets/imgs/logo.png";
-import avatar from "../../assets/imgs/luffy.jpg";
+import logo from '../../assets/imgs/logo.png';
+import avatar from '../../assets/imgs/luffy.jpg';
 
-import Button from "../Button";
-import { ChevronDownIcon } from "../Svg";
+import Button from '../Button';
+import { ChevronDownIcon } from '../Svg';
 
-import "./Header.scss";
+import './Header.scss';
+import { useUserContext } from '../../contexts/User';
 
 const Header = () => {
   const [showRegister] = useModal(<Register />);
   const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
-  const isLogin = !true;
+  const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   return (
     <div className="Header">
       <Link to="/">

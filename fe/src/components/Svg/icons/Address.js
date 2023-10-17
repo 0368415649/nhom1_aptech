@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Svg from "../Svg";
+import Svg from '../Svg';
 
 const Icon = (props) => {
   return (
@@ -12,7 +12,7 @@ const Icon = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0_32_278)">
+      <g clipPath="url(#clip0_32_278)">
         <path
           d="M21.7781 10.075C21.7781 17.075 12.7781 23.075 12.7781 23.075C12.7781 23.075 3.77808 17.075 3.77808 10.075C3.77808 7.688 4.72629 5.39882 6.41411 3.71099C8.10194 2.02316 10.3911 1.07495 12.7781 1.07495C15.165 1.07495 17.4542 2.02316 19.142 3.71099C20.8299 5.39882 21.7781 7.688 21.7781 10.075Z"
           fill="#5FCF86"

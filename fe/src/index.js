@@ -1,19 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
 
-import App from "./App";
-import { default as ModalProvider } from "./contexts/Modal";
+import App from './App';
+import { default as ModalProvider } from './contexts/Modal';
+import { default as UserProvider } from './contexts/User';
 
-import "./index.scss";
-// import 'bootstrap/dist/css/bootstrap.css';
+import './index.scss';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ModalProvider>
-    <div id="recaptcha"></div>
-    <App />
-  </ModalProvider>
+  <UserProvider>
+    <ModalProvider>
+      <div id="recaptcha"></div>
+      <App />
+    </ModalProvider>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
