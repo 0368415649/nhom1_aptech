@@ -54,11 +54,11 @@ const Provider = ({ children }) => {
             exit={{ opacity: 0 }}
             key="modal"
             className="backdrop"
-            onClick={(event) => {
-              if (event.target === event.currentTarget) {
-                handleDismiss();
-              }
-            }}
+            // onClick={(event) => {
+            //   if (event.target === event.currentTarget) {
+            //     handleDismiss();
+            //   }
+            // }}
           >
             {cloneElement(content, {
               onDismiss: handleDismiss,
