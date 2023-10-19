@@ -72,7 +72,7 @@ const Register = (props) => {
 
   const submitRegister = async ({ phone, password, displayName }) => {
     try {
-      const { data } = await http.post('/register_customer', {
+      const { data } = await http.post('/register_customer', null, {
         params: {
           phone,
           password,
