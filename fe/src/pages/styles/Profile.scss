@@ -1,199 +1,258 @@
 .Profile {
-  .grap-pr {
-    margin-top: 80px;
-    background-color: #f6f6f6;
-    height: 1000px;
-    padding: 50px 250px 0px;
-  }
-  .grap-tttc {
-    background-color: white;
-    padding: 50px 30px 200px;
-    border-radius: 10px;
-  }
-  .text-tttc {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  .fa-marker {
-    margin-left: 15px;
-    font-size: 16px;
-  }
-  .grap-dl {
-    padding: 10px 15px;
-    border: 1px solid rgb(226, 226, 226);
-    border-radius: 10px;
-  }
-  .dl-text {
-    color: #25c55d;
-    font-size: 20px;
-    margin-right: 10px;
-  }
-  .dl-text span {
-    font-size: 30px;
-    font-weight: 700;
-  }
-  .ch-text {
-    color: #747474;
-  }
-  .grap-ns {
-    background-color: #f6f6f6;
-    border-radius: 10px;
-    padding: 20px;
-  }
-  .ns-text {
-    font-size: 13px;
-    color: #6d6d6d;
-  }
-  .ns-text-ns {
-    font-weight: 500;
-    font-size: 15px;
-  }
-  .img-l {
-    border-radius: 15%;
-  }
-  .ha-css {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .grap_ic_left {
-    width: 100;
-    border-top: 1px solid #c2c2c2;
-    padding-top: 10px;
-  }
-  .text-tttc2 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    padding: 20px 0px 30px;
-  }
-  .gp_22 {
-    padding-left: 15px;
-    font-size: 17px;
-    cursor: pointer;
-  }
-  .selected_item {
-    padding-left: 12px;
-    border-left: 3px solid #25c55d;
-  }
-  .grap_all_ic {
-    min-width: 20px;
-  }
-  .cs-ic {
-    cursor: pointer;
-  }
-  /*  */
-  .bg-dr {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #040404;
-    opacity: 0.6;
-    z-index: 1;
-  }
-  .grap_form_edit {
-    padding: 20px;
-    position: fixed;
-    z-index: 2;
-    background-color: white;
-    left: 37%;
-    top: 10%;
-    right: 37% !important;
-    height: 500px;
-    z-index: 1;
-    border-radius: 10px;
-  }
-  .phone_width {
-    padding: 20px;
-    position: fixed;
-    z-index: 2;
-    background-color: white;
-    left: 37%;
-    top: 10%;
-    right: 37% !important;
-    height: 500px;
-    z-index: 1;
-    border-radius: 10px;
-    height: 300px;
-  }
-  .mail_width {
-    padding: 20px;
-    position: fixed;
-    z-index: 2;
-    background-color: white;
-    left: 37%;
-    top: 10%;
-    right: 37% !important;
-    height: 500px;
-    z-index: 1;
-    border-radius: 10px;
-    height: 300px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+
+  .Tab {
+    .heading {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      .tab {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        cursor: pointer;
+
+        & + .tab {
+          border-top: 1px solid var(--border);
+        }
+
+        &:hover {
+          background-color: var(--black5);
+        }
+
+        &.selected_item {
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: var(--primary);
+            width: 4px;
+          }
+        }
+
+        .icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        .title {
+          font-weight: 600;
+        }
+      }
+    }
   }
 
-  .close_button_grap {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+  .UserInfo {
+    background-color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+
+      .edit-btn {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .count {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+
+        span {
+          font-size: 32px;
+          font-weight: 700;
+          color: var(--primary);
+        }
+      }
+    }
+
+    .user-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+
+      .user-avatar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: 224px;
+
+        .user-fullname {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+
+      .info-rows {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex: 1;
+
+        .group-row {
+          background-color: var(--black5);
+          padding: 16px;
+          border-radius: 8px;
+        }
+
+        .info-row {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+
+          &:not(:first-child) {
+            margin-top: 12px;
+          }
+
+          .label {
+            font-size: 14px;
+          }
+
+          .value {
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
   }
-  .btn_cls {
+
+  //FIX ME
+  .grap_sen_car {
+    border-bottom: 0.5px solid rgb(180, 180, 180);
+    padding-bottom: 30px;
+  }
+  .grap_sen_car2 {
+    padding-bottom: 30px;
+  }
+  .no_car_txt {
+    font-weight: 600;
+    font-size: 15px;
+    color: #717070;
+  }
+  .car_img_css {
+    border-radius: 20px;
+  }
+
+  .item-car_name {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item-car_status {
+    color: #767676;
+    font-size: 12px;
+  }
+
+  .item_car_price {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b4b4b;
+  }
+
+  .item-car_address {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    grid-gap: 4px;
+    gap: 4px;
+  }
+  .grap_car_pro {
+    border-radius: 20px;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 15px 5px;
+  }
+  .btn-delete_car {
+    border: none;
+    background-color: white;
+    padding-top: 20px;
+  }
+
+  .ccs_grap_commom {
+    padding: 20px;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    left: 37%;
+    top: 10%;
+    right: 37% !important;
+    border-radius: 10px;
+  }
+
+  .cs-btn-cm {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+  }
+
+  .btn_cm {
     cursor: pointer;
     color: #9c9c9c;
   }
-  .icon-cl {
-    font-size: 23px;
-  }
-  .login-text {
+  .xm-text {
     text-align: center;
-    padding: 20px;
-    font-size: 25px;
-    color: #595959;
-    font-weight: 600;
-  }
-  .text_phone {
-    font-size: 14px;
-    color: #717070;
-    font-weight: 500;
-    margin-bottom: 3px;
-    margin: 5px 0px;
-  }
-  .input_css2 {
-    width: 100%;
-    border-radius: 10px;
     padding: 10px;
-    border: 1px solid #d8dae5;
-  }
-  .text_pass {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 0px 20px;
-    color: #64d089;
-    font-size: 14px;
+    font-size: 25px;
+    color: #000000;
     font-weight: 600;
   }
-  .btn_fo {
+  .grap_history {
+    padding: 20px 0px;
+  }
+  .grap_history_all {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    margin: 0px !important;
+  }
+  .status_commonn {
+    font-size: 13px;
+    font-weight: 400;
     cursor: pointer;
   }
-  .btn_login {
-    cursor: pointer;
-    font-weight: 700;
-    color: #fff;
-    background-color: #5fcf86;
-    border-color: #5fcf86;
-    padding: 14px 0px;
-    border-radius: 10px;
+  .status_commonn:hover {
+    color: #25c55d;
+    font-weight: 500;
   }
-  .text_r {
-    font-size: 14px;
-    margin-top: 20px;
+  .grap_sen_his {
+    margin: 20px 0px;
+    border-bottom: 1px solid rgb(180, 180, 180);
   }
-  .a_h {
-    color: #39b062;
-    text-decoration: none;
-  }
-  input:focus {
-    border: 1px solid #d8dae5;
-    outline: none;
-    /* Các thuộc tính khác có thể được đặt theo ý muốn của bạn */
+  .click_staus {
+    color: #25c55d;
+    font-weight: 500;
   }
 }

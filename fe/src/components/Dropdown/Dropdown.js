@@ -8,17 +8,24 @@ import useToggle from "../../hooks/useToggle";
 const Dropdown = ({
   className = "",
   options = [],
-  option,
   setOption,
-  placeholder = "Chọn",
+  name,
+  placeholder = "",
+  ...props
 }) => {
   const [isShow, setIsShow] = useToggle();
+  const [label, setLabel] = useState(placeholder);
 
   const classes = cx("Dropdown", className);
 
+  const handleSelectOption = (option) => {
+    setOption(name, option.value);
+    setLabel(option.label);
+  };
+
   return (
-    <div className={classes} onClick={setIsShow}>
-      {option || placeholder}
+    <div className={classes} onClick={setIsShow} {...props}>
+      {label}
       <ChevronDownIcon className="chevron-down-icon" />
       {isShow && (
         <div className="options">
@@ -27,7 +34,7 @@ const Dropdown = ({
               <div
                 key={option.label}
                 className="option"
-                onClick={() => setOption(option.label)}
+                onClick={() => handleSelectOption(option)}
               >
                 {option.label}
               </div>

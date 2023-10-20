@@ -8,42 +8,42 @@ import useModal from "../../hooks/useModal";
 import logo from "../../assets/imgs/logo.png";
 import avatar from "../../assets/imgs/luffy.jpg";
 
+import Button from "../Button";
+import { ChevronDownIcon } from "../Svg";
+
 import "./Header.scss";
 
 const Header = () => {
-  const [showLogin] = useModal(<Login />);
   const [showRegister] = useModal(<Register />);
+  const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
   const isLogin = !true;
   return (
     <div className="Header">
-      <a className="logo" href="">
-        <div className="logo-img">
-          <img src={logo} height="30px" alt="logo" />
-        </div>
-      </a>
-      <div className="grap-hf-left d-flex justify-content-center">
-        <div className="ADDDA-css">
-          <a href="">Về ADDDA</a>
-        </div>
-        <div className="sen-css"></div>
+      <Link to="/">
+        <img id="header-logo" src={logo} height="30px" alt="logo" />
+      </Link>
+      <div className="links">
+        <Link to="/about" className="link">
+          Về ADDDA
+        </Link>
+        <Link to="/register_car" className="link">
+          Trở thành chủ xe
+        </Link>
+        <div className="divider" />
         {isLogin ? (
-          <Link to="/profile">
-            <div className="icon-dd">
-              <img src={avatar} alt="avatar" height="40px" width="40px" />
-            </div>
-            <div className="name_dd">
-              <button>Hoàng Anh</button>
-              <i className="fa-solid fa-chevron-down"></i>
-            </div>
+          <Link className="link-profile" to="/profile">
+            <img src={avatar} alt="avatar" height="40px" width="40px" />
+            Hoàng Anh
+            <ChevronDownIcon width="16" height="16" />
           </Link>
         ) : (
           <>
-            <div className="dk-css">
-              <button onClick={showRegister}>Đăng ký</button>
+            <div className="register-btn" onClick={showRegister}>
+              Đăng ký
             </div>
-            <div className="dn-css">
-              <button onClick={showLogin}>Đăng Nhập</button>
-            </div>
+            <Button className="login-btn" variant="outline" onClick={showLogin}>
+              Đăng Nhập
+            </Button>
           </>
         )}
       </div>

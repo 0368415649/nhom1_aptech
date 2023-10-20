@@ -1,12 +1,13 @@
+
 .grap-pr {
   margin-top: 80px;
   background-color: #f6f6f6;
-  height: 1000px;
   padding: 50px 250px 0px;
+  z-index: 10;
 }
 .grap-tttc {
   background-color: white;
-  padding: 50px 30px 200px;
+  padding: 50px 30px 100px;
   border-radius: 10px;
 }
 .text-tttc {
@@ -69,6 +70,8 @@
   padding-left: 15px;
   font-size: 17px;
   cursor: pointer;
+  text-decoration: none;
+  color: #040404;
 }
 .selected_item {
   padding-left: 12px;
@@ -89,30 +92,28 @@
   bottom: 0;
   background-color: #040404;
   opacity: 0.6;
-  z-index: 1;
+  z-index: 4;
 }
 .grap_form_edit {
   padding: 20px;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
   left: 37%;
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
   border-radius: 10px;
 }
 .phone_width {
   padding: 20px;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: white;
   left: 37%;
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
   border-radius: 10px;
   height: 300px;
 }
@@ -125,7 +126,7 @@
   top: 10%;
   right: 37% !important;
   height: 500px;
-  z-index: 1;
+  z-index: 10;
   border-radius: 10px;
   height: 300px;
 }
@@ -194,4 +195,127 @@ input:focus {
   border: 1px solid #d8dae5;
   outline: none;
   /* Các thuộc tính khác có thể được đặt theo ý muốn của bạn */
+}
+.btn_add_car {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  background-color: #5fcf86;
+  border-color: #5fcf86;
+  padding: 14px 20px;
+  border-radius: 10px;
+}
+.btn_add_car:hover{
+  color: white;
+}
+.grap_sen_car{
+  border-bottom: 0.5px solid rgb(180, 180, 180);
+  padding-bottom: 30px;
+}
+.grap_sen_car2{
+  padding-bottom: 30px;
+}
+.no_car_txt{
+  font-weight: 600;
+  font-size: 15px;
+  color: #717070;
+}
+.car_img_css{
+  border-radius: 20px;
+}
+
+.item-car_name {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-car_status{
+  color: #767676;
+  font-size: 12px;
+}
+
+.item_car_price {
+  font-size: .875rem;
+  font-weight: 500;
+  color: #4b4b4b;
+}
+
+.item-car_address {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  grid-gap: 4px;
+  gap: 4px;
+}
+.grap_car_pro{
+  border-radius: 20px;
+  border: 1px solid rgb(200, 200, 200);
+  padding: 15px 5px;
+}
+.btn-delete_car{
+  border: none;
+  background-color: white;
+  padding-top: 20px;
+}
+
+.ccs_grap_commom{
+  padding: 20px;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  left: 37%;
+  top: 10%;
+  right: 37% !important;
+  border-radius: 10px;
+}
+
+.cs-btn-cm{
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  
+}
+
+.btn_cm{
+  cursor: pointer;
+  color: #9c9c9c;
+}
+.xm-text{
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+  color: #000000;
+  font-weight: 600;
+}
+.grap_history{
+
+  padding: 20px 0px;
+}
+.grap_history_all{
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  margin: 0px !important;
+}
+.status_commonn{
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.status_commonn:hover{
+  color: #25c55d;
+  font-weight: 500;
+}
+.grap_sen_his{
+  margin: 20px 0px;
+  border-bottom: 1px solid rgb(180, 180, 180);
+}
+.click_staus{
+  color: #25c55d;
+  font-weight: 500;
 }

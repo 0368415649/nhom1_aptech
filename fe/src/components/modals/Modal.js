@@ -9,11 +9,11 @@ const Modal = ({ children, onDismiss, label, className = "" }) => {
   const classes = cx("Modal", className);
   return (
     <div className={classes}>
-      <div className="heading">
+      <div className="Modal-heading">
         <div className="label">{label}</div>
-        <TimesIcon onClick={onDismiss} style={{ cursor: "pointer" }} />
+        <TimesIcon onClick={onDismiss} className="close-btn" />
       </div>
-      <div className="body">{children}</div>
+      <div className="Modal-body">{children}</div>
     </div>
   );
 };

@@ -3,9 +3,12 @@
   height: 48px;
   border-radius: 8px;
   padding: 8px 16px;
-  border: 1px solid #d8dae5;
+  border: 1px solid var(--border);
   font-size: 16px;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
 
   .chevron-down-icon {
@@ -22,7 +25,7 @@
     flex-direction: column;
     position: absolute;
     top: calc(100% + 4px);
-    background-color: #fff;
+    background-color: var(--white);
     z-index: 2;
     left: 0;
     right: 0;
@@ -35,7 +38,7 @@
       padding: 8px 16px;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: var(--black10);
       }
     }
   }

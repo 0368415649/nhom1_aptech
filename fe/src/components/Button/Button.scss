@@ -1,8 +1,8 @@
 .Button {
   font-weight: 700;
   color: #fff;
-  background-color: #5fcf86;
-  border-color: #5fcf86;
+  background-color: var(--primary);
+  border-color: var(--primary);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -11,17 +11,25 @@
   padding: 0 24px;
   cursor: pointer;
 
-  &:hover {
+  &.outline {
+    border: 1px solid var(--border);
+    background-color: transparent;
+    color: var(--text);
+  }
+
+  &:not(:disabled):hover {
     opacity: 0.8;
   }
 
   &:disabled {
-    background-color: #cccccc;
-    color: #888888;
+    background-color: var(--disabled);
+    color: var(--on-disabled);
     cursor: not-allowed;
   }
 
-  &.full {
-    width: 100%;
+  .button-start-icon {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
   }
 }
