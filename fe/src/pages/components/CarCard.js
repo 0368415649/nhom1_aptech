@@ -41,6 +41,7 @@ const CarCard = () => {
             <span>194 chuyến</span>
           </div>
         </div>
+        <div className="price">Giá: 5,000K</div>
         <div className="actions">
           <Button as={Link} to="/car/1" variant="outline">
             Chi tiết

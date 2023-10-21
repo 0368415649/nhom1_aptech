@@ -7,6 +7,7 @@ import DatePicker from '../components/DatePicker';
 import { getUnixTimeInSecond } from '../utils/dates';
 
 import './styles/Home.scss';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Home = () => {
   return (

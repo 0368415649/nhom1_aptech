@@ -1,16 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import Img from "../../components/Img";
-import Button from "../../components/Button";
-import { PenIcon } from "../../components/Svg";
-import UpdateProfile from "../../components/modals/UpdateProfile";
+import Img from '../../components/Img';
+import Button from '../../components/Button';
+import { PenIcon } from '../../components/Svg';
+import UpdateProfile from '../../components/modals/UpdateProfile';
 
-import useModal from "../../hooks/useModal";
+import useModal from '../../hooks/useModal';
 
-import "./styles/UserInfo.scss";
+import './styles/UserInfo.scss';
+import { useUserContext } from '../../contexts/User';
 
 const UserInfo = () => {
   const [showUpdateProfile] = useModal(<UpdateProfile />);
+  const { user } = useUserContext();
 
   return (
     <div className="Tab-content UserInfo">
@@ -21,7 +23,7 @@ const UserInfo = () => {
             <PenIcon
               width="16"
               height="16"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               onClick={showUpdateProfile}
             />
           </Button>
@@ -33,26 +35,26 @@ const UserInfo = () => {
       <div className="user-info">
         <div className="user-avatar">
           <Img width="150px" />
-          <div className="user-fullname">Hoàng Anh</div>
+          <div className="user-fullname">{user?.name_display}</div>
         </div>
         <div className="info-rows">
           <div className="group-row">
             <div className="info-row">
               <div className="label">Ngày sinh</div>
-              <div className="value">--</div>
+              <div className="value">{user?.birthday}</div>
             </div>
-            <div className="info-row">
+            {/* <div className="info-row">
               <div className="label">Giới tính</div>
-              <div className="value">Nam</div>
-            </div>
+              <div className="value">{user?.birthday}</div>
+            </div> */}
           </div>
           <div className="info-row">
             <div className="label">Số điện thoại</div>
-            <div className="value">0975502334</div>
+            <div className="value">{user?.phone}</div>
           </div>
           <div className="info-row">
             <div className="label">Email</div>
-            <div className="value">anhvu.dev.103@gmail.com</div>
+            <div className="value">{user?.email}</div>
           </div>
         </div>
       </div>

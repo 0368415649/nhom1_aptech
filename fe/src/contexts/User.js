@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import http from '../utils/http';
 
 export const Context = createContext();
 
@@ -13,10 +14,27 @@ export function useUserContext() {
 
 const Provider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
-  console.log('>> Check | userInfo:', userInfo);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      if (userInfo) {
+        try {
+          const { data } = await http.get('/get_customer', {
+            params: {
+              id: userInfo.customer_id,
+            },
+          });
+          setUser(data);
+        } catch (error) {
+          console.log('>> Check | error:', error);
+        }
+      }
+    })();
+  }, [userInfo]);
 
   return (
-    <Context.Provider value={{ userInfo, setUserInfo }}>
+    <Context.Provider value={{ userInfo, setUserInfo, user }}>
       {children}
     </Context.Provider>
   );

@@ -10,6 +10,8 @@ import useForm from '../../hooks/useForm';
 import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
 
 import './styles/VerifyIdentificationModal.scss';
+import DatePicker from '../DatePicker';
+import { getUnixTimeInSecond } from '../../utils/dates';
 
 const rules = {
   identificationNumber: {
@@ -32,6 +34,7 @@ const rules = {
 
 const VerifyIdentification = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [date, setDate] = useState(getUnixTimeInSecond(new Date()));
 
   const {
     register,
@@ -76,10 +79,11 @@ const VerifyIdentification = (props) => {
           </div>
           <div className="input-section">
             <div className="label">Ngày sinh</div>
-            <Input type="date" {...register('dateOfBirth')} />
-            {dirtyErrors['dateOfBirth'] && (
-              <span className="invalid">{dirtyErrors['dateOfBirth']}</span>
-            )}
+            <DatePicker
+              value={date}
+              onChange={setDate}
+              className="date-input"
+            />
           </div>
           <div className="images">
             <div className="image">

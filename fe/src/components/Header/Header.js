@@ -15,6 +15,7 @@ import './Header.scss';
 import { useUserContext } from '../../contexts/User';
 
 const Header = () => {
+  const { user } = useUserContext();
   const [showRegister] = useModal(<Register />);
   const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
@@ -34,7 +35,7 @@ const Header = () => {
         {isLogin ? (
           <Link className="link-profile" to="/profile">
             <img src={avatar} alt="avatar" height="40px" width="40px" />
-            Hoàng Anh
+            {user && user.name_display}
             <ChevronDownIcon width="16" height="16" />
           </Link>
         ) : (

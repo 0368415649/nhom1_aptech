@@ -28,6 +28,9 @@ const rules = {
 
 const Login = (props) => {
   const { setUserInfo } = useUserContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  console.log('>> Check | error:', error);
   const {
     register,
     handleSubmit,
@@ -36,6 +39,7 @@ const Login = (props) => {
 
   const submitLogin = async ({ phone, password }) => {
     try {
+      setIsLoading(true);
       const { data } = await http.get('/check_login', {
         params: {
           phone,
@@ -49,8 +53,14 @@ const Login = (props) => {
         localStorage.setItem('USER_ID', JSON.stringify(data.customer_id));
         props.onDismiss();
       }
+
+      if (data.status === 0) {
+        setError('Sai số điện thoại hoặc mật khẩu!');
+      }
     } catch (error) {
-      console.log('>> Check | error:', error);
+      setError('Sai số điện thoại hoặc mật khẩu!');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -77,7 +87,12 @@ const Login = (props) => {
           )}
         </div>
         <div className="forgot-password">Quên mật khẩu</div>
-        <Button size="lg" disabled={isError}>
+        {error && (
+          <div className="invalid" style={{ marginBottom: '16px' }}>
+            {error}
+          </div>
+        )}
+        <Button size="lg" disabled={isError || isLoading}>
           Đăng nhập
         </Button>
         <div className="register-switch">

@@ -55,6 +55,13 @@
     }
   }
 
+  .price {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 16px;
+  }
+
   .actions {
     display: flex;
     align-items: stretch;
