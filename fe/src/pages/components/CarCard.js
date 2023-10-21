@@ -13,7 +13,7 @@ import porsche from '../../assets/imgs/poscher.jpg';
 
 import './styles/CarCard.scss';
 
-const CarCard = () => {
+const CarCard = ({ car }) => {
   return (
     <div className="CarCard">
       <div className="imgs">
@@ -26,10 +26,10 @@ const CarCard = () => {
         />
       </div>
       <div className="car-details">
-        <div className="car-name">Lamborghini Aventador</div>
+        <div className="car-name">{car?.model_name}</div>
         <div className="block-info">
           <AddressIcon className="icon" />
-          <span>Hoang Mai - Ha Noi</span>
+          <span>{car?.address}</span>
         </div>
         <div className="car-info">
           <div className="block-info">
@@ -41,9 +41,9 @@ const CarCard = () => {
             <span>194 chuyến</span>
           </div>
         </div>
-        <div className="price">Giá: 5,000K</div>
+        <div className="price">Giá: {car?.price}</div>
         <div className="actions">
-          <Button as={Link} to="/car/1" variant="outline">
+          <Button as={Link} to={`/car/${car?.car_id}`} variant="outline">
             Chi tiết
           </Button>
           <Button>Thuê</Button>

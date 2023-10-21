@@ -33,6 +33,7 @@
 
   .filter-section {
     width: 60%;
+    margin-top: -16px;
     background-color: var(--white);
     position: absolute;
     top: 100%;
@@ -67,6 +68,11 @@
       height: auto;
       padding-top: 8px;
       padding-bottom: 8px;
+
+      &.actived {
+        border: 1px solid var(--primary);
+        background-color: var(--primary10);
+      }
     }
 
     .btn {

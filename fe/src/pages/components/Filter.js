@@ -138,25 +138,6 @@ const FILTERS = {
       },
     ],
   },
-  electricity: {
-    icon: ElectricityIcon,
-    label: 'Xe điện',
-  },
-  transmission: {
-    icon: CogIcon,
-    label: 'Truyền động',
-    childs: [
-      {
-        label: 'Tất cả',
-      },
-      {
-        label: 'Số sàn',
-      },
-      {
-        label: 'Số tự động',
-      },
-    ],
-  },
   price: {
     icon: UpDownArrowIcon,
     label: 'Sắp xếp theo giá',
@@ -171,9 +152,18 @@ const FILTERS = {
   },
 };
 
-const Filter = () => {
+const Filter = ({ filter, setFilter }) => {
   const [hoveredType, setHoveredType] = useState(null);
   const [isShow, setIsShow] = useState(false);
+
+  const onChangeSearch = (e) => {
+    const { value } = e.target;
+
+    setFilter((prev) => ({
+      ...prev,
+      search: value,
+    }));
+  };
 
   return (
     <div className="Filter">
@@ -183,6 +173,7 @@ const Filter = () => {
           placeholder="Hãy nhập thông tin tìm kiếm ..."
           type="text"
           startIcon={<SearchIcon width="24" />}
+          onChange={onChangeSearch}
         />
         <div className="filter-btns">
           {Object.keys(FILTERS).map((type) => {
@@ -193,6 +184,11 @@ const Filter = () => {
                 variant="outline"
                 className="filter-btn"
                 key={label}
+                onMouseOver={() => {
+                  setIsShow(true);
+                  setHoveredType(type);
+                }}
+                onMouseOut={() => setIsShow(false)}
               >
                 {label}
               </Button>
@@ -200,7 +196,11 @@ const Filter = () => {
           })}
         </div>
       </div>
-      <div className="filter-section">
+      <div
+        className="filter-section"
+        onMouseOver={() => setIsShow(true)}
+        onMouseOut={() => setIsShow(false)}
+      >
         {isShow &&
           Object.keys(FILTERS).map((type) => {
             const { childs } = FILTERS[type];
@@ -214,13 +214,18 @@ const Filter = () => {
                   hoveredType === type ? 'active' : ''
                 }`}
               >
-                {childs.map((child) => {
+                {childs.map((child, index) => {
                   const { label, img } = child;
                   return (
                     <Button
                       variant="outline"
-                      className={buttonClass}
+                      className={`${buttonClass} ${
+                        index + 1 === filter[type] ? 'actived' : ''
+                      }`}
                       key={label}
+                      onClick={() =>
+                        setFilter((prev) => ({ ...prev, [type]: index + 1 }))
+                      }
                     >
                       {img && <img src={img} alt={buttonClass} />}
                       {label}

@@ -10,10 +10,12 @@ import './styles/Home.scss';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Home = () => {
+  const [filter, setFilter] = useState({});
+  console.log('>> Check | filter:', filter);
   return (
     <div className="Home page-layout large-margin">
-      <Filter />
-      <Cars />
+      <Filter filter={filter} setFilter={setFilter} />
+      <Cars filter={filter} />
     </div>
   );
 };
