@@ -58,6 +58,7 @@ const Register = (props) => {
   } = useForm(rules);
 
   const [error, setError] = useState(null);
+  console.log('>> Check | error:', error);
 
   const [showVerifyOtp, dismissVerifyOtp] = useModal(
     <VerifyOtp
@@ -76,6 +77,8 @@ const Register = (props) => {
         phone,
         password,
         name_display: displayName,
+        // role_id: 1,
+        // verify_flg: 0,
       });
 
       // const { customer_id, status, token } = data;
@@ -83,8 +86,6 @@ const Register = (props) => {
         props.onDismiss();
         dismissVerifyOtp();
       }
-
-      setError('This phone number existed!');
     } catch (error) {
       console.log('>> Check | error:', error);
     }
@@ -104,6 +105,9 @@ const Register = (props) => {
       if (data.status === 0) {
         props.onDismiss();
         showVerifyOtp();
+      }
+      if (data.status === 1) {
+        setError('Số điện thoại đã tồn tại!');
       }
     } catch (error) {
       console.log('>> Check | error:', error);
@@ -142,6 +146,11 @@ const Register = (props) => {
           )}
         </div>
         <Checkbox className="policy" />
+        {error && (
+          <div className="invalid" style={{ marginTop: 12 }}>
+            {error}
+          </div>
+        )}
         <Button
           type="button"
           size="lg"

@@ -13,6 +13,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
   const [isSentSms, setIsSentSms] = useState(false);
   const [isSendingSms, setIsSendingSms] = useState(false);
   const [isConfirmingOtp, setIsConfirmingOtp] = useState(false);
+  const [error, setError] = useState(null);
 
   const submitOtp = () => {
     setIsSentSms(false);
@@ -34,7 +35,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
         window.confirmationResult = confirmationResult;
         // ...
       })
-      .catch(console.error)
+      .catch((e) => console.log('???????', e))
       .finally(() => setIsSendingSms(false));
   };
 
@@ -48,7 +49,9 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
         onSuccess();
         // ...
       })
-      .catch(console.error)
+      .catch((e) => {
+        setError('Mã không chính xác, vui lòng nhập lại');
+      })
       .finally(() => setIsConfirmingOtp(false));
   };
 
@@ -61,6 +64,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
         button={<Button onClick={submitOtp}>Gửi mã</Button>}
         className="otp-confirm"
       />
+      {error && <div className="invalid">{error}</div>}
       <Button size="lg" className="verify-btn" onClick={confirmOtp}>
         Xác nhận
       </Button>

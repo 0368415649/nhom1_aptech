@@ -16,6 +16,7 @@ const Home = () => {
     <div className="Home page-layout large-margin">
       <Filter filter={filter} setFilter={setFilter} />
       <Cars filter={filter} />
+      {/* <img src="https://localhost:44307/Image/Car/Image/car_1_1.jpg" alt="" /> */}
     </div>
   );
 };

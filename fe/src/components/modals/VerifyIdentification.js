@@ -8,6 +8,7 @@ import UploadImage from '../UploadImage/UploadImage';
 import useForm from '../../hooks/useForm';
 
 import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
+import http from '../../utils/http';
 
 import './styles/VerifyIdentificationModal.scss';
 import DatePicker from '../DatePicker';
@@ -27,20 +28,45 @@ const rules = {
   fullName: {
     required: 'Họ và tên không được để trống',
   },
-  dateOfBirth: {
-    required: 'Ngày sinh không được để trống',
-  },
 };
 
 const VerifyIdentification = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const [date, setDate] = useState(getUnixTimeInSecond(new Date()));
+  const [img1, setImg1] = useState(null);
+  console.log('>> Check | img1:', img1);
+  const [img2, setImg2] = useState(null);
+
+  const handle = (e) => {
+    const file = e.target.files[0];
+    setImg1(file);
+  };
+  const handle2 = (e) => {
+    const file = e.target.files[0];
+    setImg2(file);
+  };
+
+  const upload = () => {
+    const formData = new FormData();
+    formData.append('image1', img1);
+    formData.append('image2', img2);
+    formData.append('full_name', 'Vai ca lon');
+    formData.append('id_number', '001200024194');
+    formData.append('birthday', '13-12-2000');
+    formData.append('customer_id', 3);
+
+    http.post('/verify_customer', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  };
 
   const {
     register,
     handleSubmit,
-    formState: { dirtyErrors, isError },
+    formState: { dirtyErrors, isError, errors },
   } = useForm(rules);
+  console.log('>> Check | errors:', errors);
 
   const submitVerifyIndentity = console.log;
 
@@ -60,7 +86,14 @@ const VerifyIdentification = (props) => {
       )}
 
       {isConfirmed && (
-        <form className="Login" onSubmit={handleSubmit(submitVerifyIndentity)}>
+        <form
+          className="Login"
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log('VAI CALON');
+            upload();
+          }}
+        >
           <div className="input-section">
             <div className="label">Số CCCD</div>
             <Input {...register('identificationNumber')} />
@@ -79,23 +112,18 @@ const VerifyIdentification = (props) => {
           </div>
           <div className="input-section">
             <div className="label">Ngày sinh</div>
-            <DatePicker
-              value={date}
-              onChange={setDate}
-              className="date-input"
-            />
+            <Input type="date" {...register('dateOfBirth')} />
           </div>
           <div className="images">
             <div className="image">
               <div className="label">Mặt trước CCCD</div>
-              <UploadImage
-                className="identity"
-                {...register('identificationNumber')}
-              />
+              <UploadImage className="identity" onChange={handle} />
+              {/* <input type="file" accept="image/*" onChange={handle} /> */}
             </div>
             <div className="image">
               <div className="label">Mặt sau CCCD</div>
-              <UploadImage className="identity" />
+              <UploadImage className="identity" onChange={handle2} />
+              {/* <input type="file" accept="image/*" onChange={handle2} /> */}
             </div>
           </div>
           <Button size="lg" className="verify-btn" disabled={isError}>

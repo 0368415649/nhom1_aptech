@@ -6,7 +6,7 @@ import Img from '../Img';
 import './UploadImage.scss';
 import { PlusIcon, TrashIcon } from '../Svg';
 
-const UploadImage = ({ name, className = '' }) => {
+const UploadImage = ({ className = '', ...props }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const classes = cx('UploadImage', className);
@@ -30,10 +30,9 @@ const UploadImage = ({ name, className = '' }) => {
       <PlusIcon className="icon" />
       <input
         type="file"
-        className=""
-        name={name}
+        accept="image/*"
         onChange={(event) => {
-          console.log(event.target.files[0]);
+          props.onChange(event);
           setSelectedImage(event.target.files[0]);
         }}
       />
