@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import porsche from '../../assets/imgs/poscher.jpg';
-import avatar from '../../assets/imgs/luffy.jpg';
-
 import './styles/Cars.scss';
 import CarCard from './CarCard';
 import http from '../../utils/http';
 
 const Cars = ({ filter }) => {
   const [cars, setCars] = useState([]);
-  console.log('>> Check | cars:', cars);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -21,11 +17,7 @@ const Cars = ({ filter }) => {
             typeCar: filter.type || '',
             brand: filter.automaker || '',
             order_by_price:
-              filter.automaker === 1
-                ? 'ASC'
-                : filter.automaker === 2
-                ? 'DESC'
-                : '',
+              filter.price === 1 ? 'ASC' : filter.price === 2 ? 'DESC' : '',
             name: filter.search || '',
           },
         });
@@ -36,7 +28,7 @@ const Cars = ({ filter }) => {
         setIsLoading(false);
       }
     })();
-  }, [filter.automaker, filter.search, filter.type]);
+  }, [filter]);
   return (
     <div className="Cars">
       {cars.map((car) => (

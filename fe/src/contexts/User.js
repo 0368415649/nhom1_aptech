@@ -17,6 +17,13 @@ const Provider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const userIdFromLocal = localStorage.getItem('USER_ID');
+    if (userIdFromLocal) {
+      setUserInfo({ customer_id: userIdFromLocal });
+    }
+  }, []);
+
+  useEffect(() => {
     (async () => {
       if (userInfo) {
         try {

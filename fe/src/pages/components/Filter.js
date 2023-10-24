@@ -223,9 +223,16 @@ const Filter = ({ filter, setFilter }) => {
                         index + 1 === filter[type] ? 'actived' : ''
                       }`}
                       key={label}
-                      onClick={() =>
-                        setFilter((prev) => ({ ...prev, [type]: index + 1 }))
-                      }
+                      onClick={() => {
+                        if (index + 1 === filter[type]) {
+                          setFilter((prev) => {
+                            const { [type]: removed, ...rest } = prev;
+                            return rest;
+                          });
+                        } else {
+                          setFilter((prev) => ({ ...prev, [type]: index + 1 }));
+                        }
+                      }}
                     >
                       {img && <img src={img} alt={buttonClass} />}
                       {label}

@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CarInfos from './components/CarInfos';
 import ActionRent from './components/ActionRent';
 import Img from '../components/Img';
 
 import './styles/DetailCar.scss';
+import { useParams } from 'react-router-dom';
+import http from '../utils/http';
 
 const DetailCar = () => {
+  const { id } = useParams();
+  const [car, setCar] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const { data } = await http.get('/get_details_car', {
+          params: {
+            id,
+          },
+        });
+        setCar(data);
+      } catch (error) {
+        console.log('>> Check | error:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [id]);
+
   return (
     <div className="DetailCar page-layout">
       <div className="images">
@@ -28,8 +52,8 @@ const DetailCar = () => {
         />
       </div>
       <div className="info-and-actions">
-        <CarInfos />
-        <ActionRent />
+        <CarInfos car={car} />
+        <ActionRent car={car} />
       </div>
     </div>
   );

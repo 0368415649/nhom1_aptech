@@ -9,6 +9,8 @@ import useForm from '../../hooks/useForm';
 import './styles/UpdateProfile.scss';
 import DatePicker from '../DatePicker';
 import { getUnixTimeInSecond } from '../../utils/dates';
+import http from '../../utils/http';
+import { useUserContext } from '../../contexts/User';
 
 const rules = {
   displayName: {
@@ -16,6 +18,9 @@ const rules = {
   },
   gender: {
     required: 'Giới tính không được để trống',
+  },
+  dateOfBirth: {
+    required: 'Ngày sinh không được để trống',
   },
 };
 
@@ -29,11 +34,29 @@ const UpdateProfile = (props) => {
     register,
     handleSubmit,
     setValue,
-    formState: { dirtyErrors, isError, errors },
+    formState: { dirtyErrors, isError },
   } = useForm(rules);
-  const [date, setDate] = useState(getUnixTimeInSecond(new Date()));
+  const [error, setError] = useState(null);
+  const { user } = useUserContext();
 
-  const submitUpdateProfile = console.log;
+  const submitUpdateProfile = async (formData) => {
+    try {
+      const { data } = await http.put('/change_profile_customer', {
+        name_display: formData.displayName,
+        birthday: formData.dateOfBirth,
+        sex: formData.gender,
+        customer_id: user.id,
+      });
+      if (data.status === 1) {
+        setError(null);
+      } else {
+        setError('Không thành công, thử lại sau!');
+      }
+    } catch (error) {
+      console.log('>> Check | error:', error);
+      setError('Không thành công, thử lại sau!');
+    }
+  };
 
   return (
     <Modal label="Cập nhật thông tin" {...props}>
@@ -50,7 +73,10 @@ const UpdateProfile = (props) => {
         </div>
         <div className="input-section">
           <div className="label">Ngày sinh</div>
-          <DatePicker value={date} onChange={setDate} className="date-input" />
+          <Input type="date" {...register('dateOfBirth')} />
+          {dirtyErrors['dateOfBirth'] && (
+            <span className="invalid">{dirtyErrors['dateOfBirth']}</span>
+          )}
         </div>
         <div className="input-section">
           <div className="label">Giới tính</div>
@@ -63,7 +89,7 @@ const UpdateProfile = (props) => {
             <span className="invalid">{dirtyErrors['gender']}</span>
           )}
         </div>
-
+        {error && <div className="invalid">{error}</div>}
         <Button size="lg" className="submit-btn" disabled={isError}>
           Cập nhật
         </Button>
