@@ -4,15 +4,18 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 import { default as ModalProvider } from './contexts/Modal';
+import { default as UserProvider } from './contexts/User';
 
 import './index.scss';
-import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ModalProvider>
-    <App />
-  </ModalProvider>
+  <UserProvider>
+    <ModalProvider>
+      <div id="recaptcha"></div>
+      <App />
+    </ModalProvider>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

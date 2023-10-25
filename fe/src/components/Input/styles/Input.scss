@@ -3,7 +3,8 @@
   align-items: stretch;
   border-radius: 8px;
   border: 1px solid var(--border);
-  padding: 2px;
+  height: 40px;
+  overflow: hidden;
 
   & + .Input {
     margin-top: 24px;
@@ -26,6 +27,11 @@
     height: unset;
     border-radius: 6px;
     font-weight: 600;
+  }
+
+  .suffix {
+    align-self: center;
+    margin-right: 8px;
   }
 
   .show-password,

@@ -12,9 +12,11 @@ const Button = ({
   disabled,
   variant,
   startIcon,
+  size = 'md',
+  as: Component = 'button',
   ...props
 }) => {
-  const classes = cx('Button', className, variant);
+  const classes = cx('Button', className, variant, size);
 
   const [isLoading, loadingText] = loading;
 
@@ -26,12 +28,12 @@ const Button = ({
   };
 
   return (
-    <button disabled={isLoading || disabled} className={classes} {...props}>
+    <Component disabled={isLoading || disabled} className={classes} {...props}>
       {checkValidAndCloneElement(startIcon, {
         className: 'button-start-icon',
       })}
       {getButtonText()}
-    </button>
+    </Component>
   );
 };
 

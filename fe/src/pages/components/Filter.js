@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -138,25 +138,6 @@ const FILTERS = {
       },
     ],
   },
-  electricity: {
-    icon: ElectricityIcon,
-    label: 'Xe điện',
-  },
-  transmission: {
-    icon: CogIcon,
-    label: 'Truyền động',
-    childs: [
-      {
-        label: 'Tất cả',
-      },
-      {
-        label: 'Số sàn',
-      },
-      {
-        label: 'Số tự động',
-      },
-    ],
-  },
   price: {
     icon: UpDownArrowIcon,
     label: 'Sắp xếp theo giá',
@@ -171,8 +152,18 @@ const FILTERS = {
   },
 };
 
-const Filter = () => {
+const Filter = ({ filter, setFilter }) => {
   const [hoveredType, setHoveredType] = useState(null);
+  const [isShow, setIsShow] = useState(false);
+
+  const onChangeSearch = (e) => {
+    const { value } = e.target;
+
+    setFilter((prev) => ({
+      ...prev,
+      search: value,
+    }));
+  };
 
   return (
     <div className="Filter">
@@ -182,6 +173,7 @@ const Filter = () => {
           placeholder="Hãy nhập thông tin tìm kiếm ..."
           type="text"
           startIcon={<SearchIcon width="24" />}
+          onChange={onChangeSearch}
         />
         <div className="filter-btns">
           {Object.keys(FILTERS).map((type) => {
@@ -192,8 +184,11 @@ const Filter = () => {
                 variant="outline"
                 className="filter-btn"
                 key={label}
-                onMouseOver={() => setHoveredType(type)}
-                onMouseOut={() => setHoveredType(null)}
+                onMouseOver={() => {
+                  setIsShow(true);
+                  setHoveredType(type);
+                }}
+                onMouseOut={() => setIsShow(false)}
               >
                 {label}
               </Button>
@@ -201,31 +196,45 @@ const Filter = () => {
           })}
         </div>
       </div>
-      <div className="filter-section">
-        {Object.keys(FILTERS).map((type) => {
-          const { childs } = FILTERS[type];
-          const buttonClass = `filter-child-btn btn-${type}`;
+      <div
+        className="filter-section"
+        onMouseOver={() => setIsShow(true)}
+        onMouseOut={() => setIsShow(false)}
+      >
+        {isShow &&
+          Object.keys(FILTERS).map((type) => {
+            const { childs } = FILTERS[type];
+            const buttonClass = `filter-child-btn btn-${type}`;
 
-          if (!childs) return null;
-          return (
-            <div
-              key={type}
-              className={`filter-child-section ${type} ${
-                hoveredType === type ? 'active' : ''
-              }`}
-            >
-              {childs.map((child) => {
-                const { label, img } = child;
-                return (
-                  <Button variant="outline" className={buttonClass} key={label}>
-                    {img && <img src={img} alt={buttonClass} />}
-                    {label}
-                  </Button>
-                );
-              })}
-            </div>
-          );
-        })}
+            if (!childs) return null;
+            return (
+              <div
+                key={type}
+                className={`filter-child-section ${type} ${
+                  hoveredType === type ? 'active' : ''
+                }`}
+              >
+                {childs.map((child, index) => {
+                  const { label, img } = child;
+                  return (
+                    <Button
+                      variant="outline"
+                      className={`${buttonClass} ${
+                        index + 1 === filter[type] ? 'actived' : ''
+                      }`}
+                      key={label}
+                      onClick={() =>
+                        setFilter((prev) => ({ ...prev, [type]: index + 1 }))
+                      }
+                    >
+                      {img && <img src={img} alt={buttonClass} />}
+                      {label}
+                    </Button>
+                  );
+                })}
+              </div>
+            );
+          })}
       </div>
     </div>
   );

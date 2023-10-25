@@ -1,22 +1,44 @@
-import React from "react";
+import React from 'react';
 
-import Svg from "../Svg";
+import Svg from '../Svg';
 
 const Icon = (props) => {
   return (
     <Svg
-      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
       fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="{1.5}"
-      stroke="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
-      />
+      <g clipPath="url(#clip0_32_278)">
+        <path
+          d="M21.7781 10.075C21.7781 17.075 12.7781 23.075 12.7781 23.075C12.7781 23.075 3.77808 17.075 3.77808 10.075C3.77808 7.688 4.72629 5.39882 6.41411 3.71099C8.10194 2.02316 10.3911 1.07495 12.7781 1.07495C15.165 1.07495 17.4542 2.02316 19.142 3.71099C20.8299 5.39882 21.7781 7.688 21.7781 10.075Z"
+          fill="#5FCF86"
+          stroke="#5FCF86"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M12.7781 13.075C14.4349 13.075 15.7781 11.7318 15.7781 10.075C15.7781 8.4181 14.4349 7.07495 12.7781 7.07495C11.1212 7.07495 9.77808 8.4181 9.77808 10.075C9.77808 11.7318 11.1212 13.075 12.7781 13.075Z"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_32_278">
+          <rect
+            width="24"
+            height="24"
+            fill="white"
+            transform="translate(0.778076 0.0749512)"
+          />
+        </clipPath>
+      </defs>
     </Svg>
   );
 };

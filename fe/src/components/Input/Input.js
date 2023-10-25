@@ -4,6 +4,7 @@ import cx from 'classnames';
 import './styles/Input.scss';
 import { EyeIcon, EyeSlashIcon } from '../Svg';
 import { checkValidAndCloneElement } from '../../utils/common';
+import { preventSpecialCharacters } from '../../utils/input';
 
 const Input = ({
   className = '',
@@ -11,11 +12,13 @@ const Input = ({
   type = 'text',
   isPasswordInput,
   startIcon,
+  suffix,
+  isNumberInput,
   ...props
 }) => {
   const classes = cx('Input', className);
   const [inputType, setInputType] = useState(
-    isPasswordInput ? 'password' : type
+    isNumberInput ? 'number' : isPasswordInput ? 'password' : type
   );
 
   const toggleInputType = () => {
@@ -28,7 +31,12 @@ const Input = ({
       {checkValidAndCloneElement(startIcon, {
         className: 'input-start-icon',
       })}
-      <input type={inputType} {...props} />
+      <input
+        type={inputType}
+        {...props}
+        onKeyDown={isNumberInput && preventSpecialCharacters}
+      />
+      {suffix && <span className="suffix">{suffix}</span>}
       {checkValidAndCloneElement(button, {
         className: 'input-button',
       })}

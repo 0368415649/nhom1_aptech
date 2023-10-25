@@ -3,8 +3,10 @@ import {
   createContext,
   isValidElement,
   useContext,
+  useEffect,
   useState,
 } from 'react';
+import { motion } from 'framer-motion';
 
 export const Context = createContext();
 
@@ -31,6 +33,14 @@ const Provider = ({ children }) => {
     setContent(content);
   };
 
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isVisible]);
+
   return (
     <Context.Provider
       value={{ isVisible, handleVisible, content, setContent, handleDismiss }}
@@ -38,10 +48,22 @@ const Provider = ({ children }) => {
       {children}
       {content && isVisible && isValidElement(content) && (
         <>
-          {cloneElement(content, {
-            onDismiss: handleDismiss,
-          })}
-          <div className="backdrop" onClick={handleDismiss} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            key="modal"
+            className="backdrop"
+            // onClick={(event) => {
+            //   if (event.target === event.currentTarget) {
+            //     handleDismiss();
+            //   }
+            // }}
+          >
+            {cloneElement(content, {
+              onDismiss: handleDismiss,
+            })}
+          </motion.div>
         </>
       )}
     </Context.Provider>

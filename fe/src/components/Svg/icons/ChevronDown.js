@@ -1,21 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import Svg from "../Svg";
+import Svg from '../Svg';
 
 const Icon = (props) => {
   return (
     <Svg
-      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
       fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
+        d="M6.10669 9.19678L12.1067 15.1968L18.1067 9.19678"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
       />
     </Svg>
   );
