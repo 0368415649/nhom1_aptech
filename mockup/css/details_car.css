@@ -167,17 +167,24 @@ color: #767676;
     color: #595959;
     font-weight: 600;
   }
-
-
   .grap_form_edit-buy {
-    padding: 20px 20px 40px;
+    padding: 20px 60px 40px;
     position: fixed;
     z-index: 10;
     background-color: white;
-    left: 37%;
-    top: 10%;
+    top: 5%;
+    left: 32%;
     right: 37% !important;
+    width: 600px;
     border-radius: 10px;
+  }
+  .grap_com{
+      border: 1px solid #959595;
+      border-radius: 4px;
+  }
+  .comfirm_infor{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #8e8e8e;
   }
   .close_button_grap {
     display: flex;
@@ -212,7 +219,12 @@ color: #767676;
     opacity: 0.6;
     z-index: 4;
   }
-
+  .adddress_a{
+   color: #5fcf86; 
+   font-size: 12px;
+   font-weight: 700;
+   cursor: pointer;
+  }
   .btn_buyy {
     cursor: pointer;
     font-weight: 700;
