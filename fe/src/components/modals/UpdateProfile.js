@@ -45,7 +45,7 @@ const UpdateProfile = (props) => {
         name_display: formData.displayName,
         birthday: formData.dateOfBirth,
         sex: formData.gender,
-        customer_id: user.id,
+        customer_id: user?.id || localStorage.getItem('USER_ID'),
       });
       if (data.status === 1) {
         setError(null);
