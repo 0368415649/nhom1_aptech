@@ -49,11 +49,11 @@ const UpdateProfile = (props) => {
       });
       if (data.status === 1) {
         setError(null);
+        props.onDismiss();
       } else {
         setError('Không thành công, thử lại sau!');
       }
     } catch (error) {
-      console.log('>> Check | error:', error);
       setError('Không thành công, thử lại sau!');
     }
   };

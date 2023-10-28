@@ -15,7 +15,6 @@ export function useUserContext() {
 const Provider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [user, setUser] = useState(null);
-  console.log('>> Check | user:', user);
 
   useEffect(() => {
     const userIdFromLocal = localStorage.getItem('USER_ID');
@@ -25,7 +24,7 @@ const Provider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    (async () => {
+    async function fetch() {
       if (userInfo) {
         try {
           const { data } = await http.get('/get_customer', {
@@ -38,7 +37,11 @@ const Provider = ({ children }) => {
           console.log('>> Check | error:', error);
         }
       }
-    })();
+    }
+
+    const timerId = setInterval(fetch, 5000);
+
+    return () => clearInterval(timerId);
   }, [userInfo]);
 
   return (

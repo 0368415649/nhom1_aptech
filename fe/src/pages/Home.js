@@ -6,6 +6,8 @@ import DatePicker from '../components/DatePicker';
 
 import { getUnixTimeInSecond } from '../utils/dates';
 
+import '../assets/imgs/img1.png';
+
 import './styles/Home.scss';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -16,7 +18,6 @@ const Home = () => {
     <div className="Home page-layout large-margin">
       <Filter filter={filter} setFilter={setFilter} />
       <Cars filter={filter} />
-      {/* <img src="https://localhost:44307/Image/Car/Image/car_1_1.jpg" alt="" /> */}
     </div>
   );
 };
