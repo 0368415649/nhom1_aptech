@@ -15,6 +15,7 @@ export function useUserContext() {
 const Provider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [user, setUser] = useState(null);
+  console.log('>> Check | user:', user);
 
   useEffect(() => {
     const userIdFromLocal = localStorage.getItem('USER_ID');

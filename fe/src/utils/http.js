@@ -4,7 +4,7 @@ import { BASE_URL_API } from '../configs/urls';
 
 const http = axios.create({
   baseURL: BASE_URL_API,
-  timeout: 3000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },

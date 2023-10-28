@@ -25,6 +25,9 @@ const rules = {
     },
     errorMsg: 'Số CCCD không hợp lệ',
   },
+  dateOfBirth: {
+    required: 'Ngày sinh không được để trống',
+  },
   fullName: {
     required: 'Họ và tên không được để trống',
   },
@@ -33,7 +36,6 @@ const rules = {
 const VerifyIdentification = (props) => {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [img1, setImg1] = useState(null);
-  console.log('>> Check | img1:', img1);
   const [img2, setImg2] = useState(null);
 
   const handle = (e) => {
@@ -45,20 +47,22 @@ const VerifyIdentification = (props) => {
     setImg2(file);
   };
 
-  const upload = () => {
+  const upload = (data) => {
     const formData = new FormData();
     formData.append('image1', img1);
     formData.append('image2', img2);
-    formData.append('full_name', 'Vai ca lon');
-    formData.append('id_number', '001200024194');
-    formData.append('birthday', '13-12-2000');
-    formData.append('customer_id', 3);
+    formData.append('full_name', data.fullName);
+    formData.append('id_number', data.identificationNumber);
+    formData.append('birthday', data.dateOfBirth);
+    formData.append('customer_id', localStorage.getItem('USER_ID'));
 
     http.post('/verify_customer', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
+
+    props.onDismiss();
   };
 
   const {
@@ -66,9 +70,6 @@ const VerifyIdentification = (props) => {
     handleSubmit,
     formState: { dirtyErrors, isError, errors },
   } = useForm(rules);
-  console.log('>> Check | errors:', errors);
-
-  const submitVerifyIndentity = console.log;
 
   return (
     <Modal
@@ -86,14 +87,7 @@ const VerifyIdentification = (props) => {
       )}
 
       {isConfirmed && (
-        <form
-          className="Login"
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log('VAI CALON');
-            upload();
-          }}
-        >
+        <form className="Login" onSubmit={handleSubmit(upload)}>
           <div className="input-section">
             <div className="label">Số CCCD</div>
             <Input {...register('identificationNumber')} />
@@ -113,6 +107,9 @@ const VerifyIdentification = (props) => {
           <div className="input-section">
             <div className="label">Ngày sinh</div>
             <Input type="date" {...register('dateOfBirth')} />
+            {dirtyErrors['dateOfBirth'] && (
+              <span className="invalid">{dirtyErrors['dateOfBirth']}</span>
+            )}
           </div>
           <div className="images">
             <div className="image">
