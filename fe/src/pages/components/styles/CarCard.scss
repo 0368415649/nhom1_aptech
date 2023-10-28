@@ -4,7 +4,7 @@
   align-items: stretch;
   gap: 16px;
   border: 1px solid var(--border);
-  padding: 12px;
+  padding: 15px;
   border-radius: 12px;
   background-color: var(--white);
   cursor: pointer;
@@ -21,8 +21,12 @@
   }
 
   .car-name {
-    font-size: 18px;
-    font-weight: 700;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .car-info {
@@ -30,6 +34,28 @@
     align-items: stretch;
     justify-content: space-between;
   }
+
+  .block-info2{
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+    gap: 8px;
+    color: #5f5f5f !important;
+    font-size: .65rem;
+    font-weight: 500;
+    line-height: 16px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .car_pro_name_sen {
+    width: 100%;
+    height: 0.5px;
+    background-color: #bebebe;
+    margin: 10px 0px 0px;
+}
 
   .block-info {
     display: flex;
@@ -54,10 +80,12 @@
       display: flex;
     }
   }
-
+.rate_color{
+  color: rgb(255, 198, 52) !important;
+}
   .price {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     color: var(--primary);
     margin-top: 16px;
   }

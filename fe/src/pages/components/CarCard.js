@@ -28,27 +28,30 @@ const CarCard = ({ car }) => {
       </div>
       <div className="car-details">
         <div className="car-name">{car?.model_name}</div>
-        <div className="block-info">
+        <div className="block-info2 mt-2">
           <AddressIcon className="icon" />
           <span>{car?.address}</span>
         </div>
-        <div className="car-info">
-          <div className="block-info">
-            <StarSolidIcon className="star-icon icon" />
-            <span>5.0</span>
+        <div className="car_pro_name_sen"></div>
+        <div className="car-info justify-content-between align-items-center">
+            <div className="block-info">
+              <StarSolidIcon className="star-icon icon rate_color" />
+              <span>5.0</span>
+            </div>
+            <div className="block-info">
+              <BriefcaseIcon className="icon" />
+              <span>194 chuyến</span>
+            </div>
           </div>
-          <div className="block-info">
-            <BriefcaseIcon className="icon" />
-            <span>194 chuyến</span>
-          </div>
+        <div className="mt-2 fw-bold">
+          <div ><span className="price ">{car?.price} đ / Ngày</span> </div>
         </div>
-        <div className="price">Giá: {car?.price}</div>
-        <div className="actions">
+        {/* <div className="actions">
           <Button as={Link} to={`/car/${car?.car_id}`} variant="outline">
             Chi tiết
           </Button>
           <Button>Thuê</Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
