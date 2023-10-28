@@ -9,17 +9,18 @@ import {
   StarSolidIcon,
 } from '../../components/Svg';
 
-import porsche from '../../assets/imgs/poscher.jpg';
-
 import './styles/CarCard.scss';
+import { IMAGES_URL } from '../../configs/urls';
 
 const CarCard = ({ car }) => {
+  const carImage = car?.image?.split('-')[0];
+
   return (
     <div className="CarCard">
       <div className="imgs">
         <Img
           className="car"
-          src={porsche}
+          src={`${IMAGES_URL}/${carImage}`}
           width="100%"
           height="170px"
           alt="car-img"

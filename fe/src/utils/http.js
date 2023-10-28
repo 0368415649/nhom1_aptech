@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { BASE_URL } from '../configs/urls';
+import { BASE_URL_API } from '../configs/urls';
 
 const http = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BASE_URL_API,
   timeout: 3000,
   headers: {
     'Content-Type': 'application/json',
