@@ -6,10 +6,7 @@ import DatePicker from '../components/DatePicker';
 
 import { getUnixTimeInSecond } from '../utils/dates';
 
-import '../assets/imgs/img1.png';
-
 import './styles/Home.scss';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Home = () => {
   const [filter, setFilter] = useState({});

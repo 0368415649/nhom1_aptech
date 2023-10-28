@@ -39,9 +39,7 @@ const Provider = ({ children }) => {
       }
     }
 
-    const timerId = setInterval(fetch, 5000);
-
-    return () => clearInterval(timerId);
+    fetch();
   }, [userInfo]);
 
   return (

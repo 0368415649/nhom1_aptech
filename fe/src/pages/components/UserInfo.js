@@ -9,9 +9,13 @@ import useModal from '../../hooks/useModal';
 
 import './styles/UserInfo.scss';
 import { useUserContext } from '../../contexts/User';
+import UpdatePhone from '../../components/modals/UpdatePhone';
+import UpdateEmail from '../../components/modals/UpdateEmail';
 
 const UserInfo = () => {
   const [showUpdateProfile] = useModal(<UpdateProfile />);
+  const [showUpdatePhone] = useModal(<UpdatePhone />);
+  const [showUpdateEmail] = useModal(<UpdateEmail />);
   const { user } = useUserContext();
 
   return (
@@ -50,11 +54,29 @@ const UserInfo = () => {
           </div>
           <div className="info-row">
             <div className="label">Số điện thoại</div>
-            <div className="value">{user?.phone}</div>
+            <div className="value">
+              {user?.phone}{' '}
+              <Button
+                variant="outline"
+                className="edit-btn"
+                onClick={showUpdatePhone}
+              >
+                <PenIcon width="16" height="16" style={{ cursor: 'pointer' }} />
+              </Button>
+            </div>
           </div>
           <div className="info-row">
             <div className="label">Email</div>
-            <div className="value">{user?.email}</div>
+            <div className="value">
+              {user?.email}{' '}
+              <Button
+                variant="outline"
+                className="edit-btn"
+                onClick={showUpdateEmail}
+              >
+                <PenIcon width="16" height="16" style={{ cursor: 'pointer' }} />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

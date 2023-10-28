@@ -50,6 +50,7 @@ const UpdateProfile = (props) => {
       if (data.status === 1) {
         setError(null);
         props.onDismiss();
+        window.location.reload();
       } else {
         setError('Không thành công, thử lại sau!');
       }
