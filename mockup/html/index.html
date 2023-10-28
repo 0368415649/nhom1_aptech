@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Image Upload</title>
+</head>
+<body>
+    <form id="imageForm">
+        <input type="file" id="imageFile" name="imageFile">
+        <button type="button" id="uploadButton">Upload Image</button>
+    </form>
+    <img id="previewImage" src="" alt="Preview" style="display: none;">
+</body>
+
+<script>
+    $(document).ready(function() {
+    // Sự kiện khi nhấn nút "Upload"
+    $("#uploadButton").on("click", function() {
+        var formData = new FormData();
+        var imageFile = $("#imageFile")[0].files[0]; // Lấy tệp hình ảnh đã chọn
+
+        formData.append("imageFile", imageFile);
+
+        $.ajax({
+            url: "/https://localhost:44307/api/verify_hehe", // Đổi thành URL xử lý tệp hình ảnh trên máy chủ
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                // Xử lý kết quả trả về từ máy chủ
+                if (data.success) {
+                    $("#previewImage").attr("src", data.imageUrl).show();
+                    alert("Upload successful!");
+                } else {
+                    alert("Upload failed: " + data.errorMessage);
+                }
+            }
+        });
+    });
+});
+
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./bootstap5/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://kit.fontawesome.com/b369642a0f.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/header_admin.css" />
+</head>
+
+<body style="height: 100%" ng-app="myApp" ng-controller="myCtrl">
+  <div class="row">
+    <div class="col-12 row_header row">
+      <div class="text-center header_title col-10 mt-3">Florist Manage</div>
+      <div class="header_content col-2">xin chao <span>Admin</span></div>
+    </div>
+
+    <div class="col-2 sidebar_wrap">
+      <ul class="nav_sidebar">
+        <a href="" class="nav_link chang_color_admin">
+          <li class="sidebar_icon"><i class="fa-solid fa-gauge me-3"></i>Thống kê</li>
+        </a>
+        <a href="" class="nav_link">
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-cart-shopping me-3"></i>Đơn hàng</li>
+        </a>
+        <a href="" class="nav_link">
+          <li class="sidebar_icon side_item3"><i class="fa-brands fa-product-hunt me-3"></i>Sản phẩm</li>
+        </a>
+        <a href="" class="nav_link">
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-user me-3"></i>Khách hàng</li>
+        </a>
+        <a href="" class="nav_link">
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-store me-3"></i>Doanh Số</li>
+        </a>
+        <a href="" class="nav_link">
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-wrench me-3"></i>Thiết lập</li>
+        </a>
+      </ul>
+    </div>
+    <div class="col-10">
+
+    </div>
+    
+  </div>
+</body>
+
+</html>
+<script>
+  var app = angular.module("myApp", [])
+  app.controller("myCtrl", function ($scope) {
+    $scope.myFunction = function () {
+      if ($scope.color != "0") {
+        const p =
+          `
+                <div class="d-flex  align-items-center mt-2">
+                    <div class="color_add">` +
+          $scope.color +
+          `</div>
+                    <div class="ms-2">
+                      <input type="file" id="file_image">
+                    </div>
+                </div>
+              `
+        $(".add_e").append(p)
+      }
+    }
+  })
+</script>
+<style>
+  .btn-add {}
+
+  .color_add {
+    border-radius: 4px;
+    background-color: orangered;
+    color: white;
+    margin-left: 4px;
+    height: 30px;
+    width: 70px;
+    margin-right: auto;
+    padding: 5px 10px;
+    line-height: 15px;
+    text-align: center;
+  }
+</style>
