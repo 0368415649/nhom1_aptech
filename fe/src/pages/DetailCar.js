@@ -7,6 +7,7 @@ import Img from '../components/Img';
 import './styles/DetailCar.scss';
 import { useParams } from 'react-router-dom';
 import http from '../utils/http';
+import { IMAGES_URL } from '../configs/urls';
 
 const DetailCar = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const DetailCar = () => {
             id,
           },
         });
-        setCar(data);
+        setCar(data[0]);
       } catch (error) {
         console.log('>> Check | error:', error);
       } finally {
@@ -31,25 +32,14 @@ const DetailCar = () => {
     })();
   }, [id]);
 
+  const carImages = car?.image?.split('-');
+
   return (
     <div className="DetailCar page-layout">
       <div className="images">
-        <Img
-          src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/vinfast_lux_a_2021/p/g/2023/08/26/10/hynC9yY7PmwkabqydWu8zw.jpg"
-          alt="car"
-        />
-        <Img
-          src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/vinfast_lux_a_2021/p/g/2023/08/26/10/hynC9yY7PmwkabqydWu8zw.jpg"
-          alt="car"
-        />
-        <Img
-          src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/vinfast_lux_a_2021/p/g/2023/08/26/10/hynC9yY7PmwkabqydWu8zw.jpg"
-          alt="car"
-        />
-        <Img
-          src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/vinfast_lux_a_2021/p/g/2023/08/26/10/hynC9yY7PmwkabqydWu8zw.jpg"
-          alt="car"
-        />
+        {carImages?.map((img, index) => (
+          <Img src={`${IMAGES_URL}/${img}`} alt="car" key={index} />
+        ))}
       </div>
       <div className="info-and-actions">
         <CarInfos car={car} />

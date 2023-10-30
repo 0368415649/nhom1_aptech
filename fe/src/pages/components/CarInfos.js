@@ -45,7 +45,21 @@ const CarInfos = ({ car }) => {
         <div className="main-info">
           <CogIcon />
           <div className="t-value">
-            <div className="title">Mẫu xe</div>
+            <div className="title">Biển số</div>
+            <div className="value">{car?.number_plate}</div>
+          </div>
+        </div>
+        <div className="main-info">
+          <CogIcon />
+          <div className="t-value">
+            <div className="title">Đời xe</div>
+            <div className="value">2018</div>
+          </div>
+        </div>
+        <div className="main-info">
+          <CogIcon />
+          <div className="t-value">
+            <div className="title">Hãng xe</div>
             <div className="value">{car?.brand_name}</div>
           </div>
         </div>

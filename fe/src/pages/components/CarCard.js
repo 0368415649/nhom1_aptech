@@ -16,7 +16,7 @@ const CarCard = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
 
   return (
-    <div className="CarCard">
+    <Link className="CarCard" to={`/car/${car?.car_id}`}>
       <div className="imgs">
         <Img
           className="car"
@@ -34,17 +34,19 @@ const CarCard = ({ car }) => {
         </div>
         <div className="car_pro_name_sen"></div>
         <div className="car-info justify-content-between align-items-center">
-            <div className="block-info">
-              <StarSolidIcon className="star-icon icon rate_color" />
-              <span>5.0</span>
-            </div>
-            <div className="block-info">
-              <BriefcaseIcon className="icon" />
-              <span>194 chuyến</span>
-            </div>
+          <div className="block-info">
+            <StarSolidIcon className="star-icon icon rate_color" />
+            <span>5.0</span>
           </div>
+          <div className="block-info">
+            <BriefcaseIcon className="icon" />
+            <span>194 chuyến</span>
+          </div>
+        </div>
         <div className="mt-2 fw-bold">
-          <div ><span className="price ">{car?.price} đ / Ngày</span> </div>
+          <div>
+            <span className="price ">{car?.price} đ / Ngày</span>{' '}
+          </div>
         </div>
         {/* <div className="actions">
           <Button as={Link} to={`/car/${car?.car_id}`} variant="outline">
@@ -53,7 +55,7 @@ const CarCard = ({ car }) => {
           <Button>Thuê</Button>
         </div> */}
       </div>
-    </div>
+    </Link>
   );
 };
 

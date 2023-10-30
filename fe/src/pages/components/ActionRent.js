@@ -6,6 +6,8 @@ import './styles/ActionRent.scss';
 import Dropdown from '../../components/Dropdown';
 import Button from '../../components/Button';
 import { getUnixTimeInSecond } from '../../utils/dates';
+import useModal from '../../hooks/useModal';
+import Rent from '../../components/modals/Rent';
 
 const options = Array(24)
   .fill(null)
@@ -16,6 +18,7 @@ const options = Array(24)
 
 const ActionRent = ({ car }) => {
   const [value, setValue] = useState(getUnixTimeInSecond(new Date()));
+  const [invisibleRenModal] = useModal(<Rent />);
 
   return (
     <div className="ActionRent">
@@ -68,7 +71,9 @@ const ActionRent = ({ car }) => {
         <div className="title">Tổng cộng</div>
         <div className="value">{car?.price}K</div>
       </div>
-      <Button size="lg">Thuê xe</Button>
+      <Button size="lg" onClick={invisibleRenModal}>
+        Thuê xe
+      </Button>
     </div>
   );
 };

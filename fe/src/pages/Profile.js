@@ -16,6 +16,7 @@ import MyCar from './components/MyCar';
 import Favorite from './components/Favorite';
 import Home from './Home';
 import { Link } from 'react-router-dom';
+import ChangePassword from './components/ChangePassword';
 
 const MY_ACCOUNT = 'Tài khoản của tôi';
 const FAVORITE = 'Xe yêu thích';
@@ -43,7 +44,7 @@ const Profile = () => {
     [MY_CAR]: <MyCar />,
     [LEASE_HISTORY]: <LeaseHistory />,
     [RENTAL_HISTORY]: <LeaseHistory />,
-    [CHANGE_PASSWORD]: <UserInfo />,
+    [CHANGE_PASSWORD]: <ChangePassword />,
   }[currentTab.title];
 
   return (
