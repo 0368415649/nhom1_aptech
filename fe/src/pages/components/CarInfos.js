@@ -71,14 +71,11 @@ const CarInfos = ({ car }) => {
           </div>
         </div> */}
       </div>
-      <div className="description">
+      <div style={{color: '#767676', fontSize: 15}} className="description">
         <div className="title">Mô tả</div>
         <div className="value">{car?.description}</div>
       </div>
-      <div className="term">
-        <div className="title">Điều khoản</div>
-        <div className="value">{/* {car?.} */}</div>
-      </div>
+      <pre style={{color: '#767676', fontSize: 15, overflow: 'hidden', textOverflow: 'ellipsis', width : '700px'}} className="mt-5">Quy định khác:{"\n"}◦ Sử dụng xe đúng mục đích.{"\n"}◦ Không sử dụng xe thuê vào mục đích phi pháp, trái pháp luật.{"\n"}◦ Không sử dụng xe thuê để cầm cố, thế chấp.{"\n"}◦ Không hút thuốc, nhả kẹo cao su, xả rác trong xe.{"\n"}◦ Không chở hàng quốc cấm dễ cháy nổ.{"\n"}◦ Không chở hoa quả, thực phẩm nặng mùi trong xe.{"\n"}◦ Khi trả xe, nếu xe bẩn hoặc có mùi trong xe, khách hàng vui lòng vệ sinh xe sạch sẽ hoặc gửi phụ thu phí vệ sinh xe.{"\n"}Trân trọng cảm ơn, chúc quý khách hàng có những chuyến đi tuyệt vời !{"\n"}{"                "}</pre>
     </div>
   );
 };
