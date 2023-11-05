@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   ClockIcon,
@@ -15,7 +15,7 @@ import './styles/Profile.scss';
 import MyCar from './components/MyCar';
 import Favorite from './components/Favorite';
 import Home from './Home';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ChangePassword from './components/ChangePassword';
 
 const MY_ACCOUNT = 'Tài khoản của tôi';
@@ -37,6 +37,14 @@ const TABS = [
 
 const Profile = () => {
   const [currentTab, setCurrentTab] = useState(TABS[0]);
+  const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate('/');
+    }
+  }, [isLogin, navigate]);
 
   const ShowedTab = {
     [MY_ACCOUNT]: <UserInfo />,
@@ -76,16 +84,18 @@ const Tabs = ({ currentTab, setCurrentTab }) => {
             </div>
           );
         })}
-        <Link
+        <div
           className={`tab`}
-          to="/?logout=true"
-          onClick={() => localStorage.clear()}
+          onClick={() => {
+            localStorage.clear();
+            window.location.reload();
+          }}
         >
           <div className="icon">
             <LogoutIcon />
           </div>
           <div className="title">{LOG_OUT}</div>
-        </Link>
+        </div>
       </div>
     </div>
   );
