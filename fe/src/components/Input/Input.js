@@ -20,11 +20,43 @@ const Input = ({
   const [inputType, setInputType] = useState(
     isNumberInput ? 'number' : isPasswordInput ? 'password' : type
   );
+  const [value, setValue] = useState('');
 
   const toggleInputType = () => {
     if (!isPasswordInput) return type;
     setInputType((prev) => (prev === 'text' ? 'password' : 'text'));
   };
+
+  if (type === 'date') {
+    const [year, month, day] = value.split('-');
+    return (
+      <div className={classes}>
+        <input
+          type="date"
+          onKeyDown={isNumberInput && preventSpecialCharacters}
+          style={{
+            opacity: 0,
+            cursor: 'pointer',
+          }}
+          onClick={(e) => {
+            e.target.showPicker();
+          }}
+          {...props}
+          onChange={(e) => {
+            setValue(e.target.value);
+            props.onChange(e);
+          }}
+        />
+        <span
+          className={cx('formatted', {
+            empty: !value,
+          })}
+        >
+          {value ? `${day}/${month}/${year}` : 'DD/MM/YYYY'}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className={classes}>

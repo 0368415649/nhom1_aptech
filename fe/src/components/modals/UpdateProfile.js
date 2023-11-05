@@ -34,8 +34,9 @@ const UpdateProfile = (props) => {
     register,
     handleSubmit,
     setValue,
-    formState: { dirtyErrors, isError },
+    formState: { dirtyErrors, isError, data },
   } = useForm(rules);
+  console.log('>> Check | data:', data);
   const [error, setError] = useState(null);
   const { user } = useUserContext();
 

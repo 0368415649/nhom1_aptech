@@ -13,6 +13,7 @@ import { PASSWORD, PHONE_NUMBER } from '../../constants/regexs';
 
 import './styles/Register.scss';
 import http from '../../utils/http';
+import { useUserContext } from '../../contexts/User';
 
 const rules = {
   phone: {
@@ -56,7 +57,7 @@ const Register = (props) => {
     handleSubmit,
     formState: { dirtyErrors, errors, isError, data },
   } = useForm(rules);
-
+  const { setUserInfo } = useUserContext();
   const [error, setError] = useState(null);
   console.log('>> Check | error:', error);
 
@@ -83,6 +84,24 @@ const Register = (props) => {
 
       // const { customer_id, status, token } = data;
       if (data.Status === 1) {
+        try {
+          const { data } = await http.get('/check_login', {
+            params: {
+              phone,
+              password,
+            },
+          });
+
+          // const { customer_id, status, token } = data;
+          if (data.status === 1) {
+            setUserInfo(data);
+            localStorage.setItem('USER_ID', JSON.stringify(data.customer_id));
+            props.onDismiss();
+          }
+        } catch (error) {
+          setError('Đăng nhập thất bại');
+        }
+
         props.onDismiss();
         dismissVerifyOtp();
       }

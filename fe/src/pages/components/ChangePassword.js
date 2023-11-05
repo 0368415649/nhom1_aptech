@@ -7,6 +7,7 @@ import Button from '../../components/Button';
 import './styles/ChangePassword.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
+import { useNavigate } from 'react-router-dom';
 
 const rules = {
   oldPassword: {
@@ -39,6 +40,7 @@ const ChangePassword = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const { user } = useUserContext();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -63,6 +65,7 @@ const ChangePassword = () => {
         });
 
         setSuccess('Đổi mật khẩu thành công!');
+        navigate('/?re-login=true');
       }
 
       if (data.status === 0) {

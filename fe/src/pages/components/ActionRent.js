@@ -8,6 +8,7 @@ import Button from '../../components/Button';
 import { getUnixTimeInSecond } from '../../utils/dates';
 import useModal from '../../hooks/useModal';
 import Rent from '../../components/modals/Rent';
+import { convertPrice } from '../../utils/common';
 
 const options = Array(24)
   .fill(null)
@@ -23,7 +24,7 @@ const ActionRent = ({ car }) => {
   return (
     <div className="ActionRent">
       <div className="price">
-        <span>{car?.price}K</span>/ngày
+        <span>{convertPrice(car?.price)}K</span>/ngày
       </div>
       <div className="pick-date">
         <div className="title">Ngày nhận xe</div>
@@ -64,12 +65,12 @@ const ActionRent = ({ car }) => {
       <div className="fee">
         <div className="title">Phí thuê xe</div>
         <div className="value">
-          <span>{car?.price}K </span>x15 ngày
+          <span>{convertPrice(car?.price)}K </span>x15 ngày
         </div>
       </div>
       <div className="total-fee">
         <div className="title">Tổng cộng</div>
-        <div className="value">{car?.price}K</div>
+        <div className="value">{convertPrice(car?.price)}K</div>
       </div>
       <Button size="lg" onClick={invisibleRenModal}>
         Thuê xe

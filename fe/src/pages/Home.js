@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Filter from './components/Filter';
 import Cars from './components/Cars';
-import DatePicker from '../components/DatePicker';
-
-import { getUnixTimeInSecond } from '../utils/dates';
 
 import './styles/Home.scss';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import useModal from '../hooks/useModal';
+import Register from '../components/modals/Register';
+import Login from '../components/modals/Login';
 
 const Home = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [showRegister] = useModal(<Register />);
+  const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isReLogin = JSON.parse(searchParams.get('re-login'));
+    console.log('>> Check | isReLogin:', isReLogin);
+    if (isReLogin) {
+      showLogin();
+      searchParams.delete('re-login');
+      navigate('/', { replace: true });
+    }
+  }, [navigate, searchParams, setSearchParams, showLogin]);
+
   const [filter, setFilter] = useState({});
   console.log('>> Check | filter:', filter);
   return (
