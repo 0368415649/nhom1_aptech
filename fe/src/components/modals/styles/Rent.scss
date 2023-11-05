@@ -1,2 +1,32 @@
 .Rent {
+    width: 600px;
+    padding: 10px 30px;
+}
+.grap_com{
+    border: 1px solid #cdcccc;
+    border-radius: 4px;
+    padding: 20px;
+}
+.comfirm_infor{
+    padding: 10px;
+    border-bottom: 1px solid #b7b7b7;
+}
+.btn_buyy {
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    background-color: #5fcf86;
+    border-color: #5fcf86;
+    padding: 14px 0px;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+}
+.adddress_a {
+    color: #5fcf86;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
 }

@@ -9,7 +9,7 @@ import './styles/Rent.scss';
 const Rent = (props) => {
   return (
     <Modal className="Rent" label="Xác nhận thông tin" {...props}>
-      <div class="grap_com mt-4">
+      <div class="grap_com mt-2">
         <div class="row comfirm_infor">
           <div class="col-7 fs-6 text-black-50">Tên xe</div>
           <div class="col-5 fw-bold">VINFAST FADIL 2019</div>
@@ -38,7 +38,7 @@ const Rent = (props) => {
       <div className="input-section">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <div className="label">Số điện thoại</div>
-          <div className="label">Sử dụng địa chỉ đã có</div>
+          <div className="label adddress_a">Sử dụng địa chỉ đã có</div>
         </div>
         <Input />
         {/* <Input {...register('phone')} /> */}
@@ -46,7 +46,10 @@ const Rent = (props) => {
           <span className="invalid">{error || dirtyErrors['phone']}</span>
         )} */}
       </div>
-      <Button className="mt-4">Thuê</Button>
+      <div className="text-center">
+        <Button className="btn_buyy">Thuê</Button>
+      </div>
+      
     </Modal>
   );
 };
