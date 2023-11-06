@@ -19,7 +19,12 @@ const YouAreRejected = (props) => {
     props.onDismiss();
   };
   return (
-    <Modal className="YouAreRejectedModal" label="Bạn đã bị từ chối" {...props}>
+    <Modal
+      className="YouAreRejectedModal"
+      label="Bạn đã bị từ chối"
+      notAllowClose={true}
+      {...props}
+    >
       <div
         className="title"
         style={{
