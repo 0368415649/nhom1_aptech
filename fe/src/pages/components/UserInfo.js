@@ -49,14 +49,14 @@ const UserInfo = () => {
                     color: "#6d6d6d"
                   }}
               className="label">Ngày sinh</div>
-              <div className="value">{user?.birthday}</div>
+              <div className="value">{user?.birthday || "--/--/----"}</div>
             </div>
             <div className="info-row mt-4">
               <div style={{
                     fontsize: 13,
                     color: "#6d6d6d"
                   }} className="label">Giới tính</div>
-              <div className="value">{user?.sex}</div>
+              <div className="value">{user?.sex || "----------"}</div>
             </div>
           </div>
           <div className="info-row">
