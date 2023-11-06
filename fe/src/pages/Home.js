@@ -17,10 +17,16 @@ const Home = () => {
 
   useEffect(() => {
     const isReLogin = JSON.parse(searchParams.get('re-login'));
+    const isReLoad = JSON.parse(searchParams.get('re-load'));
     if (isReLogin) {
       showLogin();
       searchParams.delete('re-login');
       navigate('/', { replace: true });
+    }
+    if (isReLoad) {
+      searchParams.delete('re-login');
+      navigate('/', { replace: true });
+      window.location.reload();
     }
   }, [navigate, searchParams, setSearchParams, showLogin]);
 

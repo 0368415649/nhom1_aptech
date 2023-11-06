@@ -52,7 +52,7 @@ const Input = ({
             empty: !value,
           })}
         >
-          {value ? `${day}/${month}/${year}` : 'DD/MM/YYYY'}
+          {value ? `${day}/${month}/${year}` : 'dd/MM/yyyy'}
         </span>
       </div>
     );

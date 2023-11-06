@@ -45,7 +45,7 @@ const VerifyIdentification = (props) => {
     setImg2(file);
   };
 
-  const upload = (data) => {
+  const upload = async (data) => {
     const formData = new FormData();
     formData.append('image1', img1);
     formData.append('image2', img2);
@@ -54,19 +54,20 @@ const VerifyIdentification = (props) => {
     formData.append('birthday', data.dateOfBirth);
     formData.append('customer_id', localStorage.getItem('USER_ID'));
 
-    http.post('/verify_customer', formData, {
+    await http.post('/verify_customer', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
 
     props.onDismiss();
+    window.location.href = '/?re-load=true';
   };
 
   const {
     register,
     handleSubmit,
-    formState: { dirtyErrors, isError, errors },
+    formState: { dirtyErrors, isError },
   } = useForm(rules);
 
   return (

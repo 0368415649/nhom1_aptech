@@ -14,15 +14,15 @@ import LeaseHistory from './components/LeaseHistory';
 import './styles/Profile.scss';
 import MyCar from './components/MyCar';
 import Favorite from './components/Favorite';
-import Home from './Home';
 import { Link, useNavigate } from 'react-router-dom';
 import ChangePassword from './components/ChangePassword';
+import RentalHistory from './components/RentalHistory';
 
 const MY_ACCOUNT = 'Tài khoản của tôi';
 const FAVORITE = 'Xe yêu thích';
 const MY_CAR = 'Xe của tôi';
 const LEASE_HISTORY = 'Lịch sử cho thuê xe';
-const RENTAL_HISTORY = 'Địa chỉ của tôi';
+const RENTAL_HISTORY = 'Lịch sử thuê xe';
 const CHANGE_PASSWORD = 'Đổi mật khẩu';
 const LOG_OUT = 'Đăng xuất';
 
@@ -51,7 +51,7 @@ const Profile = () => {
     [FAVORITE]: <Favorite />,
     [MY_CAR]: <MyCar />,
     [LEASE_HISTORY]: <LeaseHistory />,
-    [RENTAL_HISTORY]: <LeaseHistory />,
+    [RENTAL_HISTORY]: <RentalHistory />,
     [CHANGE_PASSWORD]: <ChangePassword />,
   }[currentTab.title];
 
