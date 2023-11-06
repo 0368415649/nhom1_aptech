@@ -11,6 +11,7 @@ import {
 
 import './styles/CarCard.scss';
 import { IMAGES_URL } from '../../configs/urls';
+import { convertPrice } from '../../utils/common';
 
 const CarCard = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
@@ -45,7 +46,7 @@ const CarCard = ({ car }) => {
         </div>
         <div className="mt-2 fw-bold">
           <div>
-            <span className="price ">{car?.price} đ / Ngày</span>{' '}
+            <span className="price ">{convertPrice(car?.price)} / Ngày</span>{' '}
           </div>
         </div>
         {/* <div className="actions">
