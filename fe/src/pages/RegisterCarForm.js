@@ -227,7 +227,7 @@ const RegisterCarForm = () => {
           Quay lại
         </Button>
         <Button size="lg" {...getNextButton()}>
-          Kế tiếp
+          {currentStep === STEPS.length - 1 ? 'Đăng ký' : 'Kế tiếp'}
         </Button>
       </div>
     </form>
