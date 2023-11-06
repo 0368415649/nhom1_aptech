@@ -1,10 +1,7 @@
 .Filter {
-  position: fixed;
+  position: relative;
   top: 80px; //height of header
-  left: 0;
-  right: 0;
-  z-index: var(--z-index-filter);
-
+  z-index: 0;
   .top-section {
     background-color: var(--white);
     padding: 16px 0;
@@ -32,7 +29,7 @@
   }
 
   .filter-section {
-    width: 60%;
+    width: 100%;
     margin-top: -16px;
     background-color: var(--white);
     position: absolute;

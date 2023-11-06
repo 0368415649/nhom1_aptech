@@ -56,7 +56,7 @@ const Profile = () => {
   }[currentTab.title];
 
   return (
-    <div className="Profile page-layout">
+    <div className="Profile page-layout mt-4">
       <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
       <div className="tab-main">
         <div className="tab-title">{currentTab.title}</div>
