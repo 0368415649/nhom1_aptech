@@ -17,6 +17,7 @@ const YouAreRejected = (props) => {
       verify_flg: VERIFY_FLAG.NOT_VERIFIED,
     });
     props.onDismiss();
+    window.location.href = '/?re-load=true';
   };
   return (
     <Modal
