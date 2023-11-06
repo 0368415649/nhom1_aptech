@@ -14,7 +14,7 @@ import LeaseHistory from './components/LeaseHistory';
 import './styles/Profile.scss';
 import MyCar from './components/MyCar';
 import Favorite from './components/Favorite';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import ChangePassword from './components/ChangePassword';
 import RentalHistory from './components/RentalHistory';
 
@@ -36,9 +36,13 @@ const TABS = [
 ];
 
 const Profile = () => {
-  const [currentTab, setCurrentTab] = useState(TABS[0]);
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const tabIndex = JSON.parse(searchParams.get('tab-index'));
+  const [currentTab, setCurrentTab] = useState(() => {
+    return TABS[tabIndex || 0];
+  });
 
   useEffect(() => {
     if (!isLogin) {
