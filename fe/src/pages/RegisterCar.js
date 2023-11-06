@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Button from '../components/Button';
 import VerifyIdentification from '../components/modals/VerifyIdentification';
@@ -10,12 +10,28 @@ import registerCar from '../assets/imgs/register_car.png';
 import './styles/RegisterCar.scss';
 import { useUserContext } from '../contexts/User';
 import RegisterCarForm from './RegisterCarForm';
+import YouAreRejected from '../components/modals/YouAreRejected';
+
+export const VERIFY_FLAG = {
+  NOT_VERIFIED: 0,
+  PENDING: 1,
+  VERIFIED: 2,
+  REJECTED: 3,
+};
 
 const RegisterCar = () => {
   const [showVerifyIdentification] = useModal(<VerifyIdentification />);
+  const [showYouAreRejected] = useModal(<YouAreRejected />);
   const { user } = useUserContext();
 
-  return user?.verify_flg === 2 ? (
+  useEffect(() => {
+    if (user?.verify_flg == VERIFY_FLAG.REJECTED) {
+      showYouAreRejected();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.verify_flg]);
+
+  return user?.verify_flg == VERIFY_FLAG.VERIFIED ? (
     <>
       <div className="RegisterCar page-layout">
         <div className="title">Đăng ký xe</div>

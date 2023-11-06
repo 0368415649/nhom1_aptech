@@ -14,7 +14,10 @@ export function getArrayFromNumber(length) {
 // }
 
 export function convertPrice(rawPrice) {
-  const formattedPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(rawPrice);
+  const formattedPrice = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  }).format(rawPrice);
 
-  return formattedPrice
+  return formattedPrice;
 }

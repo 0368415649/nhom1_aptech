@@ -64,11 +64,8 @@ const RegisterCarForm = () => {
     register,
     handleSubmit,
     setValue,
-    formState: { dirtyErrors, isError, data: formData, errors },
+    formState: { dirtyErrors, isError, data: formData },
   } = useForm(rules);
-  console.log('>> Check | isError:', isError);
-  console.log('>> Check | errors:', errors);
-  console.log('>> Check | formData:', formData);
 
   const handle = (e) => {
     const file = e.target.files[0];

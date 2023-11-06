@@ -30,7 +30,6 @@ const Login = (props) => {
   const { setUserInfo } = useUserContext();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  console.log('>> Check | error:', error);
   const {
     register,
     handleSubmit,

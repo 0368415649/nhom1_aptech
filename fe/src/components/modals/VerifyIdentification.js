@@ -11,8 +11,6 @@ import { CITIZEN_IDENTIFICATION_NUMBER } from '../../constants/regexs';
 import http from '../../utils/http';
 
 import './styles/VerifyIdentificationModal.scss';
-import DatePicker from '../DatePicker';
-import { getUnixTimeInSecond } from '../../utils/dates';
 
 const rules = {
   identificationNumber: {
