@@ -48,9 +48,9 @@ const Header = () => {
             }
           }}
         >
-          {user?.role_id == ROLES.GUEST
-            ? 'Trở thành chủ xe'
-            : 'Đăng ký cho thuê xe'}
+          {user?.role_id == ROLES.OWNER
+            ? 'Đăng ký cho thuê xe'
+            : 'Trở thành chủ xe'}
         </Link>
 
         <div className="divider" />

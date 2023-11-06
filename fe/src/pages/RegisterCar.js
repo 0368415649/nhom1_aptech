@@ -32,21 +32,19 @@ const RegisterCar = () => {
   }, [user?.verify_flg]);
 
   return user?.verify_flg == VERIFY_FLAG.VERIFIED ? (
-    <>
-      <div className="RegisterCar page-layout">
-        <div className="title">Đăng ký xe</div>
-        <img src={registerCar} alt="registerCar" />
-        <Button
-          size="lg"
-          className="register-car-btn"
-          onClick={showVerifyIdentification}
-        >
-          Đăng ký xe cho thuê
-        </Button>
-      </div>
-    </>
-  ) : (
     <RegisterCarForm />
+  ) : (
+    <div className="RegisterCar page-layout">
+      <div className="title">Đăng ký xe</div>
+      <img src={registerCar} alt="registerCar" />
+      <Button
+        size="lg"
+        className="register-car-btn"
+        onClick={showVerifyIdentification}
+      >
+        Đăng ký xe cho thuê
+      </Button>
+    </div>
   );
 };
 
