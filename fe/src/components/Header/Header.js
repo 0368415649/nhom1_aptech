@@ -13,10 +13,19 @@ import { ChevronDownIcon } from '../Svg';
 
 import './Header.scss';
 import { useUserContext } from '../../contexts/User';
+import { VERIFY_FLAG } from '../../pages/RegisterCar';
+import PendingVerify from '../modals/PendingVerify';
+
+export const ROLES = {
+  GUEST: 1,
+  OWNER: 2,
+  ADMIN: 3,
+};
 
 const Header = () => {
   const { user } = useUserContext();
   const [showRegister] = useModal(<Register />);
+  const [showPending] = useModal(<PendingVerify />);
   const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   return (
@@ -28,9 +37,22 @@ const Header = () => {
         <Link to="/about" className="link">
           Về chúng tôi
         </Link>
-        <Link to="/register_car" className="link">
-          Trở thành chủ xe
+
+        <Link
+          to="/register_car"
+          className="link"
+          onClick={(e) => {
+            if (user?.verify_flg == VERIFY_FLAG.PENDING) {
+              showPending();
+              e.preventDefault();
+            }
+          }}
+        >
+          {user?.role_id == ROLES.GUEST
+            ? 'Trở thành chủ xe'
+            : 'Đăng ký cho thuê xe'}
         </Link>
+
         <div className="divider" />
         {isLogin ? (
           <Link className="link-profile" to="/profile">

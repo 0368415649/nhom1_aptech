@@ -10,5 +10,5 @@ export function getArrayFromNumber(length) {
 
 export function convertPrice(rawPrice) {
   const price = rawPrice ? Number(rawPrice).toFixed(0) : '--';
-  return price.replace(/\d(?=(\d{3})+\.)/g, '$&.');
+  return price.replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }

@@ -23,10 +23,10 @@ const router = createBrowserRouter([
         path: '/register_car',
         element: <RegisterCar />,
       },
-      {
-        path: '/register_car_form',
-        element: <RegisterCarForm />,
-      },
+      // {
+      //   path: '/register_car_form',
+      //   element: <RegisterCarForm />,
+      // },
       {
         path: '/about',
         element: <Home />,

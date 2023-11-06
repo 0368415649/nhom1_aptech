@@ -54,12 +54,10 @@ const rules = {
 const Register = (props) => {
   const {
     register,
-    handleSubmit,
-    formState: { dirtyErrors, errors, isError, data },
+    formState: { dirtyErrors, isError, data },
   } = useForm(rules);
   const { setUserInfo } = useUserContext();
   const [error, setError] = useState(null);
-  console.log('>> Check | error:', error);
 
   const [showVerifyOtp, dismissVerifyOtp] = useModal(
     <VerifyOtp

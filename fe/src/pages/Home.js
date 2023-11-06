@@ -17,7 +17,6 @@ const Home = () => {
 
   useEffect(() => {
     const isReLogin = JSON.parse(searchParams.get('re-login'));
-    console.log('>> Check | isReLogin:', isReLogin);
     if (isReLogin) {
       showLogin();
       searchParams.delete('re-login');
@@ -26,7 +25,6 @@ const Home = () => {
   }, [navigate, searchParams, setSearchParams, showLogin]);
 
   const [filter, setFilter] = useState({});
-  console.log('>> Check | filter:', filter);
   return (
     <div className="Home page-layout large-margin">
       <Filter filter={filter} setFilter={setFilter} />

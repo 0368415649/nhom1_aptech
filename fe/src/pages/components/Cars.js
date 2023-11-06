@@ -36,7 +36,6 @@ const Cars = ({ filter }) => {
       ))}
       {cars.length === 0 && 'NO ITEM'}
     </div>
-    
   );
 };
 
