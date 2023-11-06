@@ -151,7 +151,9 @@ const Register = (props) => {
           )}
         </div>
         <div className="input-section">
-          <div className="label">Mật khẩu</div>
+          <div className="label">Mật khẩu <span style={{
+            fontSize: 12
+          }}> ( gồm 8 ký tự trở lên chứa chữ và số ) </span></div>
           <Input {...register('password')} isPasswordInput />
           {dirtyErrors['password'] && (
             <span className="invalid">{dirtyErrors['password']}</span>
