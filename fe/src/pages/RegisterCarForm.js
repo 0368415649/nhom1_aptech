@@ -171,31 +171,31 @@ const RegisterCarForm = () => {
     };
   };
 
-  const upload = async (data) => {
-    const formData = new FormData();
-    formData.append('image1', img1);
-    formData.append('image2', img2);
-    formData.append('image3', img3);
-    formData.append('image4', img4);
-    formData.append('image5', img5);
-    formData.append('image6', img6);
-    formData.append('price', data.price);
-    formData.append('year_manufacture', data.year);
-    formData.append('number_plate', data.licensePlate);
-    formData.append('description', data.description);
-    formData.append('address', data.address);
-    formData.append('brand_id', data.brand);
-    formData.append('model_id', data.model);
-    formData.append('car_type_id', data.type);
-    formData.append('customer_id', localStorage.getItem('USER_ID'));
+  const upload = async () => {
+    const _formData = new FormData();
+    _formData.append('image1', img1);
+    _formData.append('image2', img2);
+    _formData.append('image3', img3);
+    _formData.append('image4', img4);
+    _formData.append('image5', img5);
+    _formData.append('image6', img6);
+    _formData.append('price', formData.price);
+    _formData.append('year_manufacture', formData.year);
+    _formData.append('number_plate', formData.licensePlate);
+    _formData.append('description', formData.description);
+    _formData.append('address', formData.address);
+    _formData.append('brand_id', formData.brand);
+    _formData.append('model_id', formData.model);
+    _formData.append('car_type_id', formData.type);
+    _formData.append('customer_id', localStorage.getItem('USER_ID'));
 
-    await http.post('/create_car', formData, {
+    await http.post('/create_car', _formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
     console.log('????????????????????/');
-    window.location.href = '/profile?tab-index=2';
+    // window.location.href = '/profile?tab-index=2';
   };
 
   const getPrevButton = () => {
