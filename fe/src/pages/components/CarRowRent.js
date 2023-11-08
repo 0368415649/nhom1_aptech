@@ -20,6 +20,7 @@ const CarRowRent = ({ car }) => {
 
     if (isReLoad) {
       searchParams.delete('re-load');
+      navigate('/profile?tab-index=4', { replace: true });
       window.location.reload();
     }
   }, [navigate, searchParams]);
