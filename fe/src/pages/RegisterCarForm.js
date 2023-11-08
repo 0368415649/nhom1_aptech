@@ -193,6 +193,7 @@ const RegisterCarForm = () => {
         'Content-Type': 'multipart/form-data',
       },
     });
+    window.location.href = '/profile?tab-index=2';
   };
 
   const getPrevButton = () => {
