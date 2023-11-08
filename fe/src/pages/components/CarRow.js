@@ -1,20 +1,30 @@
-import React from "react";
+import React from 'react';
 
-import Img from "../../components/Img";
-import Button from "../../components/Button";
+import Img from '../../components/Img';
+import Button from '../../components/Button';
 
-import { BriefcaseIcon, StarSolidIcon } from "../../components/Svg";
+import { BriefcaseIcon, StarSolidIcon } from '../../components/Svg';
 
-import "./styles/CarRow.scss";
+import './styles/CarRow.scss';
+import { IMAGES_URL } from '../../configs/urls';
 
-const CarRow = () => {
+const CarRow = ({ car }) => {
+  const carImage = car?.image?.split('-')[0];
+  console.log('>> Check | carImage:', carImage);
+
   return (
     <div className="CarRow">
+      {/* <Img src="" /> */}
       <Img
-        src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mg_5_luxury_2022/p/g/2023/03/14/12/0qunI422EmCFfaB-Fhk2UQ.jpg"
-        alt="car"
         className="car-img"
+        src={
+          carImage
+            ? `${IMAGES_URL}/${carImage}`
+            : 'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mg_5_luxury_2022/p/g/2023/03/14/12/0qunI422EmCFfaB-Fhk2UQ.jpg'
+        }
+        alt="car"
       />
+
       <div className="info">
         <div className="name">Porsche Unveils Two Models</div>
         <div className="car-info">
