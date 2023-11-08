@@ -19,9 +19,7 @@ const CarRow = ({ car }) => {
       <Img
         className="car-img"
         src={
-          carImage
-            ? `${IMAGES_URL}/${carImage}`
-            : 'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mg_5_luxury_2022/p/g/2023/03/14/12/0qunI422EmCFfaB-Fhk2UQ.jpg'
+          'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mg_5_luxury_2022/p/g/2023/03/14/12/0qunI422EmCFfaB-Fhk2UQ.jpg'
         }
         alt="car"
       />
