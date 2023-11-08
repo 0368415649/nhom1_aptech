@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Img from '../../components/Img';
 import Button from '../../components/Button';
@@ -7,10 +7,23 @@ import { IMAGES_URL } from '../../configs/urls';
 import { convertPrice } from '../../utils/common';
 import { RENTAL_TAB_OPTIONS } from './RentalHistory';
 import http from '../../utils/http';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const CarRowRent = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
   const [error, setError] = useState(null);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isReLoad = JSON.parse(searchParams.get('re-load'));
+
+    if (isReLoad) {
+      searchParams.delete('re-load');
+      navigate('/profile?tab-index=4', { replace: true });
+      window.location.reload();
+    }
+  }, [navigate, searchParams]);
 
   const cancel = async () => {
     try {
@@ -19,7 +32,7 @@ const CarRowRent = ({ car }) => {
         boocking_status_id: 6,
       });
       if (data.status === 1) {
-        window.location.reload();
+        window.location.href = '/?re-load=true';
       }
     } catch (error) {
       setError('Không thành công, thử lại sau!');
