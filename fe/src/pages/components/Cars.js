@@ -4,6 +4,8 @@ import './styles/Cars.scss';
 import CarCard from './CarCard';
 import http from '../../utils/http';
 
+import no_car from '../../assets/imgs/no_car.png';
+
 const Cars = ({ filter }) => {
   const [cars, setCars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,12 +32,24 @@ const Cars = ({ filter }) => {
     })();
   }, [filter]);
   return (
-    <div className="Cars">
-      {cars.map((car) => (
-        <CarCard key={car?.car_id} car={car} />
-      ))}
-      {cars.length === 0 && 'NO ITEM'}
-    </div>
+    <>
+      <div className="Cars">
+        {cars.map((car) => (
+          <CarCard key={car?.car_id} car={car} />
+        ))}
+      </div>
+      {cars.length === 0 && (
+        <img
+          style={{
+            margin: '64px auto 0',
+            display: 'block',
+          }}
+          width={220}
+          src={no_car}
+          alt="no_car"
+        />
+      )}
+    </>
   );
 };
 

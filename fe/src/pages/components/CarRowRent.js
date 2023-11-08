@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Img from '../../components/Img';
 import Button from '../../components/Button';
@@ -6,9 +6,27 @@ import './styles/CarRow.scss';
 import { IMAGES_URL } from '../../configs/urls';
 import { convertPrice } from '../../utils/common';
 import { RENTAL_TAB_OPTIONS } from './RentalHistory';
+import http from '../../utils/http';
 
 const CarRowRent = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
+  const [error, setError] = useState(null);
+
+  console.log('>> Check | car:123123', car);
+
+  const cancel = async () => {
+    try {
+      const { data } = await http.put('/change_status_booking', {
+        booking_id: car?.booking_id,
+        boocking_status_id: 6,
+      });
+      if (data.status === 1) {
+        window.location.reload();
+      }
+    } catch (error) {
+      setError('Không thành công, thử lại sau!');
+    }
+  };
 
   return (
     <div className="CarRow">
@@ -39,6 +57,7 @@ const CarRowRent = ({ car }) => {
             <div className="title">Địa chỉ giao xe: {car?.address}</div>
           </div>
         </div>
+        {error && <div className="invalid">{error}</div>}
         {car?.boocking_status_id === 1 && (
           <div
             className="actions"
@@ -46,7 +65,7 @@ const CarRowRent = ({ car }) => {
               marginTop: 12,
             }}
           >
-            <Button>Hủy thuê</Button>
+            <Button onClick={cancel}>Hủy thuê</Button>
           </div>
         )}
       </div>
