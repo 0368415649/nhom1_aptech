@@ -6,6 +6,7 @@ import { auth } from '../../firebase/setup';
 import Button from '../Button';
 
 import './styles/VerifyOtp.scss';
+import Loader from '../Loader/Loader';
 
 const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
   const [otpConfirm, setOtpConfirm] = useState('');
@@ -65,8 +66,13 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
         className="otp-confirm"
       />
       {error && <div className="invalid">{error}</div>}
-      <Button size="lg" className="verify-btn" onClick={confirmOtp}>
-        Xác nhận
+      <Button
+        size="lg"
+        className="verify-btn"
+        disabled={isSendingSms}
+        onClick={confirmOtp}
+      >
+        {isSendingSms || isConfirmingOtp ? <Loader /> : 'Xác nhận'}
       </Button>
     </Modal>
   );

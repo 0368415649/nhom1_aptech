@@ -14,6 +14,7 @@ import { PASSWORD, PHONE_NUMBER } from '../../constants/regexs';
 import './styles/Register.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
+import Loader from '../Loader/Loader';
 
 const rules = {
   phone: {
@@ -58,6 +59,7 @@ const Register = (props) => {
   } = useForm(rules);
   const { setUserInfo } = useUserContext();
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [showVerifyOtp, dismissVerifyOtp] = useModal(
     <VerifyOtp
@@ -72,6 +74,7 @@ const Register = (props) => {
 
   const submitRegister = async ({ phone, password, displayName }) => {
     try {
+      setIsLoading(true);
       const { data } = await http.post('/register_customer', {
         phone,
         password,
@@ -105,6 +108,8 @@ const Register = (props) => {
       }
     } catch (error) {
       console.log('>> Check | error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -112,6 +117,7 @@ const Register = (props) => {
 
   const handleBeforeRegister = async ({ phone }) => {
     try {
+      setIsLoading(true);
       const { data } = await http.get('/check_exists_phone', {
         params: {
           phone,
@@ -128,6 +134,8 @@ const Register = (props) => {
       }
     } catch (error) {
       console.log('>> Check | error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -149,9 +157,17 @@ const Register = (props) => {
           )}
         </div>
         <div className="input-section">
-          <div className="label">Mật khẩu <span style={{
-            fontSize: 12
-          }}> ( gồm 8 ký tự trở lên chứa chữ và số ) </span></div>
+          <div className="label">
+            Mật khẩu{' '}
+            <span
+              style={{
+                fontSize: 12,
+              }}
+            >
+              {' '}
+              ( gồm 8 ký tự trở lên chứa chữ và số ){' '}
+            </span>
+          </div>
           <Input {...register('password')} isPasswordInput />
           {dirtyErrors['password'] && (
             <span className="invalid">{dirtyErrors['password']}</span>
@@ -175,9 +191,9 @@ const Register = (props) => {
           size="lg"
           className="register-btn"
           onClick={() => handleBeforeRegister(data)}
-          disabled={isDisabled}
+          disabled={isDisabled || isLoading}
         >
-          Đăng ký
+          {isLoading ? <Loader /> : 'Đăng ký'}
         </Button>
       </form>
     </Modal>

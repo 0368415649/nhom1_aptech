@@ -8,6 +8,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import useModal from '../hooks/useModal';
 import Register from '../components/modals/Register';
 import Login from '../components/modals/Login';
+import Loader from '../components/Loader/Loader';
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();

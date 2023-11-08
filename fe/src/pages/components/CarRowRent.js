@@ -12,8 +12,6 @@ const CarRowRent = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
   const [error, setError] = useState(null);
 
-  console.log('>> Check | car:123123', car);
-
   const cancel = async () => {
     try {
       const { data } = await http.put('/change_status_booking', {
