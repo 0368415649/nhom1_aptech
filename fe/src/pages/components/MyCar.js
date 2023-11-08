@@ -9,6 +9,7 @@ import { useUserContext } from '../../contexts/User';
 const MyCar = () => {
   const { user } = useUserContext();
   const [cars, setCars] = useState([]);
+  console.log('>> Check | cars:', cars);
   useEffect(() => {
     (async () => {
       try {

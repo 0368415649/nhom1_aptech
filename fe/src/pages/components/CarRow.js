@@ -7,6 +7,7 @@ import { BriefcaseIcon, StarSolidIcon } from '../../components/Svg';
 
 import './styles/CarRow.scss';
 import { IMAGES_URL } from '../../configs/urls';
+import { convertPrice } from '../../utils/common';
 
 const CarRow = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
@@ -26,7 +27,7 @@ const CarRow = ({ car }) => {
       />
 
       <div className="info">
-        <div className="name">Porsche Unveils Two Models</div>
+        <div className="name">{car?.model_name}</div>
         <div className="car-info">
           <div className="block-info">
             <StarSolidIcon className="star-icon icon" />
@@ -34,10 +35,10 @@ const CarRow = ({ car }) => {
           </div>
           <div className="block-info">
             <BriefcaseIcon className="icon" />
-            <span>194 chuyến</span>
+            <span>{car?.count_journeys} chuyến</span>
           </div>
           <div className="car-price">
-            <span className="price">278K</span>/ngày
+            <span className="price">{convertPrice(+car?.price)}</span>/ngày
           </div>
         </div>
         <div className="actions">
