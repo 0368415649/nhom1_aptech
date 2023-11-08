@@ -62,7 +62,6 @@ const RegisterCarForm = () => {
 
   const {
     register,
-    handleSubmit,
     setValue,
     formState: { dirtyErrors, isError, data: formData, errors },
   } = useForm(rules);
@@ -97,7 +96,6 @@ const RegisterCarForm = () => {
       const brandUrl = http.get('/get_list_brand');
       const typeUrl = http.get('/get_list_cartype');
 
-      // const { data } = await http.get('/get_list_brand');
       const [{ data: res_brands }, { data: res_types }] = await Promise.all([
         brandUrl,
         typeUrl,
@@ -132,6 +130,34 @@ const RegisterCarForm = () => {
     })();
   }, [formData.brand]);
 
+  const isDisabled = () => {
+    const {
+      licensePlate,
+      description,
+      brand,
+      model,
+      type,
+      year,
+      address,
+      price,
+    } = errors;
+    if (currentStep === 0) {
+      return !!(
+        licensePlate ||
+        description ||
+        brand ||
+        model ||
+        type ||
+        year ||
+        address
+      );
+    }
+
+    if (currentStep === 1) {
+      return !!price;
+    }
+  };
+
   const ShowedStep = [
     <StepOne
       setValue={setValue}
@@ -159,17 +185,6 @@ const RegisterCarForm = () => {
       handle6={handle6}
     />,
   ][currentStep];
-
-  const getNextButton = () => {
-    // const disabled = currentStep === STEPS.length - 1;
-    return {
-      disabled: currentStep !== STEPS.length - 1 ? false : isError,
-      // onClick: () => !disabled && setCurrentStep((prev) => prev + 1),
-      type: currentStep !== STEPS.length - 1 ? 'button' : 'submit',
-      onClick: () =>
-        currentStep !== STEPS.length - 1 && setCurrentStep((prev) => prev + 1),
-    };
-  };
 
   const upload = async () => {
     const _formData = new FormData();
@@ -204,7 +219,6 @@ const RegisterCarForm = () => {
       type: 'button',
       onClick: () => {
         debugger;
-        console.log('ádasd');
         if (!disabled) setCurrentStep((prev) => prev - 1);
       },
     };
@@ -231,13 +245,18 @@ const RegisterCarForm = () => {
         </Button>
 
         {currentStep === STEPS.length - 1 ? (
-          <Button size="lg" onClick={upload}>
+          <Button
+            disabled={!img1 || !img2 || !img3 || !img4 || !img5 || !img6}
+            size="lg"
+            onClick={upload}
+          >
             Đăng ký
           </Button>
         ) : (
           <Button
             size="lg"
             type="button"
+            disabled={isDisabled()}
             onClick={() => setCurrentStep((prev) => prev + 1)}
           >
             Kế tiếp
