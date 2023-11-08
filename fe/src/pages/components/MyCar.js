@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import CarRow from "./CarRow";
+import CarRow from './CarRow';
 
-import "./styles/MyCar.scss";
+import './styles/MyCar.scss';
 
 const MyCar = () => {
   return (

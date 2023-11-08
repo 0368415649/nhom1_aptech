@@ -64,7 +64,7 @@ const RegisterCarForm = () => {
     register,
     handleSubmit,
     setValue,
-    formState: { dirtyErrors, isError, data: formData },
+    formState: { dirtyErrors, isError, data: formData, errors },
   } = useForm(rules);
 
   const handle = (e) => {
@@ -140,6 +140,7 @@ const RegisterCarForm = () => {
       brands={brands}
       models={models}
       types={types}
+      errors={errors}
     />,
     <StepTwo
       setValue={setValue}
@@ -193,6 +194,7 @@ const RegisterCarForm = () => {
         'Content-Type': 'multipart/form-data',
       },
     });
+    console.log('????????????????????/');
     window.location.href = '/profile?tab-index=2';
   };
 
@@ -201,24 +203,25 @@ const RegisterCarForm = () => {
     return {
       disabled,
       type: 'button',
-      onClick: () => !disabled && setCurrentStep((prev) => prev - 1),
+      onClick: () => {
+        debugger;
+        console.log('ádasd');
+        if (!disabled) setCurrentStep((prev) => prev - 1);
+      },
     };
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(upload)}
-      className="RegisterCarForm page-layout"
-    >
+    <div className="RegisterCarForm page-layout">
       <div className="steps" onClick={() => setCurrentStep((prev) => prev + 1)}>
         {STEPS.map((step, index) => (
-          <>
+          <Fragment key={index}>
             <div className={`step ${currentStep === index ? 'actived' : ''}`}>
               <span>{index + 1}</span>
               {step.label}
             </div>
             {index !== STEPS.length - 1 && <ChevronRightIcon />}
-          </>
+          </Fragment>
         ))}
       </div>
       {ShowedStep}
@@ -227,11 +230,22 @@ const RegisterCarForm = () => {
         <Button size="lg" variant="outline" {...getPrevButton()}>
           Quay lại
         </Button>
-        <Button size="lg" {...getNextButton()}>
-          {currentStep === STEPS.length - 1 ? 'Đăng ký' : 'Kế tiếp'}
-        </Button>
+
+        {currentStep === STEPS.length - 1 ? (
+          <Button size="lg" onClick={upload}>
+            Đăng ký
+          </Button>
+        ) : (
+          <Button
+            size="lg"
+            type="button"
+            onClick={() => setCurrentStep((prev) => prev + 1)}
+          >
+            Kế tiếp
+          </Button>
+        )}
       </div>
-    </form>
+    </div>
   );
 };
 
@@ -239,6 +253,7 @@ const StepOne = ({
   setValue,
   register,
   dirtyErrors,
+  errors,
   brands,
   models,
   types,
@@ -261,6 +276,9 @@ const StepOne = ({
         </div>
         <div className="half">
           <Input {...register('licensePlate')} />
+          {dirtyErrors['licensePlate'] && (
+            <span className="invalid">{dirtyErrors['licensePlate']}</span>
+          )}
         </div>
       </div>
 
@@ -277,8 +295,8 @@ const StepOne = ({
               setOption={setValue}
               {...register('brand')}
             />
-            {dirtyErrors['brand'] && (
-              <span className="invalid">{dirtyErrors['brand']}</span>
+            {errors['brand'] && (
+              <span className="invalid">{errors['brand']}</span>
             )}
           </div>
           <div className="input-section">
@@ -288,8 +306,8 @@ const StepOne = ({
               setOption={setValue}
               {...register('model')}
             />
-            {dirtyErrors['model'] && (
-              <span className="invalid">{dirtyErrors['model']}</span>
+            {errors['model'] && (
+              <span className="invalid">{errors['model']}</span>
             )}
           </div>
           <div className="input-section">
@@ -299,8 +317,8 @@ const StepOne = ({
               setOption={setValue}
               {...register('type')}
             />
-            {dirtyErrors['type'] && (
-              <span className="invalid">{dirtyErrors['type']}</span>
+            {errors['type'] && (
+              <span className="invalid">{errors['type']}</span>
             )}
           </div>
           <div className="input-section">
@@ -310,8 +328,8 @@ const StepOne = ({
               setOption={setValue}
               {...register('year')}
             />
-            {dirtyErrors['year'] && (
-              <span className="invalid">{dirtyErrors['year']}</span>
+            {errors['year'] && (
+              <span className="invalid">{errors['year']}</span>
             )}
           </div>
         </div>
