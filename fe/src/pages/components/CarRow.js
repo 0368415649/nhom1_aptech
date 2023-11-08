@@ -11,7 +11,6 @@ import { convertPrice } from '../../utils/common';
 
 const CarRow = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
-  console.log('>> Check | carImage:', carImage);
 
   return (
     <div className="CarRow">
@@ -25,6 +24,7 @@ const CarRow = ({ car }) => {
       />
 
       <div className="info">
+        <div className="status">Trạng thái: {car?.car_status_name}</div>
         <div className="name">{car?.model_name}</div>
         <div className="car-info">
           <div className="block-info">
