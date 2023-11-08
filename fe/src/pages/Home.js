@@ -19,12 +19,13 @@ const Home = () => {
     const isReLogin = JSON.parse(searchParams.get('re-login'));
     const isReLoad = JSON.parse(searchParams.get('re-load'));
     if (isReLogin) {
+      localStorage.clear();
       showLogin();
       searchParams.delete('re-login');
       navigate('/', { replace: true });
     }
     if (isReLoad) {
-      searchParams.delete('re-login');
+      searchParams.delete('re-load');
       navigate('/', { replace: true });
       window.location.reload();
     }

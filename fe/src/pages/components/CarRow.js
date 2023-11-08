@@ -15,13 +15,7 @@ const CarRow = ({ car }) => {
   return (
     <div className="CarRow">
       {/* <Img src="" /> */}
-      <Img
-        className="car-img"
-        src={
-          'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mg_5_luxury_2022/p/g/2023/03/14/12/0qunI422EmCFfaB-Fhk2UQ.jpg'
-        }
-        alt="car"
-      />
+      <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
 
       <div className="info">
         <div className="status">Trạng thái: {car?.car_status_name}</div>

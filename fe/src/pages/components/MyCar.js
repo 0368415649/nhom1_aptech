@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import CarRow from './CarRow';
+import no_car from '../../assets/imgs/no_car.png';
 
 import './styles/MyCar.scss';
 import http from '../../utils/http';
@@ -9,7 +10,6 @@ import { useUserContext } from '../../contexts/User';
 const MyCar = () => {
   const { user } = useUserContext();
   const [cars, setCars] = useState([]);
-  console.log('>> Check | cars:', cars);
   useEffect(() => {
     (async () => {
       try {
@@ -27,6 +27,16 @@ const MyCar = () => {
       {cars.map((car, k) => (
         <CarRow car={car} key={k} />
       ))}
+      {cars.length === 0 && (
+        <img
+          style={{
+            margin: '64px auto 0',
+          }}
+          width={220}
+          src={no_car}
+          alt="no_car"
+        />
+      )}
     </div>
   );
 };

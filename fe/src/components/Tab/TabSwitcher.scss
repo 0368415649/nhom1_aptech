@@ -6,7 +6,7 @@
 
   .TabSwitcher-option {
     flex: 1;
-    padding: 12px 16px;
+    padding: 12px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
       position: relative;
 
       &:before {
-        content: "";
+        content: '';
         width: 1px;
         height: 60%;
         background-color: var(--black10);

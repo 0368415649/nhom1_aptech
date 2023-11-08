@@ -1,22 +1,28 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react';
+import cx from 'classnames';
 
-import "./TabSwitcher.scss";
+import './TabSwitcher.scss';
 
-const TabSwitcher = ({ option, options, setOption, className = "" }) => {
-  const classes = cx("TabSwitcher", className);
+const TabSwitcher = ({
+  option,
+  options,
+  setOption,
+  className = '',
+  useIndex = false,
+}) => {
+  const classes = cx('TabSwitcher', className);
 
   return (
     <div className={classes}>
-      {options.map((op) => {
+      {options.map((op, i) => {
         return (
           <div
-            className={cx("TabSwitcher-option", {
-              actived: op === option,
+            className={cx('TabSwitcher-option', {
+              actived: !useIndex ? op === option : option === i,
             })}
             key={op}
             onClick={() => {
-              setOption(op);
+              !useIndex ? setOption(op) : setOption(i);
             }}
           >
             {op}

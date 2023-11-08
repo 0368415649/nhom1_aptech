@@ -69,7 +69,7 @@ const ChangePassword = () => {
       }
 
       if (data.status === 0) {
-        setError('Không thành công, vui lòng liên hệ với quản trị viên!');
+        setError('Sai mật khẩu!');
       }
     } catch (error) {
       setError('Không thành công, vui lòng liên hệ với quản trị viên!');

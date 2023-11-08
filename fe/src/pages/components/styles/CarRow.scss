@@ -33,6 +33,14 @@
         gap: 4px;
         margin-bottom: 8px;
 
+        &.smallTxt {
+          font-size: 14px;
+
+          &:first-child {
+            margin-top: 12px;
+          }
+        }
+
         .star-icon {
           color: var(--yellow);
         }
