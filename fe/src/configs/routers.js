@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout';
 import Home from '../pages/Home';
 import RegisterCar from '../pages/RegisterCar';
 import DetailCar from '../pages/DetailCar';
-import RegisterCarForm from '../pages/RegisterCarForm';
+import ChinhSach from '../pages/ChinhSach';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/car/:id',
         element: <DetailCar />,
+      },
+      {
+        path: '/chinh-sach',
+        element: <ChinhSach />,
       },
     ],
   },
