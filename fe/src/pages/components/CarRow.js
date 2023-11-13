@@ -8,6 +8,7 @@ import { BriefcaseIcon, StarSolidIcon } from '../../components/Svg';
 import './styles/CarRow.scss';
 import { IMAGES_URL } from '../../configs/urls';
 import { convertPrice } from '../../utils/common';
+import { Link } from 'react-router-dom';
 
 const CarRow = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
@@ -35,7 +36,9 @@ const CarRow = ({ car }) => {
         </div>
         <div className="actions">
           <Button>Bỏ thích</Button>
-          <div className="view">Xem chi tiết</div>
+          <Link to={`/car/${car?.car_id}`} className="view">
+            Xem chi tiết
+          </Link>
         </div>
       </div>
     </div>

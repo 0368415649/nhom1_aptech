@@ -25,19 +25,19 @@ const CarRowRent = ({ car }) => {
     }
   }, [navigate, searchParams]);
 
-  // const cancel = async () => {
-  //   try {
-  //     const { data } = await http.put('/change_status_booking', {
-  //       booking_id: car?.booking_id,
-  //       boocking_status_id: 6,
-  //     });
-  //     if (data.status === 1) {
-  //       window.location.href = '/profile?tab-index=4&re-load=true';
-  //     }
-  //   } catch (error) {
-  //     setError('Không thành công, thử lại sau!');
-  //   }
-  // };
+  const changeStatus = async () => {
+    try {
+      const { data } = await http.put('/change_status_booking', {
+        booking_id: car?.booking_id,
+        boocking_status_id: 3,
+      });
+      if (data.status === 1) {
+        window.location.href = '/profile?tab-index=3&re-load=true';
+      }
+    } catch (error) {
+      setError('Không thành công, thử lại sau!');
+    }
+  };
 
   return (
     <div className="CarRow">
@@ -69,14 +69,14 @@ const CarRowRent = ({ car }) => {
           </div>
         </div>
         {error && <div className="invalid">{error}</div>}
-        {car?.boocking_status_id === 1 && (
+        {car?.boocking_status_id === 2 && (
           <div
             className="actions"
             style={{
               marginTop: 12,
             }}
           >
-            {/* <Button onClick={cancel}>Hủy thuê</Button> */}
+            <Button onClick={changeStatus}>Đã giao xe</Button>
           </div>
         )}
       </div>
