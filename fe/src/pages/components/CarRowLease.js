@@ -25,11 +25,11 @@ const CarRowRent = ({ car }) => {
     }
   }, [navigate, searchParams]);
 
-  const changeStatus = async () => {
+  const changeStatus = async (id) => {
     try {
       const { data } = await http.put('/change_status_booking', {
         booking_id: car?.booking_id,
-        boocking_status_id: 3,
+        boocking_status_id: id,
       });
       if (data.status === 1) {
         window.location.href = '/profile?tab-index=3&re-load=true';
@@ -76,7 +76,17 @@ const CarRowRent = ({ car }) => {
               marginTop: 12,
             }}
           >
-            <Button onClick={changeStatus}>Đã giao xe</Button>
+            <Button onClick={() => changeStatus(3)}>Đã giao xe</Button>
+          </div>
+        )}
+        {car?.boocking_status_id === 3 && (
+          <div
+            className="actions"
+            style={{
+              marginTop: 12,
+            }}
+          >
+            <Button onClick={() => changeStatus(4)}>Đã hoàn thành</Button>
           </div>
         )}
       </div>
