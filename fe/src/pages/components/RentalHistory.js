@@ -52,9 +52,14 @@ const RentalHistory = () => {
         className="Tab-status"
         useIndex
       />
-      {cars.map((car, k) => (
-        <CarRowRent car={car} key={k} />
-      ))}
+      {cars.length > 0 && (
+        <div className="overflow-row">
+          {cars.map((car, k) => (
+            <CarRowRent car={car} key={k} />
+          ))}
+        </div>
+      )}
+
       {cars.length === 0 && (
         <img
           style={{
