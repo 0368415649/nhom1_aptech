@@ -41,7 +41,7 @@ const CarCard = ({ car }) => {
           </div>
           <div className="block-info">
             <BriefcaseIcon className="icon" />
-            <span>194 chuyến</span>
+            <span>{car?.count_journeys} chuyến</span>
           </div>
         </div>
         <div className="mt-2 fw-bold">
