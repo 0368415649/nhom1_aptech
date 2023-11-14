@@ -35,7 +35,7 @@ const CarRow = ({ car }) => {
           </div>
         </div>
         <div className="actions">
-          <Button>Bỏ thích</Button>
+          <Button>Quản lý</Button>
           <Link to={`/car/${car?.car_id}`} className="view">
             Xem chi tiết
           </Link>
