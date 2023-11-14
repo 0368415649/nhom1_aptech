@@ -37,23 +37,22 @@ const Footer = () => {
           <div className="col-sm-6 col-lg-3 mt-3">
             <h6 className="fw-bold">Chính sách</h6>
             <br />
-            <Link to="/chinh-sach">Chính sách và quy định</Link>
-            <p>Quy chế hoạt động</p>
-            <p>Bảo mật thông tin</p>
-            <p>Giải quyết tranh chấp</p>
+            <p><Link to="/chinh-sach" >Chính sách và quy định</Link></p>
+            <p><Link to="/information-security" >Bảo mật thông tin</Link></p>
+            <p><Link to="/general-principles" >Nguyên tắc chung</Link></p>
+            <p><Link to="/resolveconflic" >Giải quyết tranh chấp</Link></p>
           </div>
           <div className="col-sm-6 col-lg-2 mt-3">
             <h6 className="fw-bold">Tìm hiểu thêm</h6>
             <br />
-            <p>Hướng dẫn chung</p>
-            <p>Hướng dẫn đặt xe</p>
-            <p>Hướng dẫn thanh toán</p>
+            <p><Link to="/general-guidance" >Hướng dẫn chung</Link></p>
+            <p><Link to="/instructions-booking-car" >Hướng dẫn đặt xe</Link></p>
             <p>Hỏi và trả lời</p>
           </div>
           <div className="col-sm-6 col-lg-3">
             <br />
             <br />
-            <p>Về ADDDA</p>
+            <p><Link to="/about-me" >Về chúng tôi</Link></p>
             <p>ADDDA Blog</p>
             <p>Tuyển dụng</p>
           </div>
