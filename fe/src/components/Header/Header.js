@@ -38,20 +38,22 @@ const Header = () => {
           Về chúng tôi
         </Link>
 
-        <Link
-          to="/register_car"
-          className="link"
-          onClick={(e) => {
-            if (user?.verify_flg == VERIFY_FLAG.PENDING) {
-              showPending();
-              e.preventDefault();
-            }
-          }}
-        >
-          {user?.role_id == ROLES.OWNER
-            ? 'Đăng ký cho thuê xe'
-            : 'Trở thành chủ xe'}
-        </Link>
+        {isLogin && (
+          <Link
+            to="/register_car"
+            className="link"
+            onClick={(e) => {
+              if (user?.verify_flg == VERIFY_FLAG.PENDING) {
+                showPending();
+                e.preventDefault();
+              }
+            }}
+          >
+            {user?.role_id == ROLES.OWNER
+              ? 'Đăng ký cho thuê xe'
+              : 'Trở thành chủ xe'}
+          </Link>
+        )}
 
         <div className="divider" />
         {isLogin ? (

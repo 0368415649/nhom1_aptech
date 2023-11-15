@@ -10,6 +10,7 @@ import {
 } from '../components/Svg';
 import UserInfo from './components/UserInfo';
 import LeaseHistory from './components/LeaseHistory';
+import MyAddress from './components/MyAddress';
 
 import './styles/Profile.scss';
 import MyCar from './components/MyCar';
@@ -17,6 +18,8 @@ import Favorite from './components/Favorite';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import ChangePassword from './components/ChangePassword';
 import RentalHistory from './components/RentalHistory';
+import { useUserContext } from '../contexts/User';
+import { ROLES } from '../components/Header/Header';
 
 const MY_ACCOUNT = 'Tài khoản của tôi';
 const FAVORITE = 'Xe yêu thích';
@@ -24,22 +27,30 @@ const MY_CAR = 'Xe của tôi';
 const LEASE_HISTORY = 'Lịch sử cho thuê xe';
 const RENTAL_HISTORY = 'Lịch sử thuê xe';
 const CHANGE_PASSWORD = 'Đổi mật khẩu';
+const MY_ADDRESS = 'Địa chỉ của tôi';
 const LOG_OUT = 'Đăng xuất';
 
-const TABS = [
-  { icon: UserIcon, title: MY_ACCOUNT },
-  { icon: HeartIcon, title: FAVORITE },
-  { icon: VehicleIcon, title: MY_CAR },
-  { icon: ClockIcon, title: LEASE_HISTORY },
-  { icon: ClockIcon, title: RENTAL_HISTORY },
-  { icon: LockIcon, title: CHANGE_PASSWORD },
-];
-
 const Profile = () => {
+  const { user } = useUserContext();
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const tabIndex = JSON.parse(searchParams.get('tab-index'));
+
+  const TABS = [
+    { icon: UserIcon, title: MY_ACCOUNT },
+    { icon: HeartIcon, title: FAVORITE },
+    { icon: VehicleIcon, title: MY_CAR, isHide: user?.role_id == ROLES.GUEST },
+    {
+      icon: ClockIcon,
+      title: LEASE_HISTORY,
+      isHide: user?.role_id == ROLES.GUEST,
+    },
+    { icon: ClockIcon, title: RENTAL_HISTORY },
+    { icon: LockIcon, title: CHANGE_PASSWORD },
+    { icon: LockIcon, title: MY_ADDRESS },
+  ];
+
   const [currentTab, setCurrentTab] = useState(() => {
     return TABS[tabIndex || 0];
   });
@@ -57,11 +68,12 @@ const Profile = () => {
     [LEASE_HISTORY]: <LeaseHistory />,
     [RENTAL_HISTORY]: <RentalHistory />,
     [CHANGE_PASSWORD]: <ChangePassword />,
+    [MY_ADDRESS]: <MyAddress />,
   }[currentTab.title];
 
   return (
     <div className="Profile page-layout mt-4">
-      <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
+      <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} tabs={TABS} />
       <div className="tab-main">
         <div className="tab-title">{currentTab.title}</div>
         {ShowedTab}
@@ -70,11 +82,12 @@ const Profile = () => {
   );
 };
 
-const Tabs = ({ currentTab, setCurrentTab }) => {
+const Tabs = ({ currentTab, setCurrentTab, tabs }) => {
   return (
     <div className="Tab">
       <div className="tabs">
-        {TABS.map((tab) => {
+        {tabs.map((tab) => {
+          if (tab?.isHide) return null;
           return (
             <div
               key={tab.title}
