@@ -34,7 +34,7 @@ const Header = () => {
         <img id="header-logo" src={logo} height="30px" alt="logo" />
       </Link>
       <div className="links">
-        <Link to="/about" className="link">
+        <Link to="/about-me" className="link">
           Về chúng tôi
         </Link>
 
