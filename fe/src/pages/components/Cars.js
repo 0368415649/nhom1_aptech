@@ -39,15 +39,18 @@ const Cars = ({ filter }) => {
         ))}
       </div>
       {cars.length === 0 && (
-        <img
-          style={{
-            margin: '64px auto 0',
-            display: 'block',
-          }}
-          width={220}
-          src={no_car}
-          alt="no_car"
-        />
+        <div>
+          <img
+            style={{
+              margin: '64px auto 0',
+              display: 'block',
+            }}
+            width={220}
+            src={no_car}
+            alt="no_car"
+          />
+          <div className="text-center fw-bold">Không tìm thấy xe phù hợp</div>
+        </div>
       )}
     </>
   );

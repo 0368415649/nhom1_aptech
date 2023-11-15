@@ -19,21 +19,24 @@ const CarRow = ({ car }) => {
       <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
 
       <div className="info">
-        <div className="status">Trạng thái: {car?.car_status_name}</div>
         <div className="name">{car?.model_name}</div>
         <div className="car-info">
-          <div className="block-info">
-            <StarSolidIcon className="star-icon icon" />
-            <span>5.0</span>
+          <div className="car-price mt-2">
+            <span className="price">{convertPrice(+car?.price)}</span> / ngày
           </div>
-          <div className="block-info">
-            <BriefcaseIcon className="icon" />
-            <span>{car?.count_journeys} chuyến</span>
-          </div>
-          <div className="car-price">
-            <span className="price">{convertPrice(+car?.price)}</span>/ngày
+          <div className="d-flex  align-items-center fs_22 mt-2">
+            <div className="block-info">
+              <StarSolidIcon className="star-icon icon" />
+              <span>5.0</span>
+            </div>
+            <div className="block-info ms-3">
+              <BriefcaseIcon className="icon" />
+              <span>{car?.count_journeys} chuyến</span>
+            </div>
           </div>
         </div>
+        <div className="status">Trạng thái: {car?.car_status_name}</div>
+        <div className="sen"></div>
         <div className="actions">
           <Button>Quản lý</Button>
           <Link to={`/car/${car?.car_id}`} className="view">

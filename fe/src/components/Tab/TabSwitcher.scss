@@ -12,7 +12,8 @@
     align-items: center;
     font-weight: 500;
     cursor: pointer;
-
+    font-size: 15px;
+    
     & + .TabSwitcher-option {
       position: relative;
 
@@ -35,6 +36,7 @@
     &.actived {
       cursor: default;
       background-color: var(--primary);
+      color: white;
     }
   }
 }

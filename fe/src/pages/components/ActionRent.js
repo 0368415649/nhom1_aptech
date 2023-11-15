@@ -66,7 +66,7 @@ const ActionRent = ({ car }) => {
   return (
     <div className="ActionRent">
       <div className="price">
-        <span>{convertPrice(car?.price)}</span>/ngày
+        <span>{convertPrice(car?.price)}</span> / ngày
       </div>
       <div className="pick-date">
         <div className="title">Ngày nhận xe</div>

@@ -23,7 +23,7 @@ const MyCar = () => {
     })();
   }, [user?.id]);
   return (
-    <div className="Tab-content MyCar">
+    <div className="Tab-content MyCar overflow-row">
       {cars.map((car, k) => (
         <CarRow car={car} key={k} />
       ))}

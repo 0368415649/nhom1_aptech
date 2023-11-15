@@ -8,7 +8,9 @@ import { convertPrice } from '../../utils/common';
 import { RENTAL_TAB_OPTIONS } from './RentalHistory';
 import http from '../../utils/http';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-
+import {
+  AddressIcon
+} from '../../components/Svg';
 const CarRowRent = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
   const [error, setError] = useState(null);
@@ -43,43 +45,63 @@ const CarRowRent = ({ car }) => {
     <div className="CarRow">
       <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
 
-      <div className="info">
-        <div className="status">
-          Trạng thái: {RENTAL_TAB_OPTIONS[car?.boocking_status_id]}
-        </div>
-        <div className="name">{car?.model_name}</div>
+      <div className="info grap_info">
+        
+        <div className="name mt-2">{car?.model_name}</div>
         <div className="car-info">
-          <div className="block-info smallTxt">
+          <div className="block-info smallTxt car_pro_name_rate">
             Ngày bắt đầu:
             <span>
               {car?.start_date} - {car?.start_time}:00
             </span>
           </div>
-          <div className="block-info smallTxt">
+          <div className="block-info smallTxt car_pro_name_rate">
             Ngày trả xe:
             <span>
               {car?.end_date} - {car?.end_time}:00
             </span>
           </div>
           <div className="car-price">
-            <span className="price">{convertPrice(+car?.total)}</span>/ngày
+          <span className="total_price">Tổng số tiền :</span> <span className="price price_total">{convertPrice(+car?.total)}</span>
           </div>
-          <div className="address">
-            <div className="title">Địa chỉ giao xe: {car?.address}</div>
+          <div className="status status2 mt-2">
+            Trạng thái: {RENTAL_TAB_OPTIONS[car?.boocking_status_id]}
           </div>
+          <div className="address mt-2">
+              <AddressIcon className="icon" />
+              <span className="title address_c">{car?.address}</span>
+            </div>
         </div>
-        {error && <div className="invalid">{error}</div>}
-        {car?.boocking_status_id === 1 && (
-          <div
-            className="actions"
-            style={{
-              marginTop: 12,
-            }}
-          >
-            <Button onClick={cancel}>Hủy thuê</Button>
-          </div>
-        )}
       </div>
+      <div className="info">
+          {error && <div className="invalid">{error}</div>}
+          {car?.boocking_status_id === 1 && (
+            
+            <div
+              className="actions"
+              style={{
+                marginTop: 12,
+              }}
+            >
+              <div className="info grap_sen"></div>
+              <Button className='btn_css' onClick={cancel}>Hủy thuê</Button>
+
+            </div>
+          )}
+          {car?.boocking_status_id === 4 && (
+            
+            <div
+              className="actions"
+              style={{
+                marginTop: 12,
+              }}
+            >
+              <div className="info grap_sen"></div>
+              <Button className='btn_css_dg' onClick={cancel}>Đánh giá</Button>
+
+            </div>
+          )}
+        </div>
     </div>
   );
 };

@@ -7,8 +7,11 @@
   gap: 24px;
 
   .status {
-    font-size: 14px;
-    color: var(--primary);
+    // font-size: 14px;
+    // color: var(--primary);
+    color: #423f3f;
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .car-img {
@@ -22,8 +25,14 @@
     flex-direction: column;
 
     .name {
-      font-size: 16px;
-      font-weight: 700;
+      // font-size: 16px;
+      // font-weight: 700;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .car-info {
@@ -31,13 +40,12 @@
         display: flex;
         align-items: center;
         gap: 4px;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
 
         &.smallTxt {
-          font-size: 14px;
-
+          font-size: 12px;
           &:first-child {
-            margin-top: 12px;
+            margin-top: 8px;
           }
         }
 
@@ -53,8 +61,10 @@
 
       .car-price {
         .price {
-          font-weight: 700;
-          font-size: 24px;
+          // font-weight: 700;
+          // font-size: 24px;
+          font-size: 1rem;
+          font-weight: 400;
           color: var(--primary);
         }
       }
@@ -70,4 +80,59 @@
       }
     }
   }
+}
+.fs_22{
+  font-size: 14px;
+  font-weight: 400;
+}
+.sen{
+  border-bottom: 1px solid rgb(205, 205, 205);
+  margin-top: 20px;
+  width: 160%;
+}
+.total_price{
+  font-size: 1rem;
+  font-weight: 500;
+  color: #757575;
+}
+.price_total{
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+.car_pro_name_rate {
+  font-size: 0.9rem !important;
+  color: rgb(81, 74, 74);
+}
+.address_c{
+ font-size: 16px;
+ margin-left: 2px;
+ color: #000;
+    font-size: 1rem;
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.grap_info{
+  width: 280px; 
+}
+.grap_sen{
+  margin-top: 10px;
+  height: 150px;
+  border-right: 1px solid rgb(205, 205, 205);
+}
+.btn_css{
+  font-weight: 700;
+}
+.status2{
+  font-size: 15px !important;
+}
+.chisai{
+  font-size: 13px;
+  font-weight: 700;
+}
+.btn_css_dg{
+  font-size: 13px;
+  font-weight: 700;
+  background-color: rgba(239, 93, 21, 0.962);
 }

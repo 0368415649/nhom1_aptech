@@ -53,7 +53,7 @@ html {
 }
 
 #root {
-  background-color: transparent;
+  background-color: #f6f6f6;
 }
 
 button,
@@ -104,6 +104,7 @@ svg {
   width: 100%;
   max-width: 1165px;
   padding: 0 24px;
+  padding-top: 20px;
   margin: 80px auto 120px;
 }
 
@@ -132,5 +133,34 @@ svg {
 
 .overflow-row {
   height: 600px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  padding-right: 5px;
+}
+/* WebKit Scrollbar Styles */
+.overflow-row::-webkit-scrollbar {
+    width: 8px;
+}
+
+.overflow-row::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #f05a7d, #6855f9);
+    border-radius: 10px;
+}
+
+.overflow-row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Firefox Scrollbar Styles */
+.overflow-row {
+    scrollbar-width: thin;
+    scrollbar-color: #f05a7d #f1f1f1;
+}
+
+.overflow-row:hover {
+    scrollbar-color: #6855f9 #f1f1f1;
+}
+
+/* Edge Scrollbar Styles */
+.overflow-row {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
