@@ -7,25 +7,10 @@ import { IMAGES_URL } from '../../configs/urls';
 import { convertPrice } from '../../utils/common';
 import { RENTAL_TAB_OPTIONS } from './RentalHistory';
 import http from '../../utils/http';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import {
-  AddressIcon
-} from '../../components/Svg';
+import { AddressIcon } from '../../components/Svg';
 const CarRowRent = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
   const [error, setError] = useState(null);
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const isReLoad = JSON.parse(searchParams.get('re-load'));
-
-    if (isReLoad) {
-      searchParams.delete('re-load');
-      navigate('/profile?tab-index=3', { replace: true });
-      window.location.reload();
-    }
-  }, [navigate, searchParams]);
 
   const changeStatus = async (id) => {
     try {
@@ -46,7 +31,6 @@ const CarRowRent = ({ car }) => {
       <Img className="car-img" src={`${IMAGES_URL}/${carImage}`} alt="car" />
 
       <div className="info grap_info">
-        
         <div className="name">{car?.model_name}</div>
         <div className="car-info">
           <div className="block-info smallTxt car_pro_name_rate">
@@ -62,7 +46,8 @@ const CarRowRent = ({ car }) => {
             </span>
           </div>
           <div className="car-price">
-          <span className="total_price">Tổng số tiền :</span> <span className="price">{convertPrice(+car?.total)}</span> / ngày
+            <span className="total_price">Tổng số tiền :</span>{' '}
+            <span className="price">{convertPrice(+car?.total)}</span> / ngày
           </div>
           <div className="status status2 mt-2">
             Trạng thái: {RENTAL_TAB_OPTIONS[car?.boocking_status_id]}
@@ -75,30 +60,31 @@ const CarRowRent = ({ car }) => {
       </div>
       <div className="info">
         {error && <div className="invalid">{error}</div>}
-          {car?.boocking_status_id === 2 && (
-            <div
-            
-              className="actions"
-              style={{
-                marginTop: 12,
-              }}
-            >
-              <div className="info grap_sen"></div>
-              <Button onClick={() => changeStatus(3)}>Đã giao xe</Button>
-            </div>
-          )}
-          {car?.boocking_status_id === 3 && (
-            <div
-              className="actions"
-              style={{
-                marginTop: 12,
-              }}
-            >
-              <div className="info grap_sen"></div>
-              <Button className='chisai' onClick={() => changeStatus(4)}>Đã hoàn thành</Button>
-            </div>
-          )}
-        </div>
+        {car?.boocking_status_id === 2 && (
+          <div
+            className="actions"
+            style={{
+              marginTop: 12,
+            }}
+          >
+            <div className="info grap_sen"></div>
+            <Button onClick={() => changeStatus(3)}>Đã giao xe</Button>
+          </div>
+        )}
+        {car?.boocking_status_id === 3 && (
+          <div
+            className="actions"
+            style={{
+              marginTop: 12,
+            }}
+          >
+            <div className="info grap_sen"></div>
+            <Button className="chisai" onClick={() => changeStatus(4)}>
+              Đã hoàn thành
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Img from '../../components/Img';
 import {
@@ -12,8 +12,26 @@ import {
 import Button from '../../components/Button';
 
 import './styles/CarInfos.scss';
+import http from '../../utils/http';
+import { useUserContext } from '../../contexts/User';
 
 const CarInfos = ({ car }) => {
+  const [error, setError] = useState(null);
+  const { user } = useUserContext();
+
+  const addFavorite = async () => {
+    try {
+      const { data } = await http.post('/add_favorite_car', {
+        car_id: car?.car_id,
+        customer_id: user?.id || localStorage.getItem('USER_ID'),
+      });
+      if (data.status === 1) {
+        // window.location.href = '/profile?tab-index=3&re-load=true';
+      }
+    } catch (error) {
+      setError('Không thành công, thử lại sau!');
+    }
+  };
   return (
     <div className="CarInfos">
       <div className="infos">
@@ -31,7 +49,7 @@ const CarInfos = ({ car }) => {
           </div>
         </div>
         <Button variant="outline" className="like-btn">
-          <HeartIcon />
+          <HeartIcon onClick={addFavorite} />
         </Button>
       </div>
       <div className="main-infos">
@@ -71,11 +89,30 @@ const CarInfos = ({ car }) => {
           </div>
         </div> */}
       </div>
-      <div style={{color: '#767676', fontSize: 15}} className="description">
+      <div style={{ color: '#767676', fontSize: 15 }} className="description">
         <div className="title">Mô tả</div>
         <div className="value">{car?.description}</div>
       </div>
-      <pre style={{color: '#767676', fontSize: 15, overflow: 'hidden', textOverflow: 'ellipsis', width : '700px'}} className="mt-5">Quy định khác:{"\n"}◦ Sử dụng xe đúng mục đích.{"\n"}◦ Không sử dụng xe thuê vào mục đích phi pháp, trái pháp luật.{"\n"}◦ Không sử dụng xe thuê để cầm cố, thế chấp.{"\n"}◦ Không hút thuốc, nhả kẹo cao su, xả rác trong xe.{"\n"}◦ Không chở hàng quốc cấm dễ cháy nổ.{"\n"}◦ Không chở hoa quả, thực phẩm nặng mùi trong xe.{"\n"}◦ Khi trả xe, nếu xe bẩn hoặc có mùi trong xe, khách hàng vui lòng vệ sinh xe sạch sẽ hoặc gửi phụ thu phí vệ sinh xe.{"\n"}Trân trọng cảm ơn, chúc quý khách hàng có những chuyến đi tuyệt vời !{"\n"}{"                "}</pre>
+      <pre
+        style={{
+          color: '#767676',
+          fontSize: 15,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          width: '700px',
+        }}
+        className="mt-5"
+      >
+        Quy định khác:{'\n'}◦ Sử dụng xe đúng mục đích.{'\n'}◦ Không sử dụng xe
+        thuê vào mục đích phi pháp, trái pháp luật.{'\n'}◦ Không sử dụng xe thuê
+        để cầm cố, thế chấp.{'\n'}◦ Không hút thuốc, nhả kẹo cao su, xả rác
+        trong xe.{'\n'}◦ Không chở hàng quốc cấm dễ cháy nổ.{'\n'}◦ Không chở
+        hoa quả, thực phẩm nặng mùi trong xe.{'\n'}◦ Khi trả xe, nếu xe bẩn hoặc
+        có mùi trong xe, khách hàng vui lòng vệ sinh xe sạch sẽ hoặc gửi phụ thu
+        phí vệ sinh xe.{'\n'}Trân trọng cảm ơn, chúc quý khách hàng có những
+        chuyến đi tuyệt vời !{'\n'}
+        {'                '}
+      </pre>
     </div>
   );
 };

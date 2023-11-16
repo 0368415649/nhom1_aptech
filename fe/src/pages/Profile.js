@@ -37,6 +37,16 @@ const Profile = () => {
   const [searchParams] = useSearchParams();
   const tabIndex = JSON.parse(searchParams.get('tab-index'));
 
+  useEffect(() => {
+    const isReLoad = JSON.parse(searchParams.get('re-load'));
+
+    if (isReLoad) {
+      searchParams.delete('re-load');
+      navigate(`/profile?tab-index=${tabIndex}`, { replace: true });
+      window.location.reload();
+    }
+  }, [navigate, searchParams, tabIndex]);
+
   const TABS = [
     { icon: UserIcon, title: MY_ACCOUNT },
     { icon: HeartIcon, title: FAVORITE },

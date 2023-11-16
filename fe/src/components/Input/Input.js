@@ -14,6 +14,7 @@ const Input = ({
   startIcon,
   suffix,
   isNumberInput,
+  defaultValue,
   ...props
 }) => {
   const classes = cx('Input', className);

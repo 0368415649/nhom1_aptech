@@ -30,3 +30,4 @@ export { default as UsersIcon } from './icons/Users';
 export { default as LiquidIcon } from './icons/Liquid';
 export { default as PlusIcon } from './icons/Plus';
 export { default as TrashIcon } from './icons/Trash';
+export { default as PencilIcon } from './icons/Pencil';

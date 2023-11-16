@@ -22,15 +22,17 @@ export function useModalContext() {
 const Provider = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [content, setContent] = useState(null);
+  const [props, setProps] = useState({});
 
   const handleDismiss = () => {
     setIsVisible(false);
     setContent(null);
   };
 
-  const handleVisible = (content) => {
+  const handleVisible = (content, props) => {
     setIsVisible(true);
     setContent(content);
+    setProps(props);
   };
 
   useEffect(() => {
@@ -62,6 +64,7 @@ const Provider = ({ children }) => {
           >
             {cloneElement(content, {
               onDismiss: handleDismiss,
+              ...props,
             })}
           </motion.div>
         </>
