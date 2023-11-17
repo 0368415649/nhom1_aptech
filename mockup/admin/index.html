@@ -15,36 +15,218 @@
 <body style="height: 100%" ng-app="myApp" ng-controller="myCtrl">
   <div class="row">
     <div class="col-12 row_header row">
-      <div class="text-center header_title col-10 mt-3">Florist Manage</div>
-      <div class="header_content col-2">xin chao <span>Admin</span></div>
+      <div class="text-center header_title col-10 mt-3">Quản lý hệ thống Mioto</div>
+      <div class="header_content col-2">xin chao <span>Duy</span></div>
     </div>
 
     <div class="col-2 sidebar_wrap">
       <ul class="nav_sidebar">
         <a href="" class="nav_link chang_color_admin">
-          <li class="sidebar_icon"><i class="fa-solid fa-gauge me-3"></i>Thống kê</li>
+          <li class="sidebar_icon"><i class="fa-solid fa-gauge me-3"></i>Quản Lý Xác Minh</li>
         </a>
         <a href="" class="nav_link">
-          <li class="sidebar_icon side_item3"><i class="fa-solid fa-cart-shopping me-3"></i>Đơn hàng</li>
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-cart-shopping me-3"></i>Quản Lý Đăng Kí Xe</li>
         </a>
         <a href="" class="nav_link">
-          <li class="sidebar_icon side_item3"><i class="fa-brands fa-product-hunt me-3"></i>Sản phẩm</li>
+          <li class="sidebar_icon side_item3"><i class="fa-brands fa-product-hunt me-3"></i>Quản Lý Booking</li>
         </a>
         <a href="" class="nav_link">
-          <li class="sidebar_icon side_item3"><i class="fa-solid fa-user me-3"></i>Khách hàng</li>
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-user me-3"></i>Quản Lý người dùng</li>
         </a>
         <a href="" class="nav_link">
-          <li class="sidebar_icon side_item3"><i class="fa-solid fa-store me-3"></i>Doanh Số</li>
-        </a>
-        <a href="" class="nav_link">
-          <li class="sidebar_icon side_item3"><i class="fa-solid fa-wrench me-3"></i>Thiết lập</li>
+          <li class="sidebar_icon side_item3"><i class="fa-solid fa-wrench me-3"></i>Đăng xuất</li>
         </a>
       </ul>
     </div>
+    <div class="col-2"></div>
     <div class="col-10">
+      <!-- Xác minh danh tính -->
+      <div class="xac_minh_danh_tinh">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Số CCCD</th>
+              <th scope="col">Họ Và Tên</th>
+              <th scope="col">Ngày Sinh</th>
+              <th scope="col" style="text-align: center">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>001203023055</td>
+              <td>Nguyễn Trung Đức</td>
+              <td>14/05/2003</td>
+            </td>
+              <td style="text-align: center">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Chấp Nhận
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+                Từ Chối
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+                xem chi tiết
+              </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>001203023055</td>
+              <td>Nguyễn Trung Đức</td>
+              <td>14/05/2003</td>
+              </td>
+              <td style="text-align: center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Chấp Nhận
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+                  Từ Chối
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+                  xem chi tiết
+                </button>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <!-- Xác minh danh tính -->
+
+
+ <!-- Xác minh xe -->
+ <div class="xac_minh_danh_tinh">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên xe</th>
+        <th scope="col">Hãng xe</th>
+        <th scope="col">Người tạo</th>
+        <th scope="col" style="text-align: center">Thao tác</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>001203023055</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>14/05/2003</td>
+      </td>
+        <td style="text-align: center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Chấp Nhận
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+          Từ Chối
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+          xem chi tiết
+        </button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>001203023055</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>14/05/2003</td>
+        </td>
+        <td style="text-align: center">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Chấp Nhận
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+            Từ Chối
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+            xem chi tiết
+          </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- Xác minh xe -->
+
+
+ <!-- Xác minh booking -->
+ <div class="xac_minh_danh_tinh">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên xe</th>
+        <th scope="col">Ngày bắt đầu</th>
+        <th scope="col">Ngày kết thúc</th>
+        <th scope="col">tổng tiền</th>
+        <th scope="col">Người đặt</th>
+        <th scope="col" style="text-align: center">Thao tác</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Nguyễn Trung Đức</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>14/05/2003</td>
+      </td>
+        <td style="text-align: center">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Chấp Nhận
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+          Từ Chối
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red; border-color: red;">
+          xem chi tiết
+        </button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+</div>
+<!-- Xác minh booking -->
+
+
+ <!-- Xác minh danh tính -->
+ <div class="xac_minh_danh_tinh">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Số Phone</th>
+        <th scope="col">Họ Và Tên</th>
+        <th scope="col">Ngày Sinh</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col" style="text-align: center">Thao tác</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">2</th>
+        <td>001203023055</td>
+        <td>Nguyễn Trung Đức</td>
+        <td>14/05/2003</td>       
+        <td>14/05/2003</td>
+        </td>
+        <td style="text-align: center">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Reset mật khẩu
+          </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- Xác minh danh tính -->
+
 
     </div>
-    
   </div>
 </body>
 
