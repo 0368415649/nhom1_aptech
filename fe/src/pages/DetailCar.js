@@ -8,8 +8,10 @@ import './styles/DetailCar.scss';
 import { useParams } from 'react-router-dom';
 import http from '../utils/http';
 import { IMAGES_URL } from '../configs/urls';
+import { useUserContext } from '../contexts/User';
 
 const DetailCar = () => {
+  const { user } = useUserContext();
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,6 +23,7 @@ const DetailCar = () => {
         const { data } = await http.get('/get_details_car', {
           params: {
             id,
+            customer_id: user?.id || localStorage.getItem('USER_ID'),
           },
         });
         setCar(data[0]);
