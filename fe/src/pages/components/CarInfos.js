@@ -14,6 +14,7 @@ import Button from '../../components/Button';
 import './styles/CarInfos.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
+import { toast } from 'react-toastify';
 
 const CarInfos = ({ car }) => {
   const [error, setError] = useState(null);
@@ -26,6 +27,7 @@ const CarInfos = ({ car }) => {
         customer_id: user?.id || localStorage.getItem('USER_ID'),
       });
       if (data.status === 1) {
+        toast('Đã thêm vào mục Xe ưa thích');
         // window.location.href = '/profile?tab-index=3&re-load=true';
       }
     } catch (error) {

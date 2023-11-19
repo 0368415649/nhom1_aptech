@@ -33,7 +33,7 @@ const DetailCar = () => {
         setIsLoading(false);
       }
     })();
-  }, [id]);
+  }, [id, user]);
 
   const carImages = car?.image?.split('-');
 
