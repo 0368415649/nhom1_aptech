@@ -5,10 +5,12 @@ import CarRow from './CarRow';
 import './styles/Favorite.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
+import CarRowFav from './CarRowFav';
+
+import no_car from '../../assets/imgs/no_car.png';
 
 const Favorite = () => {
   const [cars, setCars] = useState([]);
-  console.log('>> Check | cars:', cars);
   const { user } = useUserContext();
 
   useEffect(() => {
@@ -23,13 +25,26 @@ const Favorite = () => {
       } catch (error) {}
     })();
   }, [user?.id]);
+
   return (
     <div className="Tab-content Favorite">
-      {Array(3)
-        .fill(null)
-        .map((i, k) => (
-          <CarRow key={k} />
-        ))}
+      {cars.length > 0 && (
+        <div className="overflow-row">
+          {cars.map((car, k) => (
+            <CarRowFav car={car} key={k} />
+          ))}
+        </div>
+      )}
+      {cars.length === 0 && (
+        <img
+          style={{
+            margin: '64px auto 0',
+          }}
+          width={220}
+          src={no_car}
+          alt="no_car"
+        />
+      )}
     </div>
   );
 };
