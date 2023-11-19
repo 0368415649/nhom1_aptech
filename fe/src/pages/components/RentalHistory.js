@@ -50,7 +50,7 @@ const RentalHistory = () => {
       <TabSwitcher
         option={currentTab}
         setOption={setCurrentTab}
-        options={RENTAL_TAB_OPTIONS}
+        options={RENTAL_TAB_OPTIONS.slice(0, -1)}
         className="Tab-status"
         useIndex
       />
