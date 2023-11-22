@@ -6,7 +6,7 @@ import Register from '../modals/Register';
 import useModal from '../../hooks/useModal';
 
 import logo from '../../assets/imgs/logo.png';
-import avatar from '../../assets/imgs/luffy.jpg';
+import avatar from '../../assets/imgs/user.png';
 
 import Button from '../Button';
 import { ChevronDownIcon } from '../Svg';

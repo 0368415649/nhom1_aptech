@@ -38,7 +38,9 @@ const CarRow = ({ car }) => {
         <div className="status">Trạng thái: {car?.car_status_name}</div>
         <div className="sen"></div>
         <div className="actions">
-          <Button>Quản lý</Button>
+          <Link to={`/manager/${car?.car_id}`}>
+            <Button>Quản lý</Button>
+          </Link>
           <Link to={`/car/${car?.car_id}`} className="view">
             Xem chi tiết
           </Link>

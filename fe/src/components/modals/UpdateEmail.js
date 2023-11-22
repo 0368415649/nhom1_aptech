@@ -17,8 +17,8 @@ const rules = {
 };
 
 const options = [
-  { label: 'Nam', value: 'male' },
-  { label: 'Nữ', value: 'female' },
+  { label: 'Nam', value: 'nam' },
+  { label: 'Nữ', value: 'nữ' },
 ];
 
 const UpdateEmail = (props) => {

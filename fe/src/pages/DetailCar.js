@@ -14,6 +14,7 @@ const DetailCar = () => {
   const { user } = useUserContext();
   const { id } = useParams();
   const [car, setCar] = useState(null);
+  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -35,6 +36,23 @@ const DetailCar = () => {
     })();
   }, [id, user]);
 
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const { data } = await http.get('/get_list_feeback', {
+          params: {
+            car_id: id,
+          },
+        });
+        setComments(data);
+      } catch (error) {
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [id, user]);
+
   const carImages = car?.image?.split('-');
 
   return (
@@ -45,7 +63,7 @@ const DetailCar = () => {
         ))}
       </div>
       <div className="info-and-actions">
-        <CarInfos car={car} />
+        <CarInfos car={car} comments={comments} />
         <ActionRent car={car} />
       </div>
     </div>

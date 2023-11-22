@@ -6,6 +6,7 @@ import {
   CogIcon,
   HeartIcon,
   LiquidIcon,
+  StarIcon,
   StarSolidIcon,
   UsersIcon,
 } from '../../components/Svg';
@@ -15,8 +16,9 @@ import './styles/CarInfos.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
 import { toast } from 'react-toastify';
+import Comment from '../../components/Comment/Comment';
 
-const CarInfos = ({ car }) => {
+const CarInfos = ({ car, comments }) => {
   const [error, setError] = useState(null);
   const { user } = useUserContext();
 
@@ -50,7 +52,10 @@ const CarInfos = ({ car }) => {
             </div>
           </div>
         </div>
-        <Button variant="outline" className="like-btn">
+        <Button
+          variant="outline"
+          className={`like-btn ${!!car?.customer_id_favorite ? 'liked' : ''}`}
+        >
           <HeartIcon onClick={addFavorite} />
         </Button>
       </div>
@@ -115,6 +120,22 @@ const CarInfos = ({ car }) => {
         chuyến đi tuyệt vời !{'\n'}
         {'                '}
       </pre>
+      <div className="comments">
+        {car?.rate_avg ? Number(car?.rate_avg).toFixed(2) : '--'}{' '}
+        <StarSolidIcon width="16" height="16" fill="#f0c541" /> |{' '}
+        {car?.count_comment || '--'} đánh giá
+        <div className="rows">
+          {comments.map((cmt) => (
+            <Comment
+              comment={cmt.comment}
+              create_at={cmt.create_at}
+              create_by={cmt.create_by}
+              rate={cmt.rate}
+              name={cmt?.name}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

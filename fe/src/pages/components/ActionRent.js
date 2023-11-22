@@ -17,6 +17,8 @@ const options = Array(24)
     value: i,
   }));
 
+const today = Math.floor(new Date().getTime() / 1000.0);
+
 const rules = {
   receiveDate: {
     required: 'Ngày nhận xe không được để trống',
@@ -37,7 +39,6 @@ function getTimeStamp(input) {
   return d.getTime() / 1000;
 }
 const ActionRent = ({ car }) => {
-  console.log('>> Check | car:', car);
   const {
     register,
     setValue,
@@ -59,6 +60,24 @@ const ActionRent = ({ car }) => {
     data.receiveDate,
     data.receiveHour,
   ]);
+
+  const getError = () => {
+    const giveBackDateUnix = getTimeStamp(
+      `${data.giveBackDate} ${data.giveBackHour || 0}`
+    );
+    const receiveDateUnix = getTimeStamp(
+      `${data.receiveDate} ${data.receiveHour || 0}`
+    );
+
+    if (!isNaN(daysCount) && daysCount < 0) {
+      return 'Ngày nhận phải lớn hơn ngày trước';
+    }
+    if (receiveDateUnix < today || giveBackDateUnix < today) {
+      return 'Ngày nhận/giao phải lớn hơn hiện tại';
+    }
+
+    return null;
+  };
 
   const [invisibleRenModal] = useModal(
     <Rent car={car} data={data} daysCount={daysCount} />
@@ -128,11 +147,9 @@ const ActionRent = ({ car }) => {
             <div className="value">{convertPrice(+car?.price * daysCount)}</div>
           </div>
         )}
-        {!isNaN(daysCount) && daysCount < 0 && (
-          <span className="invalid">Ngày nhận phải lớn hơn ngày trước</span>
-        )}
+        {!!getError() && <span className="invalid">{getError()}</span>}
         <Button
-          disabled={isError || isNaN(daysCount) || daysCount <= 0}
+          disabled={isError || getError()}
           size="lg"
           onClick={invisibleRenModal}
         >

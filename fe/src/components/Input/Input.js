@@ -68,6 +68,7 @@ const Input = ({
         type={inputType}
         {...props}
         onKeyDown={isNumberInput && preventSpecialCharacters}
+        defaultValue={defaultValue}
       />
       {suffix && <span className="suffix">{suffix}</span>}
       {checkValidAndCloneElement(button, {

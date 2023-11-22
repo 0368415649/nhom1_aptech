@@ -33,7 +33,7 @@ const UserInfo = () => {
           </Button>
         </div>
         <div className="count">
-          <span>0</span> chuyến
+          <span>{user?.count || '--'}</span> chuyến
         </div>
       </div>
       <div className="user-info">
@@ -44,19 +44,28 @@ const UserInfo = () => {
         <div className="info-rows">
           <div className="group-row">
             <div className="info-row">
-              <div style={{
-                    fontsize: 13,
-                    color: "#6d6d6d"
-                  }}
-              className="label">Ngày sinh</div>
-              <div className="value">{user?.birthday || "--/--/----"}</div>
+              <div
+                style={{
+                  fontsize: 13,
+                  color: '#6d6d6d',
+                }}
+                className="label"
+              >
+                Ngày sinh
+              </div>
+              <div className="value">{user?.birthday || '--/--/----'}</div>
             </div>
             <div className="info-row mt-4">
-              <div style={{
-                    fontsize: 13,
-                    color: "#6d6d6d"
-                  }} className="label">Giới tính</div>
-              <div className="value">{user?.sex || "----------"}</div>
+              <div
+                style={{
+                  fontsize: 13,
+                  color: '#6d6d6d',
+                }}
+                className="label"
+              >
+                Giới tính
+              </div>
+              <div className="value">{user?.sex || '--'}</div>
             </div>
           </div>
           <div className="info-row">

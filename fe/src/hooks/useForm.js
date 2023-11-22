@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 
 function useForm(rules) {
   const [formData, setFormData] = useState({});
   const [dirtyFields, setDirtyFields] = useState({});
   const [isDirty, setIsDirty] = useState(false);
 
-  const register = (name) => {
+  const register = (name, defaultValue = '') => {
     const onChange = (e) => {
       if (!isDirty) setIsDirty(true);
 
@@ -26,9 +26,10 @@ function useForm(rules) {
 
     return {
       name,
-      value: formData[name] || "",
+      value: formData[name] || defaultValue || '',
       onChange,
       onBlur,
+      defaultValue,
     };
   };
 
@@ -44,16 +45,16 @@ function useForm(rules) {
       const { required, option, errorMsg } = rules[name] || {};
       const msg = (() => {
         if (required && !formData[name])
-          return typeof required === "boolean"
-            ? "Can not be empty"
+          return typeof required === 'boolean'
+            ? 'Can not be empty'
             : String(required);
 
         if (
           option &&
-          typeof option === "function" &&
+          typeof option === 'function' &&
           !option(formData[name], formData)
         ) {
-          return errorMsg || "Invalid";
+          return errorMsg || 'Invalid';
         }
 
         return null;

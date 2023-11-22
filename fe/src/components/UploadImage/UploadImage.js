@@ -5,8 +5,9 @@ import Img from '../Img';
 
 import './UploadImage.scss';
 import { PlusIcon, TrashIcon } from '../Svg';
+import { IMAGES_URL } from '../../configs/urls';
 
-const UploadImage = ({ className = '', ...props }) => {
+const UploadImage = ({ defaultImage = null, className = '', ...props }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const classes = cx('UploadImage', className);
@@ -15,6 +16,14 @@ const UploadImage = ({ className = '', ...props }) => {
 
   return (
     <div className={classes}>
+      {defaultImage && (
+        <>
+          <Img src={`${IMAGES_URL}/${defaultImage}`} alt="car" />
+          <div className="remove-img" onClick={remove}>
+            <TrashIcon className="icon" />
+          </div>
+        </>
+      )}
       {selectedImage && (
         <>
           <div className="remove-img" onClick={remove}>

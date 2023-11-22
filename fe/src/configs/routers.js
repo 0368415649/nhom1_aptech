@@ -12,6 +12,7 @@ import GeneralPrinciples from '../pages/GeneralPrinciples';
 import InformationSecurity from '../pages/InformationSecurity';
 import Resolveconflic from '../pages/Resolveconflic';
 import AboutMe from '../pages/AboutMe';
+import RegisterCarEdit from '../pages/RegisterCarEdit';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/register_car',
         element: <RegisterCar />,
+      },
+      {
+        path: '/manager/:id',
+        element: <RegisterCarEdit />,
       },
       // {
       //   path: '/register_car_form',

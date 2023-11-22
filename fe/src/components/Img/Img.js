@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Img.scss';
-import placeholderSrc from '../../assets/imgs/luffy.jpg';
+import placeholderSrc from '../../assets/imgs/user.png';
 
 const Img = ({
   src = placeholderSrc,

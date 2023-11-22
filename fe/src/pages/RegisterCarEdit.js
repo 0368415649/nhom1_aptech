@@ -9,6 +9,9 @@ import './styles/RegisterCarForm.scss';
 import UploadImage from '../components/UploadImage/UploadImage';
 import useForm from '../hooks/useForm';
 import http from '../utils/http';
+import { useParams } from 'react-router-dom';
+import { useUserContext } from '../contexts/User';
+import { IMAGES_URL } from '../configs/urls';
 
 const options = [
   { label: 'Nam', value: 'nam' },
@@ -17,38 +20,48 @@ const options = [
 
 const STEPS = [
   { label: 'Thông tin' },
-  { label: 'Cho thuê' },
-  { label: 'Hình ảnh' },
+  { label: 'Hình ảnh xe' },
+  { label: 'Giấy tờ đăng ký' },
 ];
 
 const rules = {
-  licensePlate: {
-    required: 'Biển số xe không được để trống',
-  },
   description: {
     required: 'Mô tả không được để trống',
   },
   price: {
     required: 'Giá không được để trống',
   },
-  brand: {
-    required: 'Hãng xe không được để trống',
-  },
-  model: {
-    required: 'Mẫu xe không được để trống',
-  },
-  type: {
-    required: 'Loại xe không được để trống',
-  },
-  year: {
-    required: 'Năm sản xuất không được để trống',
-  },
   address: {
     required: 'Địa chỉ không được để trống',
   },
 };
 
-const RegisterCarForm = () => {
+const RegisterCarFormEdit = () => {
+  const { id } = useParams();
+  const { user } = useUserContext();
+
+  const [car, setCar] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoading(true);
+      try {
+        const { data } = await http.get('/get_details_car', {
+          params: {
+            id,
+            customer_id: user?.id || localStorage.getItem('USER_ID'),
+          },
+        });
+        setCar(data[0]);
+      } catch (error) {
+        console.log('>> Check | error:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [id, user]);
+
   const [currentStep, setCurrentStep] = useState(0);
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
@@ -65,6 +78,7 @@ const RegisterCarForm = () => {
     setValue,
     formState: { dirtyErrors, isError, data: formData, errors },
   } = useForm(rules);
+  console.log('>> Check | formData:', formData);
 
   const handle = (e) => {
     const file = e.target.files[0];
@@ -91,70 +105,11 @@ const RegisterCarForm = () => {
     setImg6(file);
   };
 
-  useEffect(() => {
-    (async () => {
-      const brandUrl = http.get('/get_list_brand');
-      const typeUrl = http.get('/get_list_cartype');
-
-      const [{ data: res_brands }, { data: res_types }] = await Promise.all([
-        brandUrl,
-        typeUrl,
-      ]);
-      const brands = res_brands?.map((d) => ({
-        label: d.brand_name,
-        value: d.brand_id,
-      }));
-      const types = res_types?.map((d) => ({
-        label: d.car_type_name,
-        value: d.car_type_id,
-      }));
-      setBrands(brands);
-      setTypes(types);
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      if (formData.brand) {
-        const { data } = await http.get('/get_list_model', {
-          params: {
-            brand_id: formData.brand,
-          },
-        });
-        const models = data?.map((d) => ({
-          label: d.model_name,
-          value: d.model_id,
-        }));
-        setModels(models);
-      }
-    })();
-  }, [formData.brand]);
-
   const isDisabled = () => {
-    const {
-      licensePlate,
-      description,
-      brand,
-      model,
-      type,
-      year,
-      address,
-      price,
-    } = errors;
+    console.log('>> Check | errors:', errors);
+    const { description, address } = errors;
     if (currentStep === 0) {
-      return !!(
-        licensePlate ||
-        description ||
-        brand ||
-        model ||
-        type ||
-        year ||
-        address
-      );
-    }
-
-    if (currentStep === 1) {
-      return !!price;
+      return !!(description || address);
     }
   };
 
@@ -167,13 +122,16 @@ const RegisterCarForm = () => {
       models={models}
       types={types}
       errors={errors}
+      car={car}
     />,
     <StepTwo
       setValue={setValue}
       register={register}
       dirtyErrors={dirtyErrors}
+      car={car}
     />,
     <StepThree
+      car={car}
       setValue={setValue}
       register={register}
       dirtyErrors={dirtyErrors}
@@ -218,7 +176,6 @@ const RegisterCarForm = () => {
       disabled,
       type: 'button',
       onClick: () => {
-        debugger;
         if (!disabled) setCurrentStep((prev) => prev - 1);
       },
     };
@@ -226,7 +183,7 @@ const RegisterCarForm = () => {
 
   return (
     <div className="RegisterCarForm page-layout">
-      <div className="steps" onClick={() => setCurrentStep((prev) => prev + 1)}>
+      <div className="steps">
         {STEPS.map((step, index) => (
           <Fragment key={index}>
             <div className={`step ${currentStep === index ? 'actived' : ''}`}>
@@ -275,6 +232,7 @@ const StepOne = ({
   brands,
   models,
   types,
+  car,
 }) => {
   const years = [];
 
@@ -289,14 +247,9 @@ const StepOne = ({
     <Fragment>
       <div className="section">
         <div className="title">Biển số xe</div>
-        <div className="warning">
-          Lưu ý: Biển số xe khổng thể thay đổi sau khi đăng ký
-        </div>
+        <div className="warning">Bạn không thể thay đổi biển số xe</div>
         <div className="half">
-          <Input {...register('licensePlate')} />
-          {dirtyErrors['licensePlate'] && (
-            <span className="invalid">{dirtyErrors['licensePlate']}</span>
-          )}
+          <Input disabled placeholder={car?.number_plate} />
         </div>
       </div>
 
@@ -308,47 +261,19 @@ const StepOne = ({
         <div className="input-group">
           <div className="input-section">
             <div className="label">Hãng xe</div>
-            <Dropdown
-              options={brands}
-              setOption={setValue}
-              {...register('brand')}
-            />
-            {errors['brand'] && (
-              <span className="invalid">{errors['brand']}</span>
-            )}
+            <Input disabled placeholder={car?.brand_name} />
           </div>
           <div className="input-section">
             <div className="label">Mẫu xe</div>
-            <Dropdown
-              options={models}
-              setOption={setValue}
-              {...register('model')}
-            />
-            {errors['model'] && (
-              <span className="invalid">{errors['model']}</span>
-            )}
+            <Input disabled placeholder={car?.model_name} />
           </div>
           <div className="input-section">
             <div className="label">Loại xe</div>
-            <Dropdown
-              options={types}
-              setOption={setValue}
-              {...register('type')}
-            />
-            {errors['type'] && (
-              <span className="invalid">{errors['type']}</span>
-            )}
+            <Input disabled placeholder={car?.car_type_name} />
           </div>
           <div className="input-section">
             <div className="label">Năm sản xuất</div>
-            <Dropdown
-              options={years}
-              setOption={setValue}
-              {...register('year')}
-            />
-            {errors['year'] && (
-              <span className="invalid">{errors['year']}</span>
-            )}
+            <Input disabled placeholder={car?.year_manufacture} />
           </div>
         </div>
       </div>
@@ -370,13 +295,13 @@ const StepOne = ({
   );
 };
 
-const StepTwo = ({ setValue, register, dirtyErrors }) => {
+const StepTwo = ({ register, dirtyErrors, car }) => {
   return (
     <div className="half">
       <div className="input-section">
         <div className="label">Giá cho thuê mặc định</div>
         <div className="info">Đơn giá theo ngày</div>
-        <Input suffix="K" isNumberInput {...register('price')} />
+        <Input suffix="K" isNumberInput {...register('price', car?.price)} />
         {dirtyErrors['price'] && (
           <span className="invalid">{dirtyErrors['price']}</span>
         )}
@@ -395,16 +320,34 @@ const StepThree = ({
   handle4,
   handle5,
   handle6,
+  car,
 }) => {
+  const carImages = car?.image?.split('-');
   return (
     <div className="StepThree">
       <div className="section">
         <div className="title">Hình ảnh xe</div>
         <div className="car-images">
-          <UploadImage className="car" onChange={handle} />
-          <UploadImage className="car" onChange={handle2} />
-          <UploadImage className="car" onChange={handle3} />
-          <UploadImage className="car" onChange={handle4} />
+          <UploadImage
+            className="car"
+            defaultImage={`${IMAGES_URL}/${carImages[0]}`}
+            onChange={handle}
+          />
+          <UploadImage
+            className="car"
+            defaultImage={`${IMAGES_URL}/${carImages[1]}`}
+            onChange={handle2}
+          />
+          <UploadImage
+            className="car"
+            defaultImage={`${IMAGES_URL}/${carImages[2]}`}
+            onChange={handle3}
+          />
+          <UploadImage
+            className="car"
+            defaultImage={`${IMAGES_URL}/${carImages[3]}`}
+            onChange={handle4}
+          />
         </div>
       </div>
       <div className="section">
@@ -417,4 +360,4 @@ const StepThree = ({
     </div>
   );
 };
-export default RegisterCarForm;
+export default RegisterCarFormEdit;
