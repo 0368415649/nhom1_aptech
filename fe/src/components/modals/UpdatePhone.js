@@ -9,10 +9,20 @@ import useForm from '../../hooks/useForm';
 import './styles/UpdateProfile.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
+import useModal from '../../hooks/useModal';
+import VerifyOtp from './VerifyOtp';
+import { PHONE_NUMBER } from '../../constants/regexs';
 
 const rules = {
   phone: {
     required: 'Số điện thoại không được để trống',
+    option: (value) => {
+      if (PHONE_NUMBER.test(value)) {
+        return true;
+      }
+      return false;
+    },
+    errorMsg: 'Số điện thoại không hợp lệ',
   },
 };
 
@@ -25,10 +35,16 @@ const UpdatePhone = (props) => {
   const {
     register,
     handleSubmit,
-    formState: { dirtyErrors, isError },
+    formState: { dirtyErrors, isError, data },
   } = useForm(rules);
   const [error, setError] = useState(null);
   const { user } = useUserContext();
+  const [showVerifyOtp, dismissVerifyOtp] = useModal(
+    <VerifyOtp
+      phoneNumber={data['phone']}
+      onSuccess={() => submitUpdatePhone(data)}
+    />
+  );
 
   const submitUpdatePhone = async (formData) => {
     try {
@@ -62,7 +78,12 @@ const UpdatePhone = (props) => {
           )}
         </div>
         {error && <div className="invalid">{error}</div>}
-        <Button size="lg" className="submit-btn" disabled={isError}>
+        <Button
+          onClick={showVerifyOtp}
+          size="lg"
+          className="submit-btn"
+          disabled={isError}
+        >
           Cập nhật
         </Button>
       </form>
