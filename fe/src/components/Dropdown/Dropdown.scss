@@ -11,6 +11,10 @@
   justify-content: space-between;
   cursor: pointer;
 
+  &.disabled {
+    pointer-events: none;
+  }
+
   .chevron-down-icon {
     position: absolute;
     top: 50%;

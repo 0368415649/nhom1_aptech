@@ -148,32 +148,6 @@ const RegisterCarFormEdit = () => {
     <StepThree handle5={handle5} handle6={handle6} car={car} />,
   ][currentTab];
 
-  const upload = async () => {
-    const _formData = new FormData();
-    _formData.append('image1', img1);
-    _formData.append('image2', img2);
-    _formData.append('image3', img3);
-    _formData.append('image4', img4);
-    _formData.append('image5', img5);
-    _formData.append('image6', img6);
-    _formData.append('price', formData.price);
-    _formData.append('year_manufacture', formData.year);
-    _formData.append('number_plate', formData.licensePlate);
-    _formData.append('description', formData.description);
-    _formData.append('address', formData.address);
-    _formData.append('brand_id', formData.brand);
-    _formData.append('model_id', formData.model);
-    _formData.append('car_type_id', formData.type);
-    _formData.append('customer_id', localStorage.getItem('USER_ID'));
-
-    await http.post('/create_car', _formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
-    window.location.href = '/profile/my-car';
-  };
-
   const getPrevButton = () => {
     const disabled = currentStep === 0;
     return {
@@ -254,6 +228,17 @@ const StepOne = ({
       value: year,
     });
   }
+
+  const edit = async () => {
+    await http.post('/update_car', {
+      car_id: car?.car_id,
+      price: car?.price,
+      address: car?.address,
+      description: car?.description,
+    });
+    // window.location.href = '/profile/my-car';
+  };
+
   return (
     <Fragment>
       <div className="section">
@@ -312,6 +297,10 @@ const StepOne = ({
           <span className="invalid">{dirtyErrors['description']}</span>
         )}
       </div>
+
+      <Button size="lg" type="button" onClick={edit}>
+        Chỉnh sửa
+      </Button>
     </Fragment>
   );
 };

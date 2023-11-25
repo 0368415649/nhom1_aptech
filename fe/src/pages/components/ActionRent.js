@@ -101,6 +101,7 @@ const ActionRent = ({ car }) => {
             {...register('receiveDate')}
           />
           <Dropdown
+            disabled={car?.customer_id === user?.customer_id}
             className="time-dropdown"
             options={options}
             setOption={setValue}
@@ -119,6 +120,7 @@ const ActionRent = ({ car }) => {
             {...register('giveBackDate')}
           />
           <Dropdown
+            disabled={car?.customer_id === user?.customer_id}
             className="time-dropdown"
             options={options}
             setOption={setValue}

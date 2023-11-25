@@ -11,6 +11,7 @@ const Dropdown = ({
   setOption,
   name,
   placeholder = '',
+  disabled = false,
   ...props
 }) => {
   const [isShow, setIsShow] = useToggle();
@@ -24,7 +25,11 @@ const Dropdown = ({
   };
 
   return (
-    <div className={classes} onClick={setIsShow} {...props}>
+    <div
+      className={`${classes} ${disabled ? 'disabled' : ''}`}
+      onClick={setIsShow}
+      {...props}
+    >
       {label}
       <ChevronDownIcon className="chevron-down-icon" />
       {isShow && (

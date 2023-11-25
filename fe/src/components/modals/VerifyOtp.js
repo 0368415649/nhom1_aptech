@@ -15,6 +15,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
   const [isSendingSms, setIsSendingSms] = useState(false);
   const [isConfirmingOtp, setIsConfirmingOtp] = useState(false);
   const [error, setError] = useState(null);
+  const [lock, setLock] = useState(true);
 
   const submitOtp = () => {
     setIsSentSms(false);
@@ -34,6 +35,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
+        setLock(false);
         // ...
       })
       .catch((e) => console.log('???????', e))
@@ -69,7 +71,7 @@ const VerifyOtp = ({ phoneNumber, onSuccess, ...props }) => {
       <Button
         size="lg"
         className="verify-btn"
-        disabled={isSendingSms}
+        disabled={isSendingSms || lock}
         onClick={confirmOtp}
       >
         {isSendingSms || isConfirmingOtp ? <Loader /> : 'Xác nhận'}
