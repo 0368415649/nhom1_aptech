@@ -56,11 +56,36 @@ const UpdatePhone = (props) => {
         setError(null);
         props.onDismiss();
         window.location.reload();
+        dismissVerifyOtp();
       } else {
         setError('Không thành công, thử lại sau!');
       }
     } catch (error) {
       setError('Không thành công, thử lại sau!');
+    }
+  };
+
+  const handleBeforeRegister = async ({ phone }) => {
+    try {
+      // setIsLoading(true);
+      const { data } = await http.get('/check_exists_phone', {
+        params: {
+          phone,
+        },
+      });
+
+      // const { customer_id, status, token } = data;
+      if (data.status === 0) {
+        props.onDismiss();
+        showVerifyOtp();
+      }
+      if (data.status === 1) {
+        setError('Số điện thoại đã tồn tại!');
+      }
+    } catch (error) {
+      console.log('>> Check | error:', error);
+    } finally {
+      // setIsLoading(false);
     }
   };
 
@@ -79,7 +104,7 @@ const UpdatePhone = (props) => {
         </div>
         {error && <div className="invalid">{error}</div>}
         <Button
-          onClick={showVerifyOtp}
+          onClick={() => handleBeforeRegister(data)}
           size="lg"
           className="submit-btn"
           disabled={isError}
