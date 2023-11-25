@@ -36,7 +36,7 @@ const RegisterCar = () => {
   return user?.verify_flg == VERIFY_FLAG.VERIFIED ? (
     <RegisterCarForm />
   ) : (
-    <div className="RegisterCar page-layout">
+    <div className="RegisterCar page-layout flash">
       <div className="title">Đăng ký xe</div>
       <img src={registerCar} alt="registerCar" />
       <Button

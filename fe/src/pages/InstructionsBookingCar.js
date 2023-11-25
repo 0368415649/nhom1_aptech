@@ -4,7 +4,7 @@ import './styles/ChinhSach.scss';
 const InstructionsBookingCar = () => {
   useScrollToTop();
   return (
-    <div className="ChinhSach page-layout">
+    <div className="ChinhSach page-layout flash">
       <div>
         <div>
           <header>

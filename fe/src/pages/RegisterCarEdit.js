@@ -160,7 +160,7 @@ const RegisterCarFormEdit = () => {
   };
 
   return (
-    <div className="RegisterCarForm page-layout">
+    <div className="RegisterCarForm page-layout flash">
       {/* <div className="steps">
         {STEPS.map((step, index) => (
           <Fragment key={index}>

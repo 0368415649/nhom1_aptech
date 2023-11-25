@@ -33,11 +33,13 @@ const Cars = ({ filter }) => {
   }, [filter]);
   return (
     <>
-      <div className="Cars">
-        {cars.map((car) => (
-          <CarCard key={car?.car_id} car={car} />
-        ))}
-      </div>
+      {cars.length > 0 && (
+        <div className="Cars flash">
+          {cars.map((car) => (
+            <CarCard key={car?.car_id} car={car} />
+          ))}
+        </div>
+      )}
       {cars.length === 0 && (
         <div>
           <img

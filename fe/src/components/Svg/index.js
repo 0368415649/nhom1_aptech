@@ -31,3 +31,7 @@ export { default as LiquidIcon } from './icons/Liquid';
 export { default as PlusIcon } from './icons/Plus';
 export { default as TrashIcon } from './icons/Trash';
 export { default as PencilIcon } from './icons/Pencil';
+export { default as NumberIcon } from './icons/Number';
+export { default as AddressOutlineIcon } from './icons/AddressOutline';
+export { default as ModelIcon } from './icons/Model';
+export { default as WatchIcon } from './icons/Watch';

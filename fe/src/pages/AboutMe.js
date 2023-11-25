@@ -4,7 +4,7 @@ import './styles/ChinhSach.scss';
 const AboutMe = () => {
   useScrollToTop();
   return (
-    <div className="ChinhSach page-layout">
+    <div className="ChinhSach page-layout flash">
       <div>
         <div>
           <div className="mt-4"></div>

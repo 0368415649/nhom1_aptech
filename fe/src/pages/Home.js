@@ -35,7 +35,7 @@ const Home = () => {
 
   const [filter, setFilter] = useState({});
   return (
-    <div className="Home page-layout large-margin">
+    <div className="Home page-layout large-margin flash">
       <Filter filter={filter} setFilter={setFilter} />
       <Cars filter={filter} />
       <div className="car_pro_name_sen"></div>

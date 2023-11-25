@@ -6,6 +6,8 @@ import {
   CogIcon,
   HeartIcon,
   LiquidIcon,
+  ModelIcon,
+  NumberIcon,
   StarIcon,
   StarSolidIcon,
   UsersIcon,
@@ -94,7 +96,7 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           </div>
         </div>
         <div className="main-info">
-          <CogIcon />
+          <NumberIcon />
           <div className="t-value">
             <div className="title">Biển số</div>
             <div className="value">{car?.number_plate}</div>
@@ -108,7 +110,7 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           </div>
         </div>
         <div className="main-info">
-          <CogIcon />
+          <ModelIcon />
           <div className="t-value">
             <div className="title">Hãng xe</div>
             <div className="value">{car?.brand_name}</div>

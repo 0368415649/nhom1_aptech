@@ -286,7 +286,7 @@ const StepOne = ({
     });
   }
   return (
-    <Fragment>
+    <div className="flash">
       <div className="section">
         <div className="title">Biển số xe</div>
         <div className="warning">
@@ -366,7 +366,7 @@ const StepOne = ({
           <span className="invalid">{dirtyErrors['description']}</span>
         )}
       </div>
-    </Fragment>
+    </div>
   );
 };
 

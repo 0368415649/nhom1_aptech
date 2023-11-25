@@ -59,7 +59,7 @@ const DetailCar = () => {
   const carImages = car?.image?.split('-');
 
   return (
-    <div className="DetailCar page-layout">
+    <div className="DetailCar page-layout flash">
       <div className="images">
         {carImages?.map((img, index) => (
           <Img src={`${IMAGES_URL}/${img}`} alt="car" key={index} />

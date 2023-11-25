@@ -3,7 +3,7 @@ import useScrollToTop from '../hooks/useScrollToTop';
 const GeneralPrinciples = () => {
   useScrollToTop();
   return (
-    <div className="ChinhSach page-layout">
+    <div className="ChinhSach page-layout flash">
       <div>
         <section>
           <div className="container ">

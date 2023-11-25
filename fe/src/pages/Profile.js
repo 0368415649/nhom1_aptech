@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 import {
+  AddressIcon,
+  AddressOutlineIcon,
   ClockIcon,
   HeartIcon,
   LockIcon,
   LogoutIcon,
   UserIcon,
   VehicleIcon,
+  WatchIcon,
 } from '../components/Svg';
 import UserInfo from './components/UserInfo';
 import LeaseHistory from './components/LeaseHistory';
@@ -67,9 +70,13 @@ const Profile = () => {
       isHide: user?.role_id == ROLES.GUEST,
       path: 'profile/lease',
     },
-    { icon: ClockIcon, title: RENTAL_HISTORY, path: 'profile/rental' },
+    { icon: WatchIcon, title: RENTAL_HISTORY, path: 'profile/rental' },
     { icon: LockIcon, title: CHANGE_PASSWORD, path: 'profile/change-password' },
-    { icon: LockIcon, title: MY_ADDRESS, path: 'profile/my-addresses' },
+    {
+      icon: AddressOutlineIcon,
+      title: MY_ADDRESS,
+      path: 'profile/my-addresses',
+    },
   ];
 
   const location = useLocation();
@@ -95,7 +102,7 @@ const Profile = () => {
   }[currentTab.title];
 
   return (
-    <div className="Profile page-layout mt-4">
+    <div className="Profile page-layout mt-4 flash">
       <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} tabs={TABS} />
       <div className="tab-main">
         <div className="tab-title">{currentTab.title}</div>
