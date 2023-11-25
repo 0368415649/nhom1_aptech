@@ -40,6 +40,10 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 16px;
 
+    &:has(.filter-child-section.price.active) {
+      width: fit-content;
+    }
+
     &:not(:has(.filter-child-section.active)) {
       padding: 0;
     }
@@ -56,6 +60,11 @@
 
       &.automaker {
         grid-template-columns: repeat(6, 1fr);
+      }
+
+      &.price {
+        width: fit-content;
+        grid-template-columns: repeat(2, 350px);
       }
     }
 
