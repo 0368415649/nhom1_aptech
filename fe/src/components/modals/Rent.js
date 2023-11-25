@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Modal from './Modal';
 import Button from '../Button';
@@ -9,6 +9,8 @@ import { convertPrice } from '../../utils/common';
 import { useUserContext } from '../../contexts/User';
 import http from '../../utils/http';
 import useForm from '../../hooks/useForm';
+import useModal from '../../hooks/useModal';
+import MyAddressModal from './MyAddress';
 
 const rules = {
   address: {
@@ -18,10 +20,25 @@ const rules = {
 
 const Rent = ({ car, data, daysCount, ...props }) => {
   const { user } = useUserContext();
+  const [selectedAddress, setSelectedAddress] = useState(null);
   const renderDate = (date) => {
     const [year, month, day] = date.split('-');
     return `${day}-${month}-${year}`;
   };
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await http.get('/show_address', {
+          params: {
+            customer_id: user?.id || localStorage.getItem('USER_ID'),
+          },
+        });
+        setAddresses(data || []);
+      } catch (error) {}
+    })();
+  }, [user?.id]);
 
   const {
     register,
@@ -86,15 +103,44 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       <div className="input-section">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <div className="label">Địa chỉ</div>
-          <div className="label adddress_a">Sử dụng địa chỉ đã có</div>
         </div>
-        <Input {...register('address')} />
-        {dirtyErrors['address'] && (
+        <Input
+          {...register('address')}
+          autoFocus
+          className={`${data['address'] && !selectedAddress ? 'active' : ''}`}
+        />
+        {dirtyErrors['address'] && !selectedAddress && (
           <span className="invalid">{dirtyErrors['address']}</span>
+        )}
+        {addresses.length > 0 && (
+          <>
+            <div className="label adddress_a">Sử dụng địa chỉ đã có</div>
+            <div>
+              {addresses.map((address) => (
+                <div
+                  onClick={() => setSelectedAddress(address)}
+                  key={address.address_id}
+                  className={`clickable address-row d-flex align-items-center justify-content-between mt-2 ${
+                    selectedAddress &&
+                    !data['address'] &&
+                    address.address_id === selectedAddress.address_id
+                      ? 'active'
+                      : ''
+                  }`}
+                >
+                  <div className="ms-3">{address.address_name}</div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
       <div className="text-center">
-        <Button disabled={isError} onClick={submit} className="btn_buyy">
+        <Button
+          disabled={isError && !selectedAddress}
+          onClick={submit}
+          className="btn_buyy"
+        >
           Thuê
         </Button>
       </div>

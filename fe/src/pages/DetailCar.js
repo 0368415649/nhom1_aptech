@@ -27,7 +27,7 @@ const DetailCar = () => {
         const { data } = await http.get('/get_details_car', {
           params: {
             id,
-            customer_id: user?.id || localStorage.getItem('USER_ID'),
+            customer_id: user?.id || localStorage.getItem('USER_ID') || 0,
           },
         });
         setCar(data[0]);
