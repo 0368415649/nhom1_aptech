@@ -9,13 +9,14 @@ import useModal from '../hooks/useModal';
 import Register from '../components/modals/Register';
 import Login from '../components/modals/Login';
 import Loader from '../components/Loader/Loader';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [showRegister] = useModal(<Register />);
   const [showLogin] = useModal(<Login switchToRegister={showRegister} />);
   const navigate = useNavigate();
-
+  useScrollToTop();
   useEffect(() => {
     const isReLogin = JSON.parse(searchParams.get('re-login'));
     const isReLoad = JSON.parse(searchParams.get('re-load'));

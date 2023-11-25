@@ -15,6 +15,7 @@ import './styles/Register.scss';
 import http from '../../utils/http';
 import { useUserContext } from '../../contexts/User';
 import Loader from '../Loader/Loader';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const rules = {
   phone: {
@@ -60,7 +61,7 @@ const Register = (props) => {
   const { setUserInfo } = useUserContext();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
+  useScrollToTop();
   const [showVerifyOtp, dismissVerifyOtp] = useModal(
     <VerifyOtp
       phoneNumber={data['phone']}

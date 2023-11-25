@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import http from '../utils/http';
 import { IMAGES_URL } from '../configs/urls';
 import { useUserContext } from '../contexts/User';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const DetailCar = () => {
   const { user } = useUserContext();
@@ -17,6 +18,7 @@ const DetailCar = () => {
   const [comments, setComments] = useState([]);
   const [isRevalidate, setIsRevalidate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  useScrollToTop();
 
   useEffect(() => {
     (async () => {

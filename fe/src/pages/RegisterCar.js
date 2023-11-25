@@ -11,6 +11,7 @@ import './styles/RegisterCar.scss';
 import { useUserContext } from '../contexts/User';
 import RegisterCarForm from './RegisterCarForm';
 import YouAreRejected from '../components/modals/YouAreRejected';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 export const VERIFY_FLAG = {
   NOT_VERIFIED: 0,
@@ -20,6 +21,7 @@ export const VERIFY_FLAG = {
 };
 
 const RegisterCar = () => {
+  useScrollToTop();
   const [showVerifyIdentification] = useModal(<VerifyIdentification />);
   const [showYouAreRejected] = useModal(<YouAreRejected />);
   const { user } = useUserContext();

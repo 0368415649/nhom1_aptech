@@ -20,6 +20,7 @@ import ChangePassword from './components/ChangePassword';
 import RentalHistory from './components/RentalHistory';
 import { useUserContext } from '../contexts/User';
 import { ROLES } from '../components/Header/Header';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const MY_ACCOUNT = 'Tài khoản của tôi';
 const FAVORITE = 'Xe yêu thích';
@@ -37,6 +38,7 @@ const Profile = () => {
   const [searchParams] = useSearchParams();
   const tabIndex = JSON.parse(searchParams.get('tab-index'));
 
+  useScrollToTop();
   useEffect(() => {
     const isReLoad = JSON.parse(searchParams.get('re-load'));
 
