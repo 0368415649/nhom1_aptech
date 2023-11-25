@@ -12,6 +12,7 @@ import http from '../utils/http';
 import { useParams } from 'react-router-dom';
 import { useUserContext } from '../contexts/User';
 import { IMAGES_URL } from '../configs/urls';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const options = [
   { label: 'Nam', value: 'nam' },
@@ -73,6 +74,8 @@ const RegisterCarFormEdit = () => {
   const [img5, setImg5] = useState(null);
   const [img6, setImg6] = useState(null);
 
+  useScrollToTop();
+
   const {
     register,
     setValue,
@@ -106,8 +109,8 @@ const RegisterCarFormEdit = () => {
   };
 
   const isDisabled = () => {
-    console.log('>> Check | errors:', errors);
     const { description, address } = errors;
+
     if (currentStep === 0) {
       return !!(description || address);
     }
@@ -213,7 +216,7 @@ const RegisterCarFormEdit = () => {
           <Button
             size="lg"
             type="button"
-            disabled={isDisabled()}
+            // disabled={isDisabled()}
             onClick={() => setCurrentStep((prev) => prev + 1)}
           >
             Kế tiếp
@@ -279,14 +282,14 @@ const StepOne = ({
       </div>
       <div className="section">
         <div className="title">Địa chỉ</div>
-        <textarea rows={4} {...register('address')} />
+        <textarea rows={4} {...register('address', car?.address)} />
         {dirtyErrors['address'] && (
           <span className="invalid">{dirtyErrors['address']}</span>
         )}
       </div>
       <div className="section">
         <div className="title">Mô tả</div>
-        <textarea rows={8} {...register('description')} />
+        <textarea rows={8} {...register('description', car?.description)} />
         {dirtyErrors['description'] && (
           <span className="invalid">{dirtyErrors['description']}</span>
         )}

@@ -24,6 +24,8 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
   const [localLiked, setLocalLiked] = useState(false);
 
   const addFavorite = async () => {
+    if (car?.customer_id === user?.customer_id)
+      return 'Bạn không thể yêu thích xe của chính mình!';
     if (!!car?.favorite_car_id) {
       try {
         const { data } = await http.delete(

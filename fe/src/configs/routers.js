@@ -38,10 +38,10 @@ const router = createBrowserRouter([
       //   path: '/register_car_form',
       //   element: <RegisterCarForm />,
       // },
-      {
-        path: '/about',
-        element: <Home />,
-      },
+      // {
+      //   path: '/about',
+      //   element: <Home />,
+      // },
       {
         path: '/car/:id',
         element: <DetailCar />,
