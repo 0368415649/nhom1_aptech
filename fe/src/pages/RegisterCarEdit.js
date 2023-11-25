@@ -236,7 +236,7 @@ const StepOne = ({
       address: car?.address,
       description: car?.description,
     });
-    // window.location.href = '/profile/my-car';
+    window.location.href = '/profile/my-car';
   };
 
   return (
