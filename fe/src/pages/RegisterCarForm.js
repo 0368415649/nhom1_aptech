@@ -226,7 +226,7 @@ const RegisterCarForm = () => {
 
   return (
     <div className="RegisterCarForm page-layout">
-      <div className="steps" onClick={() => setCurrentStep((prev) => prev + 1)}>
+      <div className="steps">
         {STEPS.map((step, index) => (
           <Fragment key={index}>
             <div className={`step ${currentStep === index ? 'actived' : ''}`}>
@@ -401,10 +401,34 @@ const StepThree = ({
       <div className="section">
         <div className="title">Hình ảnh xe</div>
         <div className="car-images">
-          <UploadImage className="car" onChange={handle} />
-          <UploadImage className="car" onChange={handle2} />
-          <UploadImage className="car" onChange={handle3} />
-          <UploadImage className="car" onChange={handle4} />
+          <UploadImage
+            className="car"
+            onChange={handle}
+            style={{
+              height: 220,
+            }}
+          />
+          <UploadImage
+            className="car"
+            onChange={handle2}
+            style={{
+              height: 220,
+            }}
+          />
+          <UploadImage
+            className="car"
+            onChange={handle3}
+            style={{
+              height: 220,
+            }}
+          />
+          <UploadImage
+            className="car"
+            onChange={handle4}
+            style={{
+              height: 220,
+            }}
+          />
         </div>
       </div>
       <div className="section">

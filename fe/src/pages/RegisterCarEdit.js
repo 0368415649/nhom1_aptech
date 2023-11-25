@@ -323,20 +323,28 @@ const StepThree = ({ handle5, handle6, car }) => {
     <div className="StepThree">
       <div className="section">
         <div className="title">Hình ảnh chứng minh xe</div>
-        <div className="car-papers">
-          <UploadImage
-            className="identity-car"
-            onChange={handle5}
-            defaultImage={`${IMAGES_VERIFY_URL}/${carRegistrationImages}`}
-            readOnly
-          />
-          <UploadImage
-            className="identity-car"
-            onChange={handle6}
-            defaultImage={`${IMAGES_VERIFY_URL}/${carInspectionImages}`}
-            readOnly
-          />
-        </div>
+        <UploadImage
+          className="identity-car  mx-auto"
+          onChange={handle5}
+          defaultImage={`${IMAGES_VERIFY_URL}/${carRegistrationImages}`}
+          readOnly
+          style={{
+            marginTop: 40,
+            width: '50%',
+            height: 220,
+          }}
+        />
+        <UploadImage
+          className="identity-car  mx-auto"
+          onChange={handle6}
+          defaultImage={`${IMAGES_VERIFY_URL}/${carInspectionImages}`}
+          readOnly
+          style={{
+            margin: '60px 0 50px',
+            width: '50%',
+            height: 220,
+          }}
+        />
       </div>
     </div>
   );
@@ -354,21 +362,33 @@ const StepTwo = ({ handle, handle2, handle3, handle4, car }) => {
             className="car"
             defaultImage={`${IMAGES_URL}/${carImages[0]}`}
             onChange={handle}
+            style={{
+              height: 220,
+            }}
           />
           <UploadImage
             className="car"
             defaultImage={`${IMAGES_URL}/${carImages[1]}`}
             onChange={handle2}
+            style={{
+              height: 220,
+            }}
           />
           <UploadImage
             className="car"
             defaultImage={`${IMAGES_URL}/${carImages[2]}`}
             onChange={handle3}
+            style={{
+              height: 220,
+            }}
           />
           <UploadImage
             className="car"
             defaultImage={`${IMAGES_URL}/${carImages[3]}`}
             onChange={handle4}
+            style={{
+              height: 220,
+            }}
           />
         </div>
       </div>

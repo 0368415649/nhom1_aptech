@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 
+import placehoder from '../../assets/imgs/placeholder-image.png';
+
 import Img from '../Img';
 
 import './UploadImage.scss';
@@ -10,6 +12,7 @@ const UploadImage = ({
   defaultImage = null,
   className = '',
   readOnly = false,
+  style = {},
   ...props
 }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,10 +27,17 @@ const UploadImage = ({
   };
 
   return (
-    <div className={classes}>
+    <div className={classes} style={style}>
       {!removeDefaultImage && defaultImage && (
         <>
-          <Img src={`${defaultImage}`} alt="car" />
+          <Img
+            src={`${defaultImage}`}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = placehoder;
+            }}
+            alt="car"
+          />
           {!readOnly && (
             <div className="remove-img" onClick={remove}>
               <TrashIcon className="icon" />
@@ -46,11 +56,16 @@ const UploadImage = ({
             alt="img"
             src={URL.createObjectURL(selectedImage)}
             className="show-img"
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = placehoder;
+            }}
           />
         </>
       )}
       <PlusIcon className="icon" />
       <input
+        disabled={readOnly}
         type="file"
         accept="image/*"
         onChange={(event) => {

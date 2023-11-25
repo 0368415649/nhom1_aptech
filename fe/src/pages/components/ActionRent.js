@@ -95,6 +95,7 @@ const ActionRent = ({ car }) => {
         <div className="title">Ngày nhận xe</div>
         <div className="pick">
           <Input
+            disabled={car?.customer_id === user?.customer_id}
             type="date"
             className="date-input"
             {...register('receiveDate')}
@@ -112,6 +113,7 @@ const ActionRent = ({ car }) => {
         <div className="title">Ngày trả xe</div>
         <div className="pick">
           <Input
+            disabled={car?.customer_id === user?.customer_id}
             type="date"
             className="date-input"
             {...register('giveBackDate')}
