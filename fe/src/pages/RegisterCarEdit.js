@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import { useUserContext } from '../contexts/User';
 import { IMAGES_URL } from '../configs/urls';
 import useScrollToTop from '../hooks/useScrollToTop';
+import TabSwitcher from '../components/Tab/TabSwitcher';
 
 const options = [
   { label: 'Nam', value: 'nam' },
@@ -116,6 +117,13 @@ const RegisterCarFormEdit = () => {
     }
   };
 
+  const INFO = 'Thông tin';
+  const LEASE = 'Hình ảnh';
+  const IMAGE = 'Giấy tờ xe';
+
+  const [currentTab, setCurrentTab] = useState(0);
+  const LEASE_TAB_OPTIONS = [INFO, LEASE, IMAGE];
+
   const ShowedStep = [
     <StepOne
       setValue={setValue}
@@ -128,12 +136,6 @@ const RegisterCarFormEdit = () => {
       car={car}
     />,
     <StepTwo
-      setValue={setValue}
-      register={register}
-      dirtyErrors={dirtyErrors}
-      car={car}
-    />,
-    <StepThree
       car={car}
       setValue={setValue}
       register={register}
@@ -142,10 +144,9 @@ const RegisterCarFormEdit = () => {
       handle2={handle2}
       handle3={handle3}
       handle4={handle4}
-      handle5={handle5}
-      handle6={handle6}
     />,
-  ][currentStep];
+    <StepThree handle5={handle5} handle6={handle6} car={car} />,
+  ][currentTab];
 
   const upload = async () => {
     const _formData = new FormData();
@@ -186,7 +187,7 @@ const RegisterCarFormEdit = () => {
 
   return (
     <div className="RegisterCarForm page-layout">
-      <div className="steps">
+      {/* <div className="steps">
         {STEPS.map((step, index) => (
           <Fragment key={index}>
             <div className={`step ${currentStep === index ? 'actived' : ''}`}>
@@ -196,10 +197,17 @@ const RegisterCarFormEdit = () => {
             {index !== STEPS.length - 1 && <ChevronRightIcon />}
           </Fragment>
         ))}
-      </div>
+      </div> */}
+      <TabSwitcher
+        option={currentTab}
+        setOption={setCurrentTab}
+        options={LEASE_TAB_OPTIONS}
+        className="Tab-status"
+        useIndex
+      />
       {ShowedStep}
 
-      <div className="buttons">
+      {/* <div className="buttons">
         <Button size="lg" variant="outline" {...getPrevButton()}>
           Quay lại
         </Button>
@@ -216,13 +224,13 @@ const RegisterCarFormEdit = () => {
           <Button
             size="lg"
             type="button"
-            // disabled={isDisabled()}
+            disabled={isDisabled()}
             onClick={() => setCurrentStep((prev) => prev + 1)}
           >
             Kế tiếp
           </Button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -280,6 +288,16 @@ const StepOne = ({
           </div>
         </div>
       </div>
+      <div className="half mt-5">
+        <div className="input-section">
+          <div className="label">Giá cho thuê mặc định</div>
+          <div className="info">Đơn giá theo ngày</div>
+          <Input suffix="K" isNumberInput {...register('price', car?.price)} />
+          {dirtyErrors['price'] && (
+            <span className="invalid">{dirtyErrors['price']}</span>
+          )}
+        </div>
+      </div>
       <div className="section">
         <div className="title">Địa chỉ</div>
         <textarea rows={4} {...register('address', car?.address)} />
@@ -298,34 +316,33 @@ const StepOne = ({
   );
 };
 
-const StepTwo = ({ register, dirtyErrors, car }) => {
+const StepThree = ({ handle5, handle6, car }) => {
+  const carInspectionImages = car?.vehicle_inspection_image;
+  const carRegistrationImages = car?.vehicle_registration_image;
   return (
-    <div className="half">
-      <div className="input-section">
-        <div className="label">Giá cho thuê mặc định</div>
-        <div className="info">Đơn giá theo ngày</div>
-        <Input suffix="K" isNumberInput {...register('price', car?.price)} />
-        {dirtyErrors['price'] && (
-          <span className="invalid">{dirtyErrors['price']}</span>
-        )}
+    <div className="StepThree">
+      <div className="section">
+        <div className="title">Hình ảnh chứng minh xe</div>
+        <div className="car-papers">
+          <UploadImage
+            className="identity-car"
+            onChange={handle5}
+            defaultImage={`${IMAGES_URL}/${carRegistrationImages}`}
+          />
+          <UploadImage
+            className="identity-car"
+            onChange={handle6}
+            defaultImage={`${IMAGES_URL}/${carInspectionImages}`}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-const StepThree = ({
-  setValue,
-  register,
-  dirtyErrors,
-  handle,
-  handle2,
-  handle3,
-  handle4,
-  handle5,
-  handle6,
-  car,
-}) => {
+const StepTwo = ({ handle, handle2, handle3, handle4, car }) => {
   const carImages = car?.image?.split('-');
+  console.log('>> Check | car:', car);
   return (
     <div className="StepThree">
       <div className="section">
@@ -351,13 +368,6 @@ const StepThree = ({
             defaultImage={`${IMAGES_URL}/${carImages[3]}`}
             onChange={handle4}
           />
-        </div>
-      </div>
-      <div className="section">
-        <div className="title">Hình ảnh chứng minh xe</div>
-        <div className="car-papers">
-          <UploadImage className="identity-car" onChange={handle5} />
-          <UploadImage className="identity-car" onChange={handle6} />
         </div>
       </div>
     </div>

@@ -9,16 +9,22 @@ import { IMAGES_URL } from '../../configs/urls';
 
 const UploadImage = ({ defaultImage = null, className = '', ...props }) => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [removeDefaultImage, setRemoveDefaultImage] = useState(false);
+
+  console.log('>> Check | selectedImage:', selectedImage);
 
   const classes = cx('UploadImage', className);
 
-  const remove = () => setSelectedImage(null);
+  const remove = () => {
+    setSelectedImage(null);
+    defaultImage && setRemoveDefaultImage(true);
+  };
 
   return (
     <div className={classes}>
-      {defaultImage && (
+      {!removeDefaultImage && defaultImage && (
         <>
-          <Img src={`${IMAGES_URL}/${defaultImage}`} alt="car" />
+          <Img src={`${defaultImage}`} alt="car" />
           <div className="remove-img" onClick={remove}>
             <TrashIcon className="icon" />
           </div>
