@@ -42,7 +42,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       });
 
       if (responseData.status === 1) {
-        window.location.href = '/profile?tab-index=2';
+        window.location.href = '/profile/my-car';
       }
     } catch (error) {
       console.log('>> Check | error:', error);

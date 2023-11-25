@@ -209,7 +209,7 @@ const RegisterCarForm = () => {
         'Content-Type': 'multipart/form-data',
       },
     });
-    window.location.href = '/profile?tab-index=2';
+    window.location.href = '/profile/my-car';
   };
 
   const getPrevButton = () => {

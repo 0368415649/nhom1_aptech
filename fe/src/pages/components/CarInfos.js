@@ -35,7 +35,6 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           toast('Đã bỏ khỏi mục Xe ưa thích');
           setLocalLiked((prev) => !prev);
           setIsRevalidate((prev) => !prev);
-          // window.location.href = '/profile?tab-index=3&re-load=true';
         }
       } catch (error) {
         setError('Không thành công, thử lại sau!');
@@ -50,7 +49,6 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           toast('Đã thêm vào mục Xe ưa thích');
           setLocalLiked((prev) => !prev);
           setIsRevalidate((prev) => !prev);
-          // window.location.href = '/profile?tab-index=3&re-load=true';
         }
       } catch (error) {
         setError('Không thành công, thử lại sau!');
@@ -71,7 +69,7 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           <div className="car-info">
             <div className="block-info">
               <StarSolidIcon className="star-icon icon" />
-              <span>{car?.rate || '5.0'}</span>
+              <span>{car?.rate ? Number(car?.rate).toFixed(1) : '5.0'}</span>
             </div>
             <div className="block-info">
               <BriefcaseIcon className="icon" />

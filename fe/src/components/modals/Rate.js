@@ -46,7 +46,7 @@ const RateModal = ({ car, ...props }) => {
   //     });
 
   //     if (responseData.status === 1) {
-  //       window.location.href = '/profile?tab-index=2';
+  //       window.location.href = '/profile/my-car';
   //     }
   //   } catch (error) {
   //     console.log('>> Check | error:', error);
@@ -68,7 +68,7 @@ const RateModal = ({ car, ...props }) => {
       });
 
       if (responseData.Status === 1 && statusBooking.status === 1) {
-        window.location.href = '/profile?tab-index=4&re-load=true';
+        window.location.href = '/profile/rental?re-load=true';
       }
     } catch (error) {
       console.log('>> Check | error:', error);

@@ -27,7 +27,7 @@ const CarRow = ({ car }) => {
           <div className="d-flex  align-items-center fs_22 mt-2">
             <div className="block-info">
               <StarSolidIcon className="star-icon icon" />
-              <span>{car?.rate || '5.0'}</span>
+              <span>{car?.rate ? Number(car?.rate).toFixed(1) : '5.0'}</span>
             </div>
             <div className="block-info ms-3">
               <BriefcaseIcon className="icon" />

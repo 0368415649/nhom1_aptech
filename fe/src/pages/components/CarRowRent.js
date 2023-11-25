@@ -25,7 +25,7 @@ const CarRowRent = ({ car }) => {
 
     if (isReLoad) {
       searchParams.delete('re-load');
-      navigate('/profile?tab-index=4', { replace: true });
+      navigate('/profile/rental', { replace: true });
       window.location.reload();
     }
   }, [navigate, searchParams]);
@@ -37,7 +37,7 @@ const CarRowRent = ({ car }) => {
         boocking_status_id: 6,
       });
       if (data.status === 1) {
-        window.location.href = '/profile?tab-index=4&re-load=true';
+        window.location.href = '/profile/rental?re-load=true';
       }
     } catch (error) {
       setError('Không thành công, thử lại sau!');

@@ -37,7 +37,7 @@ const CarCard = ({ car }) => {
         <div className="car-info justify-content-between align-items-center">
           <div className="block-info">
             <StarSolidIcon className="star-icon icon rate_color" />
-            <span>5.0</span>
+            <span>{car?.rate ? Number(car?.rate).toFixed(1) : '5.0'}</span>
           </div>
           <div className="block-info">
             <BriefcaseIcon className="icon" />

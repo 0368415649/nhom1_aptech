@@ -15,7 +15,12 @@ import MyAddress from './components/MyAddress';
 import './styles/Profile.scss';
 import MyCar from './components/MyCar';
 import Favorite from './components/Favorite';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import ChangePassword from './components/ChangePassword';
 import RentalHistory from './components/RentalHistory';
 import { useUserContext } from '../contexts/User';
@@ -36,7 +41,6 @@ const Profile = () => {
   const isLogin = !!JSON.parse(localStorage.getItem('USER_ID'));
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const tabIndex = JSON.parse(searchParams.get('tab-index'));
 
   useScrollToTop();
   useEffect(() => {
@@ -44,27 +48,34 @@ const Profile = () => {
 
     if (isReLoad) {
       searchParams.delete('re-load');
-      navigate(`/profile?tab-index=${tabIndex}`, { replace: true });
       window.location.reload();
     }
-  }, [navigate, searchParams, tabIndex]);
+  }, [navigate, searchParams]);
 
   const TABS = [
-    { icon: UserIcon, title: MY_ACCOUNT },
-    { icon: HeartIcon, title: FAVORITE },
-    { icon: VehicleIcon, title: MY_CAR, isHide: user?.role_id == ROLES.GUEST },
+    { icon: UserIcon, title: MY_ACCOUNT, path: 'profile' },
+    { icon: HeartIcon, title: FAVORITE, path: 'profile/favorite' },
+    {
+      icon: VehicleIcon,
+      title: MY_CAR,
+      isHide: user?.role_id == ROLES.GUEST,
+      path: 'profile/my-car',
+    },
     {
       icon: ClockIcon,
       title: LEASE_HISTORY,
       isHide: user?.role_id == ROLES.GUEST,
+      path: 'profile/lease',
     },
-    { icon: ClockIcon, title: RENTAL_HISTORY },
-    { icon: LockIcon, title: CHANGE_PASSWORD },
-    { icon: LockIcon, title: MY_ADDRESS },
+    { icon: ClockIcon, title: RENTAL_HISTORY, path: 'profile/rental' },
+    { icon: LockIcon, title: CHANGE_PASSWORD, path: 'profile/change-password' },
+    { icon: LockIcon, title: MY_ADDRESS, path: 'profile/my-addresses' },
   ];
 
+  const location = useLocation();
+
   const [currentTab, setCurrentTab] = useState(() => {
-    return TABS[tabIndex || 0];
+    return TABS.find((t) => `/${t.path}` === location.pathname);
   });
 
   useEffect(() => {
@@ -101,7 +112,8 @@ const Tabs = ({ currentTab, setCurrentTab, tabs }) => {
         {tabs.map((tab) => {
           if (tab?.isHide) return null;
           return (
-            <div
+            <Link
+              to={`/${tab.path}`}
               key={tab.title}
               className={`tab ${
                 currentTab.title === tab.title ? 'selected_item' : ''
@@ -110,7 +122,7 @@ const Tabs = ({ currentTab, setCurrentTab, tabs }) => {
             >
               <div className="icon">{tab.icon()}</div>
               <div className="title">{tab.title}</div>
-            </div>
+            </Link>
           );
         })}
         <div

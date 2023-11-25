@@ -22,7 +22,7 @@ const CarRowFav = ({ car }) => {
       console.log('>> Check | data:', data);
 
       if (data?.status === 1) {
-        window.location.href = '/profile?tab-index=1&re-load=true';
+        window.location.href = '/profile?re-load=true';
       }
     } catch (error) {}
   };
@@ -41,7 +41,7 @@ const CarRowFav = ({ car }) => {
           <div className="d-flex  align-items-center fs_22 mt-2">
             <div className="block-info">
               <StarSolidIcon className="star-icon icon" />
-              <span>{car?.rate || '5.0'}</span>
+              <span>{car?.rate ? Number(car?.rate).toFixed(1) : '5.0'}</span>
             </div>
             <div className="block-info ms-3">
               <BriefcaseIcon className="icon" />
