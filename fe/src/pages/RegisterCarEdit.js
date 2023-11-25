@@ -82,7 +82,6 @@ const RegisterCarFormEdit = () => {
     setValue,
     formState: { dirtyErrors, isError, data: formData, errors },
   } = useForm(rules);
-  console.log('>> Check | formData:', formData);
 
   const handle = (e) => {
     const file = e.target.files[0];
@@ -126,14 +125,10 @@ const RegisterCarFormEdit = () => {
 
   const ShowedStep = [
     <StepOne
-      setValue={setValue}
       register={register}
       dirtyErrors={dirtyErrors}
-      brands={brands}
-      models={models}
-      types={types}
-      errors={errors}
       car={car}
+      formData={formData}
     />,
     <StepTwo
       car={car}
@@ -209,16 +204,7 @@ const RegisterCarFormEdit = () => {
   );
 };
 
-const StepOne = ({
-  setValue,
-  register,
-  dirtyErrors,
-  errors,
-  brands,
-  models,
-  types,
-  car,
-}) => {
+const StepOne = ({ register, dirtyErrors, car, formData }) => {
   const years = [];
 
   // Tạo danh sách các năm từ 2070 đến 2023
@@ -232,9 +218,9 @@ const StepOne = ({
   const edit = async () => {
     await http.post('/update_car', {
       car_id: car?.car_id,
-      price: car?.price,
-      address: car?.address,
-      description: car?.description,
+      price: formData?.price,
+      address: formData?.address,
+      description: formData?.description,
     });
     window.location.href = '/profile/my-car';
   };
