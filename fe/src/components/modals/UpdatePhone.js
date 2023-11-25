@@ -26,11 +26,6 @@ const rules = {
   },
 };
 
-const options = [
-  { label: 'Nam', value: 'nam' },
-  { label: 'Nữ', value: 'nữ' },
-];
-
 const UpdatePhone = (props) => {
   const {
     register,
@@ -66,6 +61,7 @@ const UpdatePhone = (props) => {
   };
 
   const handleBeforeRegister = async ({ phone }) => {
+    console.log('>> Check | phone:', phone);
     try {
       // setIsLoading(true);
       const { data } = await http.get('/check_exists_phone', {
@@ -106,6 +102,7 @@ const UpdatePhone = (props) => {
         <Button
           onClick={() => handleBeforeRegister(data)}
           size="lg"
+          type="button"
           className="submit-btn"
           disabled={isError}
         >

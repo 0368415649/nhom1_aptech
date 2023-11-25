@@ -10,11 +10,6 @@ import UploadImage from '../components/UploadImage/UploadImage';
 import useForm from '../hooks/useForm';
 import http from '../utils/http';
 
-const options = [
-  { label: 'Nam', value: 'nam' },
-  { label: 'Nữ', value: 'nữ' },
-];
-
 const STEPS = [
   { label: 'Thông tin' },
   { label: 'Cho thuê' },

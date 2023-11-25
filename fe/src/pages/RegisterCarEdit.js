@@ -15,17 +15,6 @@ import { IMAGES_URL, IMAGES_VERIFY_URL } from '../configs/urls';
 import useScrollToTop from '../hooks/useScrollToTop';
 import TabSwitcher from '../components/Tab/TabSwitcher';
 
-const options = [
-  { label: 'Nam', value: 'nam' },
-  { label: 'Nữ', value: 'nữ' },
-];
-
-const STEPS = [
-  { label: 'Thông tin' },
-  { label: 'Hình ảnh xe' },
-  { label: 'Giấy tờ đăng ký' },
-];
-
 const rules = {
   description: {
     required: 'Mô tả không được để trống',

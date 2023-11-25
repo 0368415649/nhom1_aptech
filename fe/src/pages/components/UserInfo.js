@@ -33,7 +33,7 @@ const UserInfo = () => {
           </Button>
         </div>
         <div className="count">
-          <span>{user?.count || '--'}</span> chuyến
+          <span>{user?.count || '0'}</span> chuyến
         </div>
       </div>
       <div className="user-info">
@@ -66,7 +66,7 @@ const UserInfo = () => {
                 Giới tính
               </div>
               <div className="value">
-                {user?.sex ? String(user?.sex).trim() : '--'}
+                {user?.sex ? String(user?.sex).trim().up : '--'}
               </div>
             </div>
           </div>

@@ -25,8 +25,8 @@ const rules = {
 };
 
 const options = [
-  { label: 'Nam', value: 'nam' },
-  { label: 'Nữ', value: 'nữ' },
+  { label: 'Nam', value: 'Nam' },
+  { label: 'Nữ', value: 'Nữ' },
 ];
 const UpdateProfile = (props) => {
   const {

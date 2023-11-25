@@ -16,11 +16,6 @@ const rules = {
   },
 };
 
-const options = [
-  { label: 'Nam', value: 'nam' },
-  { label: 'Nữ', value: 'nữ' },
-];
-
 const UpdateEmail = (props) => {
   const {
     register,
