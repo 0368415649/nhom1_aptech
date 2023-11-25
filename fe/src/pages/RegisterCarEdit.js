@@ -11,7 +11,7 @@ import useForm from '../hooks/useForm';
 import http from '../utils/http';
 import { useParams } from 'react-router-dom';
 import { useUserContext } from '../contexts/User';
-import { IMAGES_URL } from '../configs/urls';
+import { IMAGES_URL, IMAGES_VERIFY_URL } from '../configs/urls';
 import useScrollToTop from '../hooks/useScrollToTop';
 import TabSwitcher from '../components/Tab/TabSwitcher';
 
@@ -327,12 +327,14 @@ const StepThree = ({ handle5, handle6, car }) => {
           <UploadImage
             className="identity-car"
             onChange={handle5}
-            defaultImage={`${IMAGES_URL}/${carRegistrationImages}`}
+            defaultImage={`${IMAGES_VERIFY_URL}/${carRegistrationImages}`}
+            readOnly
           />
           <UploadImage
             className="identity-car"
             onChange={handle6}
-            defaultImage={`${IMAGES_URL}/${carInspectionImages}`}
+            defaultImage={`${IMAGES_VERIFY_URL}/${carInspectionImages}`}
+            readOnly
           />
         </div>
       </div>
