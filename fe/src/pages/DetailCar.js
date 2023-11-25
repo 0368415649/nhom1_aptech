@@ -15,6 +15,7 @@ const DetailCar = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [comments, setComments] = useState([]);
+  const [isRevalidate, setIsRevalidate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const DetailCar = () => {
         setIsLoading(false);
       }
     })();
-  }, [id, user]);
+  }, [id, user, isRevalidate]);
 
   useEffect(() => {
     (async () => {
@@ -63,7 +64,11 @@ const DetailCar = () => {
         ))}
       </div>
       <div className="info-and-actions">
-        <CarInfos car={car} comments={comments} />
+        <CarInfos
+          setIsRevalidate={setIsRevalidate}
+          car={car}
+          comments={comments}
+        />
         <ActionRent car={car} />
       </div>
     </div>

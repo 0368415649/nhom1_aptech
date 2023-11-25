@@ -9,6 +9,7 @@ import useModal from '../../hooks/useModal';
 import Rent from '../../components/modals/Rent';
 import { convertPrice } from '../../utils/common';
 import useForm from '../../hooks/useForm';
+import { useUserContext } from '../../contexts/User';
 
 const options = Array(24)
   .fill(null)
@@ -44,6 +45,7 @@ const ActionRent = ({ car }) => {
     setValue,
     formState: { isError, data },
   } = useForm(rules);
+  const { user } = useUserContext();
 
   const daysCount = useMemo(() => {
     const receiveDateUnix = getTimeStamp(
@@ -62,6 +64,8 @@ const ActionRent = ({ car }) => {
   ]);
 
   const getError = () => {
+    if (car?.customer_id === user?.customer_id)
+      return 'Bạn không thể thuê xe của chính mình';
     const giveBackDateUnix = getTimeStamp(
       `${data.giveBackDate} ${data.giveBackHour || 0}`
     );

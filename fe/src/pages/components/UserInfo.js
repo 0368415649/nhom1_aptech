@@ -12,6 +12,11 @@ import { useUserContext } from '../../contexts/User';
 import UpdatePhone from '../../components/modals/UpdatePhone';
 import UpdateEmail from '../../components/modals/UpdateEmail';
 
+const GENDER_LABEL = {
+  female: 'Nữ',
+  male: 'Nam',
+};
+
 const UserInfo = () => {
   const [showUpdateProfile] = useModal(<UpdateProfile />);
   const [showUpdatePhone] = useModal(<UpdatePhone />);
@@ -65,7 +70,9 @@ const UserInfo = () => {
               >
                 Giới tính
               </div>
-              <div className="value">{user?.sex || '--'}</div>
+              <div className="value">
+                {GENDER_LABEL[String(user?.sex).trim()]}
+              </div>
             </div>
           </div>
           <div className="info-row">

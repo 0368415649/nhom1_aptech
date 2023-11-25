@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import avatar from '../../assets/imgs/user.png';
 import Img from '../../components/Img';
 import {
@@ -18,24 +18,49 @@ import { useUserContext } from '../../contexts/User';
 import { toast } from 'react-toastify';
 import Comment from '../../components/Comment/Comment';
 
-const CarInfos = ({ car, comments }) => {
+const CarInfos = ({ car, comments, setIsRevalidate }) => {
   const [error, setError] = useState(null);
   const { user } = useUserContext();
+  const [localLiked, setLocalLiked] = useState(false);
 
   const addFavorite = async () => {
-    try {
-      const { data } = await http.post('/add_favorite_car', {
-        car_id: car?.car_id,
-        customer_id: user?.id || localStorage.getItem('USER_ID'),
-      });
-      if (data.status === 1) {
-        toast('Đã thêm vào mục Xe ưa thích');
-        // window.location.href = '/profile?tab-index=3&re-load=true';
+    if (!!car?.favorite_car_id) {
+      try {
+        const { data } = await http.delete(
+          `/delete_favorite_car?favorite_car_id=${car?.favorite_car_id}`
+        );
+        if (data.status === 1) {
+          toast('Đã bỏ khỏi mục Xe ưa thích');
+          setLocalLiked((prev) => !prev);
+          setIsRevalidate((prev) => !prev);
+          // window.location.href = '/profile?tab-index=3&re-load=true';
+        }
+      } catch (error) {
+        setError('Không thành công, thử lại sau!');
       }
-    } catch (error) {
-      setError('Không thành công, thử lại sau!');
+    } else {
+      try {
+        const { data } = await http.post('/add_favorite_car', {
+          car_id: car?.car_id,
+          customer_id: user?.id || localStorage.getItem('USER_ID'),
+        });
+        if (data.status === 1) {
+          toast('Đã thêm vào mục Xe ưa thích');
+          setLocalLiked((prev) => !prev);
+          setIsRevalidate((prev) => !prev);
+          // window.location.href = '/profile?tab-index=3&re-load=true';
+        }
+      } catch (error) {
+        setError('Không thành công, thử lại sau!');
+      }
     }
   };
+
+  useEffect(() => {
+    console.log('???');
+    setLocalLiked(!!car?.favorite_car_id);
+  }, [car?.favorite_car_id]);
+
   return (
     <div className="CarInfos">
       <div className="infos">
@@ -54,9 +79,10 @@ const CarInfos = ({ car, comments }) => {
         </div>
         <Button
           variant="outline"
-          className={`like-btn ${!!car?.customer_id_favorite ? 'liked' : ''}`}
+          className={`like-btn ${localLiked ? 'liked' : ''}`}
+          onClick={addFavorite}
         >
-          <HeartIcon onClick={addFavorite} />
+          <HeartIcon />
         </Button>
       </div>
       <div className="main-infos">
@@ -121,34 +147,40 @@ const CarInfos = ({ car, comments }) => {
         {'                '}
       </pre>
       <div className="mt-5"></div>
-      <div className='on_xe'>Chủ xe</div>
+      <div className="on_xe">Chủ xe</div>
       <div className=" d-flex align-items-center mt-2">
         <img src={avatar} alt="avatar" height="80px" width="80px" />
         <div className="info3">
-          <div className="name ms-3"> Tuấn</div>
+          <div className="name ms-3">{user?.name_display}</div>
         </div>
       </div>
-      <div className='mt-3'></div>
-      <div className="comments mt-4">
-        <div className="comment_grap">
-          <StarSolidIcon className="" width="16" height="16" fill="#f0c541" /> 
-          <div className='ms-1'>{car?.rate_avg ? Number(car?.rate_avg).toFixed(1) : '--'}{' '}</div>
-          <span className='ms-1'>•</span> {' '}
-          <div className='ms-1 dg_f'>{car?.count_comment || '--'} đánh giá</div>
+      <div className="mt-3"></div>
+      {comments.length > 0 && (
+        <div className="comments mt-4">
+          <div className="comment_grap">
+            <StarSolidIcon className="" width="16" height="16" fill="#f0c541" />
+            <div className="ms-1">
+              {car?.rate_avg ? Number(car?.rate_avg).toFixed(1) : '--'}{' '}
+            </div>
+            <span className="ms-1">•</span>{' '}
+            <div className="ms-1 dg_f">
+              {car?.count_comment || '--'} đánh giá
+            </div>
+          </div>
+
+          <div className="rows mt-3">
+            {comments.map((cmt) => (
+              <Comment
+                comment={cmt.comment}
+                create_at={cmt.create_at}
+                create_by={cmt.create_by}
+                rate={cmt.rate}
+                name={cmt?.name_display}
+              />
+            ))}
+          </div>
         </div>
-        
-        <div className="rows mt-3">
-          {comments.map((cmt) => (
-            <Comment
-              comment={cmt.comment}
-              create_at={cmt.create_at}
-              create_by={cmt.create_by}
-              rate={cmt.rate}
-              name={cmt?.name_display}
-            />
-          ))}
-        </div>
-      </div>
+      )}
     </div>
   );
 };
