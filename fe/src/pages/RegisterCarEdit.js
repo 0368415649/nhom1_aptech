@@ -80,8 +80,14 @@ const RegisterCarFormEdit = () => {
   const {
     register,
     setValue,
+    setFormData,
     formState: { dirtyErrors, isError, data: formData, errors },
   } = useForm(rules);
+
+  useEffect(() => {
+    const { description, price, address } = car || {};
+    setFormData({ description, price, address });
+  }, [car, setFormData]);
 
   const handle = (e) => {
     const file = e.target.files[0];
@@ -205,6 +211,7 @@ const RegisterCarFormEdit = () => {
 };
 
 const StepOne = ({ register, dirtyErrors, car, formData }) => {
+  console.log('>> Check | formData:', formData);
   const years = [];
 
   // Tạo danh sách các năm từ 2070 đến 2023
@@ -264,7 +271,7 @@ const StepOne = ({ register, dirtyErrors, car, formData }) => {
           <div className="label">Giá cho thuê mặc định</div>
           <div className="info">Đơn giá theo ngày</div>
           <Input suffix="K" isNumberInput {...register('price', car?.price)} />
-          {dirtyErrors['price'] && (
+          {!formData['price'] && (
             <span className="invalid">{dirtyErrors['price']}</span>
           )}
         </div>
@@ -272,7 +279,7 @@ const StepOne = ({ register, dirtyErrors, car, formData }) => {
       <div className="section">
         <div className="title">Địa chỉ</div>
         <textarea rows={4} {...register('address', car?.address)} />
-        {dirtyErrors['address'] && (
+        {!formData['address'] && (
           <span className="invalid">{dirtyErrors['address']}</span>
         )}
       </div>

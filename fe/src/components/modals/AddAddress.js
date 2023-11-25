@@ -38,7 +38,7 @@ const AddAddress = ({ modalType = 'add', current, address_id, ...props }) => {
         // const { customer_id, status, token } = data;
         if (data.Status === 1) {
           props.onDismiss();
-          window.location.href = '/profile/my-addresses?re-load=true';
+          window.location.href = '/profile/my-addresses';
         }
 
         if (data.Status === 0) {
@@ -59,7 +59,7 @@ const AddAddress = ({ modalType = 'add', current, address_id, ...props }) => {
 
         if (data.Status === 1) {
           props.onDismiss();
-          window.location.href = '/profile/my-addresses&re-load=true';
+          window.location.href = '/profile/my-addresses ';
         }
 
         if (data.Status === 0) {

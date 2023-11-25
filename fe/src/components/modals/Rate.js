@@ -68,7 +68,7 @@ const RateModal = ({ car, ...props }) => {
       });
 
       if (responseData.Status === 1 && statusBooking.status === 1) {
-        window.location.href = '/profile/rental?re-load=true';
+        window.location.href = '/profile/rental';
       }
     } catch (error) {
       console.log('>> Check | error:', error);

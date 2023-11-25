@@ -19,7 +19,7 @@ const CarRowRent = ({ car }) => {
         boocking_status_id: id,
       });
       if (data.status === 1) {
-        window.location.href = '/profile/lease?re-load=true';
+        window.location.href = '/profile/lease';
       }
     } catch (error) {
       setError('Không thành công, thử lại sau!');

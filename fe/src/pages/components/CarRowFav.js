@@ -19,10 +19,9 @@ const CarRowFav = ({ car }) => {
       const { data } = await http.delete(
         `/delete_favorite_car?favorite_car_id=${car?.favorite_car_id}`
       );
-      console.log('>> Check | data:', data);
 
       if (data?.status === 1) {
-        window.location.href = '/profile?re-load=true';
+        window.location.href = '/profile/my-car';
       }
     } catch (error) {}
   };

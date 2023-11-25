@@ -88,6 +88,7 @@ function useForm(rules) {
     handleSubmit,
     register,
     setValue,
+    setFormData,
     formState: {
       isDirty,
       dirtyFields,
