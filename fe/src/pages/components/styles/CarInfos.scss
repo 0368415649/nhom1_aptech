@@ -48,6 +48,7 @@
       border-radius: 50%;
 
       &.liked {
+        background-color: var(--primary20);
         svg {
           fill: var(--primary);
         }
@@ -121,19 +122,19 @@
     }
   }
 }
-.comment_grap{
+.comment_grap {
   display: flex;
   align-items: center;
 }
-.dg_f{
+.dg_f {
   font-weight: 300 !important;
-  font-family : unset !important
+  font-family: unset !important;
 }
-.info3{
+.info3 {
   font-size: 20px;
   font-weight: 800;
 }
-.on_xe{
+.on_xe {
   font-size: 21px;
   font-weight: 600;
   color: rgb(43, 42, 42);
