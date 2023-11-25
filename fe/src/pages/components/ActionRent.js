@@ -129,10 +129,10 @@ const ActionRent = ({ car }) => {
           />
         </div>
       </div>
-      <div className="address">
+      {/* <div className="address">
         <div className="title">Địa chỉ giao/nhận xe</div>
         <div className="value">{car?.address}</div>
-      </div>
+      </div> */}
       {!isNaN(daysCount) && daysCount > 0 && (
         <div className="fee">
           <div className="title">Phí thuê xe</div>
