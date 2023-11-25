@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import avatar from '../../assets/imgs/user.png';
 import Img from '../../components/Img';
 import {
   BriefcaseIcon,
@@ -120,18 +120,31 @@ const CarInfos = ({ car, comments }) => {
         chuyến đi tuyệt vời !{'\n'}
         {'                '}
       </pre>
-      <div className="comments">
-        {car?.rate_avg ? Number(car?.rate_avg).toFixed(2) : '--'}{' '}
-        <StarSolidIcon width="16" height="16" fill="#f0c541" /> |{' '}
-        {car?.count_comment || '--'} đánh giá
-        <div className="rows">
+      <div className="mt-5"></div>
+      <div className='on_xe'>Chủ xe</div>
+      <div className=" d-flex align-items-center mt-2">
+        <img src={avatar} alt="avatar" height="80px" width="80px" />
+        <div className="info3">
+          <div className="name ms-3"> Tuấn</div>
+        </div>
+      </div>
+      <div className='mt-3'></div>
+      <div className="comments mt-4">
+        <div className="comment_grap">
+          <StarSolidIcon className="" width="16" height="16" fill="#f0c541" /> 
+          <div className='ms-1'>{car?.rate_avg ? Number(car?.rate_avg).toFixed(1) : '--'}{' '}</div>
+          <span className='ms-1'>•</span> {' '}
+          <div className='ms-1 dg_f'>{car?.count_comment || '--'} đánh giá</div>
+        </div>
+        
+        <div className="rows mt-3">
           {comments.map((cmt) => (
             <Comment
               comment={cmt.comment}
               create_at={cmt.create_at}
               create_by={cmt.create_by}
               rate={cmt.rate}
-              name={cmt?.name}
+              name={cmt?.name_display}
             />
           ))}
         </div>
