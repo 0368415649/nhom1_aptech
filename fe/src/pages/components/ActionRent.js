@@ -64,6 +64,7 @@ const ActionRent = ({ car }) => {
   ]);
 
   const getError = () => {
+    if (!user) return 'Vui lòng đăng nhập để thuê xe';
     if (car?.customer_id === user?.customer_id)
       return 'Bạn không thể thuê xe của chính mình';
     const giveBackDateUnix = getTimeStamp(

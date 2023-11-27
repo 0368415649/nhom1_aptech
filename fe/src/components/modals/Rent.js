@@ -50,8 +50,8 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       const { data: responseData } = await http.post('/create_booking', {
         start_date: data.receiveDate,
         start_time: data.receiveHour,
-        end_date: data.giveBackDate,
-        end_time: data.giveBackHour,
+        end_date: data.giveBackDate || 0,
+        end_time: data.giveBackHour || 0,
         total: +car?.price * daysCount,
         address: formData['address'],
         create_by: user?.id || localStorage.getItem('USER_ID'),
