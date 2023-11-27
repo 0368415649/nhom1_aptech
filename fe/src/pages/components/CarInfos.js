@@ -80,6 +80,7 @@ const CarInfos = ({ car, comments, setIsRevalidate }) => {
           </div>
         </div>
         <Button
+          disabled={!user}
           variant="outline"
           className={`like-btn ${localLiked ? 'liked' : ''}`}
           onClick={addFavorite}
