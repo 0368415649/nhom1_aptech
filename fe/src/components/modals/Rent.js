@@ -49,8 +49,8 @@ const Rent = ({ car, data, daysCount, ...props }) => {
     try {
       const { data: responseData } = await http.post('/create_booking', {
         start_date: data.receiveDate,
-        start_time: data.receiveHour,
-        end_date: data.giveBackDate || 0,
+        start_time: data.receiveHour || 0,
+        end_date: data.giveBackDate,
         end_time: data.giveBackHour || 0,
         total: +car?.price * daysCount,
         address: formData['address'],
@@ -59,7 +59,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       });
 
       if (responseData.status === 1) {
-        window.location.href = '/profile/rental';
+        window.location.href = '/profile/lease';
       }
     } catch (error) {
       console.log('>> Check | error:', error);
