@@ -105,6 +105,7 @@ const Register = (props) => {
         }
 
         props.onDismiss();
+        window.location.href = '/';
         dismissVerifyOtp();
       }
     } catch (error) {

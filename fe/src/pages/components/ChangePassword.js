@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const rules = {
   oldPassword: {
-    required: 'Số điện thoại không được để trống',
+    required: 'Mật khẩu cũ không được để trống',
   },
   password: {
     required: 'Mật khẩu không được để trống',

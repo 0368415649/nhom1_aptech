@@ -59,7 +59,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       });
 
       if (responseData.status === 1) {
-        window.location.href = '/profile/my-car';
+        window.location.href = '/profile/lease';
       }
     } catch (error) {
       console.log('>> Check | error:', error);

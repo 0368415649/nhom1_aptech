@@ -157,7 +157,7 @@ const ActionRent = ({ car }) => {
         )}
         {!!getError() && <span className="invalid">{getError()}</span>}
         <Button
-          disabled={isError || getError()}
+          disabled={!user || isError || getError()}
           size="lg"
           onClick={invisibleRenModal}
         >
