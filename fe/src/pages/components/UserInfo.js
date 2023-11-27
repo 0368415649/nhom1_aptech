@@ -66,7 +66,7 @@ const UserInfo = () => {
                 Giới tính
               </div>
               <div className="value">
-                {user?.sex ? String(user?.sex).trim().up : '--'}
+                {user?.sex ? String(user?.sex).trim() : '--'}
               </div>
             </div>
           </div>
