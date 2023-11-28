@@ -1,3 +1,4 @@
+
 .CarCard {
   display: flex;
   flex-direction: column;
@@ -100,4 +101,7 @@
       flex: 1;
     }
   }
+}
+.CarCard2{
+  max-width: 230px;
 }

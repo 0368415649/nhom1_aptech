@@ -17,7 +17,7 @@ const CarCard = ({ car }) => {
   const carImage = car?.image?.split('-')[0];
 
   return (
-    <Link className="CarCard" to={`/car/${car?.car_id}`}>
+    <Link className="CarCard CarCard2" to={`/car/${car?.car_id}`}>
       <div className="imgs">
         <Img
           className="car"

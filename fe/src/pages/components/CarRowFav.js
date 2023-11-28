@@ -21,7 +21,7 @@ const CarRowFav = ({ car }) => {
       );
 
       if (data?.status === 1) {
-        window.location.href = '/profile/my-car';
+        window.location.href = '/profile/favorite';
       }
     } catch (error) {}
   };
