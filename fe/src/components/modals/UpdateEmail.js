@@ -12,7 +12,7 @@ import { useUserContext } from '../../contexts/User';
 
 const rules = {
   email: {
-    required: 'Số điện thoại không được để trống',
+    required: 'email không được để trống',
   },
 };
 

@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Modal from './Modal';
 import Button from '../Button';
 import Input from '../Input';
-
+import { TimesIcon } from '../Svg';
 import './styles/Rent.scss';
 import { convertPrice } from '../../utils/common';
 import { useUserContext } from '../../contexts/User';
@@ -19,6 +19,19 @@ const rules = {
 };
 
 const Rent = ({ car, data, daysCount, ...props }) => {
+  
+  const [inputValue, setInputValue] = useState('');
+
+  // Hàm xử lý để cập nhật giá trị của input
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+  
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleVisible = () => {
+    setIsVisible(!isVisible); 
+  };
   const { user } = useUserContext();
   const [selectedAddress, setSelectedAddress] = useState(null);
   const renderDate = (date) => {
@@ -76,7 +89,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
 
   return (
     <Modal className="Rent" label="Xác nhận thông tin" {...props}>
-      <div class="grap_com mt-2">
+      <div class="grap_com">
         <div class="row comfirm_infor">
           <div class="col-7 fs-6 text-black-50">Tên xe</div>
           <div class="col-5 fw-bold">{car?.model_name}</div>
@@ -103,32 +116,37 @@ const Rent = ({ car, data, daysCount, ...props }) => {
           <div class="col-7 fs-6 text-black-50 ">Tên người thuê</div>
           <div class="col-5 fw-bold">{user?.name_display}</div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 comfirm_infor2 ">
           <div class="col-7 fs-6 text-black-50 ">Số điện thoại</div>
           <div class="col-5 fw-bold">{user?.phone}</div>
         </div>
       </div>
-      <div className="input-section">
-        <div className="d-flex justify-content-between align-items-center mb-2">
-          <div className="label">Địa chỉ</div>
-        </div>
-        <Input
-          {...register('address')}
-          autoFocus
-          className={`${
-            formData['address'] && !selectedAddress ? 'active' : ''
-          }`}
-        />
-        {dirtyErrors['address'] && !selectedAddress && (
-          <span className="invalid">{dirtyErrors['address']}</span>
-        )}
-        {addresses.length > 0 && (
+{/*  */}
+    { isVisible && 
+    <div>
+      <div style={{ 
+         position: 'fixed',
+         top: 0,
+         right: 0,
+         left: 0,
+         bottom: 0,
+         backgroundColor: '#040404',
+         opacity: 0.6,
+         zIndex: 1,
+         }}
+          classname="bg-dr_2">dsdsa</div>
+      <div className="mail_width">
+      <TimesIcon  onClick={handleVisible} className="close-btn" />
+      <div className="login-text">Địa chỉ của bạn</div>
+      {addresses.length > 0 && (
           <>
-            <div className="label adddress_a">Sử dụng địa chỉ đã có</div>
-            <div>
               {addresses.map((address) => (
                 <div
-                  onClick={() => setSelectedAddress(address)}
+                  onClick={() => {
+                    setInputValue(address.address_name);
+                    handleVisible();
+                    setSelectedAddress(address.address_name);
+                  }}
                   key={address.address_id}
                   className={`clickable address-row d-flex align-items-center justify-content-between mt-2 ${
                     selectedAddress &&
@@ -141,9 +159,32 @@ const Rent = ({ car, data, daysCount, ...props }) => {
                   <div className="ms-3">{address.address_name}</div>
                 </div>
               ))}
-            </div>
           </>
         )}
+    </div>
+    </div>
+    }
+     
+    {/*  */}
+      <div className="input-section">
+        <div className="d-flex justify-content-between align-items-center mb-2">
+          <div className="label">Địa chỉ</div>
+          <div onClick={handleVisible}
+          className="label adddress_a ">Sử dụng địa chỉ đã có</div>
+        </div>
+        <Input
+          {...register('address')}
+          autoFocus
+          value={inputValue}
+          className={`${
+            formData['address'] && !selectedAddress ? 'active' : ''
+          } hehe`}
+        />
+        {dirtyErrors['address'] && !selectedAddress && (
+          <span className="invalid">{dirtyErrors['address']}</span>
+        )}
+        <div>
+        </div>
       </div>
       <div className="text-center">
         <Button
