@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import Modal from './Modal';
 import Button from '../Button';
@@ -53,7 +53,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
         end_date: data.giveBackDate,
         end_time: data.giveBackHour || 0,
         total: +car?.price * daysCount,
-        address: formData['address'],
+        address: _address,
         create_by: user?.id || localStorage.getItem('USER_ID'),
         car_id: car.car_id,
       });
@@ -65,6 +65,14 @@ const Rent = ({ car, data, daysCount, ...props }) => {
       console.log('>> Check | error:', error);
     }
   };
+
+  const _address = useMemo(() => {
+    if (!!formData['address']) {
+      return formData['address'];
+    }
+
+    return selectedAddress;
+  }, [formData, selectedAddress]);
 
   return (
     <Modal className="Rent" label="Xác nhận thông tin" {...props}>
@@ -107,7 +115,9 @@ const Rent = ({ car, data, daysCount, ...props }) => {
         <Input
           {...register('address')}
           autoFocus
-          className={`${data['address'] && !selectedAddress ? 'active' : ''}`}
+          className={`${
+            formData['address'] && !selectedAddress ? 'active' : ''
+          }`}
         />
         {dirtyErrors['address'] && !selectedAddress && (
           <span className="invalid">{dirtyErrors['address']}</span>
@@ -122,7 +132,7 @@ const Rent = ({ car, data, daysCount, ...props }) => {
                   key={address.address_id}
                   className={`clickable address-row d-flex align-items-center justify-content-between mt-2 ${
                     selectedAddress &&
-                    !data['address'] &&
+                    !formData['address'] &&
                     address.address_id === selectedAddress.address_id
                       ? 'active'
                       : ''
