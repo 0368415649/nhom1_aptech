@@ -1,0 +1,156 @@
+<mxfile host="Electron" modified="2023-11-28T13:52:27.655Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="L0znAm58TzvWQS0JkeCv" version="22.0.2" type="device">
+  <diagram name="Page-1" id="qjmCNnK-TWra7bGMG7Lj">
+    <mxGraphModel dx="1098" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-42" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="810" width="630" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-43" value="User" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="130" y="260" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-44" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="70" width="10" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-45" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=horizontal;curved=0;dashed=1;" edge="1" parent="L6TNMfnUBd_fhWxRvFtd-43" source="L6TNMfnUBd_fhWxRvFtd-47" target="L6TNMfnUBd_fhWxRvFtd-48">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-46" value="The admin verifies the &lt;br&gt;accuracy" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-45">
+          <mxGeometry x="-0.1707" y="-2" relative="1" as="geometry">
+            <mxPoint x="32" y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-47" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="300" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-48" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="420" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-49" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="570" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="700" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-87" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-43">
+          <mxGeometry x="45" y="190" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="L6TNMfnUBd_fhWxRvFtd-43" source="L6TNMfnUBd_fhWxRvFtd-87" target="L6TNMfnUBd_fhWxRvFtd-47">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-20" y="230" />
+              <mxPoint x="-20" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-53" value="Verification of the Ownership Page" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="340" y="260" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-54" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-53">
+          <mxGeometry x="45" y="80" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-56" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-53">
+          <mxGeometry x="45" y="450" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-57" value="System" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="550" y="260" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-58" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-57">
+          <mxGeometry x="45" y="140" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-59" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="L6TNMfnUBd_fhWxRvFtd-57">
+          <mxGeometry x="45" y="480" width="10" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-65" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-58" target="L6TNMfnUBd_fhWxRvFtd-87">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-66" value="displays a list of&amp;nbsp;ownership verification" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-65">
+          <mxGeometry x="-0.1127" y="2" relative="1" as="geometry">
+            <mxPoint y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-74" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;entryX=-0.002;entryY=0.34;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=1 4;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-42" target="L6TNMfnUBd_fhWxRvFtd-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="900" as="sourcePoint" />
+            <mxPoint x="110" y="900" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-75" value="Approved" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="860" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-76" value="Rejected" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1000" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-79" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-59" target="L6TNMfnUBd_fhWxRvFtd-49">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-80" value="Update the account of user to be an Owner" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-79">
+          <mxGeometry x="0.3304" y="-1" relative="1" as="geometry">
+            <mxPoint x="63" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-81" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-59" target="L6TNMfnUBd_fhWxRvFtd-50">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="1030" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-82" value="the user is notified with reasons for rejection." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-81">
+          <mxGeometry x="0.231" y="2" relative="1" as="geometry">
+            <mxPoint x="66" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-83" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-44" target="L6TNMfnUBd_fhWxRvFtd-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-84" value="Request to get all list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-83">
+          <mxGeometry x="-0.3" y="1" relative="1" as="geometry">
+            <mxPoint x="15" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-86" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-54" target="L6TNMfnUBd_fhWxRvFtd-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-69" value="The admin reviews &lt;br&gt;the information" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-88" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-48" target="L6TNMfnUBd_fhWxRvFtd-56">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-89" value="Based on the review,&lt;br&gt;&amp;nbsp;the admin can &lt;br&gt;either approve or reject" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L6TNMfnUBd_fhWxRvFtd-88">
+          <mxGeometry x="-0.58" y="-2" relative="1" as="geometry">
+            <mxPoint x="63" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L6TNMfnUBd_fhWxRvFtd-90" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="L6TNMfnUBd_fhWxRvFtd-56" target="L6TNMfnUBd_fhWxRvFtd-59">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="790" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="470" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
