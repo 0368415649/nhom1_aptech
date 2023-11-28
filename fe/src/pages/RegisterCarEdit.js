@@ -234,7 +234,7 @@ const StepOne = ({ register, dirtyErrors, car, formData }) => {
       <div className="section">
         <div className="title">Thông số cơ bản</div>
         <div className="warning">
-          Lưu ý: Lưu ý: Thông số cơ bản sẽ không thể thay đổi sau khi đăng ký
+          Thông số cơ bản sẽ không thể thay đổi sau khi đăng ký
         </div>
         <div className="input-group">
           <div className="input-section">
@@ -294,6 +294,9 @@ const StepThree = ({ handle5, handle6, car }) => {
     <div className="StepThree">
       <div className="section">
         <div className="title">Hình ảnh chứng minh xe</div>
+        <div className='d-flex justify-content-between align-items-center '>
+            <div className="d_kk ms-55">Đăng ký xe</div>
+          </div>
         <UploadImage
           className="identity-car  mx-auto"
           onChange={handle5}
@@ -305,6 +308,9 @@ const StepThree = ({ handle5, handle6, car }) => {
             height: 220,
           }}
         />
+         <div className='d-flex justify-content-between align-items-center '>
+            <div className="d_kk ms-55 mt-5">Đăng kiểm</div>
+          </div>
         <UploadImage
           className="identity-car  mx-auto"
           onChange={handle6}

@@ -428,6 +428,10 @@ const StepThree = ({
       </div>
       <div className="section">
         <div className="title">Hình ảnh chứng minh xe</div>
+        <div className='d-flex justify-content-between align-items-center '>
+            <div className="d_kk ms-55">Đăng ký xe</div>
+            <div className="d_kk mt-55">Đăng kiểm</div>
+          </div>
         <div className="car-papers">
           <UploadImage className="identity-car" onChange={handle5} />
           <UploadImage className="identity-car" onChange={handle6} />
