@@ -1,0 +1,191 @@
+<mxfile host="Electron" modified="2023-11-28T14:04:00.529Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="F57HC0SSr1VLIftOEx3A" version="22.0.2" type="device">
+  <diagram name="Page-1" id="epjFnFBtZRvfnvlZxR21">
+    <mxGraphModel dx="1098" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-1" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-2" value="User" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-2">
+          <mxGeometry x="45" y="70" width="10" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-6" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-2">
+          <mxGeometry x="45" y="300" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-7" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-2">
+          <mxGeometry x="45" y="420" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-2">
+          <mxGeometry x="45" y="570" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-2">
+          <mxGeometry x="45" y="700" width="10" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-10" value="Admin&lt;br&gt;Dashboard" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="290" y="250" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-10">
+          <mxGeometry x="45" y="80" width="10" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-12" value="Manage Booking&lt;br&gt;Screen" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="530" y="250" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-13" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-12">
+          <mxGeometry x="45" y="80" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-16" value="System" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="700" y="250" width="100" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-16">
+          <mxGeometry x="45" y="140" width="10" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-18" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="rk0PXu9uPUTPFfe5B9_g-16">
+          <mxGeometry x="45" y="480" width="10" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-19" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="339.9955172413793" as="sourcePoint" />
+            <mxPoint x="335" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-20" value="The admin logs into&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-19">
+          <mxGeometry x="-0.4133" y="4" relative="1" as="geometry">
+            <mxPoint x="31" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-21" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-11" target="rk0PXu9uPUTPFfe5B9_g-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-22" value="Navigates to the section" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-21">
+          <mxGeometry x="-0.3772" y="1" relative="1" as="geometry">
+            <mxPoint x="36" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-23" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-13" target="rk0PXu9uPUTPFfe5B9_g-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="400" />
+              <mxPoint x="613" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-17" target="rk0PXu9uPUTPFfe5B9_g-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="585" y="540" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-25" value="displays a list of vehicles&lt;br&gt;&amp;nbsp;that users have &lt;br&gt;published for verification" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-24">
+          <mxGeometry x="-0.1127" y="2" relative="1" as="geometry">
+            <mxPoint y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-28" target="rk0PXu9uPUTPFfe5B9_g-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="100" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-28" value="The admin reviews &lt;br&gt;the information" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="45" y="710" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-29" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-7" target="rk0PXu9uPUTPFfe5B9_g-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="750" />
+            </Array>
+            <mxPoint x="575" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-30" value="The admin can either approve or reject the order booking" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-29">
+          <mxGeometry x="-0.3981" relative="1" as="geometry">
+            <mxPoint x="67" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-33" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;entryX=-0.002;entryY=0.34;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=1 4;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-1" target="rk0PXu9uPUTPFfe5B9_g-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="890" as="sourcePoint" />
+            <mxPoint x="100" y="890" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-34" value="Approved" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="830" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-35" value="Rejected" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="970" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-36" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=horizontal;curved=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="840" as="sourcePoint" />
+            <mxPoint x="755" y="900" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="840" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-37" value="The status of each &lt;br&gt;booking is updated" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-36">
+          <mxGeometry x="-0.2302" y="3" relative="1" as="geometry">
+            <mxPoint x="7" y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-38" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-18" target="rk0PXu9uPUTPFfe5B9_g-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="910" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-39" value="Status of vehicles is updated" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-38">
+          <mxGeometry x="0.3304" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-40" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-18" target="rk0PXu9uPUTPFfe5B9_g-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="1020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-41" value="the user is notified with reasons for rejection." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-40">
+          <mxGeometry x="0.231" y="2" relative="1" as="geometry">
+            <mxPoint x="66" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-42" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="640" as="sourcePoint" />
+            <mxPoint x="180" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="475" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-43" value="The system provides confirmation of any modifications, approvals, rejections, or cancellations." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-42">
+          <mxGeometry x="0.0526" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-45" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" edge="1" parent="1" source="rk0PXu9uPUTPFfe5B9_g-18" target="rk0PXu9uPUTPFfe5B9_g-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rk0PXu9uPUTPFfe5B9_g-46" value="The admin may need to communicate with users regarding their bookings or modifications." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rk0PXu9uPUTPFfe5B9_g-45">
+          <mxGeometry x="0.1298" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
