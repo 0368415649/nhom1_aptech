@@ -21,18 +21,14 @@ const Footer = () => {
       >
         <div className="row">
           <div className="col-sm-5 col-lg-4">
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 300, height: 90 }}
-              src="https://localhost:44307/Image/Home/img11.png"
-              data-holder-rendered="true"
-            />
+          <Link to="/">
+            <img id="header-logo" src={logo} height="30px" alt="logo" />
+          </Link>
             <h6>Hotline: 19001008</h6>
             <p>Tổng đài hỗ trợ: 7AM-10PM</p>
             <br />
-            <h6>Contact@addda.vn</h6>
-            <p>Gửi mail cho ADDDA</p>
+            <h6>Contact@Mioto.vn</h6>
+            <p>Gửi mail cho Mioto</p>
           </div>
           <div className="col-sm-6 col-lg-3 mt-3">
             <h6 className="fw-bold">Chính sách</h6>
@@ -53,7 +49,7 @@ const Footer = () => {
             <br />
             <br />
             <p><Link to="/about-me" >Về chúng tôi</Link></p>
-            <p>ADDDA Blog</p>
+            <p>Mioto Blog</p>
             <p>Tuyển dụng</p>
           </div>
         </div>
@@ -61,7 +57,7 @@ const Footer = () => {
       <div className="container">
         <div className="row mt-3">
           <div className="col-sm-6 col-lg-4">
-            <h6>© Công ty Cổ Phần ADDDA Asia</h6>
+            <h6>© Công ty Cổ Phần Mioto</h6>
           </div>
           <div className="col-sm-6 col-lg-3">
             <p>Số GCNĐKKD: 03173075121</p>
@@ -71,59 +67,6 @@ const Footer = () => {
           </div>
           <div className="col-sm-6 col-lg-3">
             <p>Nơi cấp: Sở Kế hoạch và Đầu tư</p>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-6 col-lg-4">
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 250, height: 70 }}
-              src="https://localhost:44307/Image/Home/img12.png"
-              data-holder-rendered="true"
-            />
-          </div>
-          <div className="col-sm-6 col-lg-3">
-            <p>Phương thức thanh toán</p>
-          </div>
-          <div className="col-sm-6 col-lg-5">
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 70, height: 60 }}
-              src="https://localhost:44307/Image/Home/img13.png"
-              data-holder-rendered="true"
-            />
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 70, height: 60 }}
-              src="https://localhost:44307/Image/Home/img14.png"
-              data-holder-rendered="true"
-            />
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 70, height: 60 }}
-              src="https://localhost:44307/Image/Home/img15.png"
-              data-holder-rendered="true"
-            />
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 70, height: 60 }}
-              src="https://localhost:44307/Image/Home/img16.png"
-              data-holder-rendered="true"
-            />
-            <img
-              className="rounded-circle"
-              alt="140x140"
-              style={{ width: 70, height: 60 }}
-              src="https://localhost:44307/Image/Home/img17.png"
-              data-holder-rendered="true"
-            />
           </div>
         </div>
       </div>
